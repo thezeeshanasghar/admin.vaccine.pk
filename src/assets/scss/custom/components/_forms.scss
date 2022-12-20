@@ -1,0 +1,29 @@
+//
+// forms.scss
+//
+
+[type="tel"],
+[type="url"],
+[type="email"],
+[type="number"] {
+ &::placeholder{
+   text-align: left /*rtl: right*/;
+ }
+}
+
+.form-check{
+  position: relative;
+  text-align: left /*rtl: right*/;
+}
+
+
+.form-check,
+.form-check-input,
+.form-check-label {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.input-group-text{
+  margin-bottom: 0px;
+}
