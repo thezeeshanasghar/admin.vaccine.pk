@@ -348,6 +348,36 @@
                                 <span class="menu-item">Clinics</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="brandTable.html">
+                                <i class="icon nav-icon" data-feather="flag"></i>
+                                <span class="menu-item">Brand Table</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="clinicTable.html">
+                                <i class="icon nav-icon" data-feather="flag"></i>
+                                <span class="menu-item">Clinic Table</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="doseTable.html">
+                                <i class="icon nav-icon" data-feather="flag"></i>
+                                <span class="menu-item">Dose Table</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="doctorTable.html">
+                                <i class="icon nav-icon" data-feather="flag"></i>
+                                <span class="menu-item">Doctor Table</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="vaccineTable.html">
+                                <i class="icon nav-icon" data-feather="flag"></i>
+                                <span class="menu-item">vaccine Table</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -596,14 +626,10 @@
     <script src="assets/js/app.js"></script>
     <script type="text/javascript">
         $(function () {
-
             $("#myform").submit(function (e) {
-                //prevent Default functionality
                 e.preventDefault();
-                //get the action-url of the form
-                // var actionurl = e.currentTarget.action;
                 var data = JSON.stringify({ "Name": $("#name").val() })
-                console.log(($("#myform").serialize()));
+                console.log(data);
                 $.ajax({
                     type: "post",
                     url: "http://localhost:5041/api/Brand",

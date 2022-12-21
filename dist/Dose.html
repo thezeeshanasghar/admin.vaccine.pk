@@ -17,6 +17,7 @@
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     </head>
 
@@ -341,6 +342,36 @@
                                     <span class="menu-item">Clinics</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="brandTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">Brand Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="clinicTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">Clinic Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="doseTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">Dose Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="doctorTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">Doctor Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="vaccineTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">vaccine Table</span>
+                                </a>
+                            </li>
 
                         </ul>
                     </div>
@@ -386,23 +417,23 @@
                                         <h4 class="card-title">Dose Form</h4>
                                     </div><!-- end card header -->
                                     <div class="card-body">          
-                                    <form>
+                                    <form id="myform" method="post" action="">
                                         <div class="row mb-4">
-                                            <label for="Name" class="col-sm-3 col-form-label">Name</label>
+                                            <label for="name" class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="Name">
+                                                <input type="text" class="form-control" name="name" id="name">
                                             </div>
                                         </div><!-- end row -->
                                         <div class="row mb-4">
-                                            <label for="MinAge" class="col-sm-3 col-form-label">MinAge</label>
+                                            <label for="minAge" class="col-sm-3 col-form-label">MinAge</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="MinAge">
+                                                <input type="number" class="form-control" name="minAge" id="minAge">
                                             </div>
                                         </div><!-- end row -->
                                         <div class="row mb-4">
-                                            <label for="MinGap" class="col-sm-3 col-form-label">MinGap</label>
+                                            <label for="minGap" class="col-sm-3 col-form-label">MinGap</label>
                                             <div class="col-sm-9">
-                                                <input type="" class="form-control" id="MinGap">
+                                                <input type="" class="form-control" name="minGap" id="minGap">
                                             </div>
                                         </div><!-- end row -->
 
@@ -597,6 +628,27 @@
         <script src="assets/libs/feather-icons/feather.min.js"></script>
 
         <script src="assets/js/app.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#myform").submit(function (e) {
+                    e.preventDefault();
+                    var data = JSON.stringify({ "Name": $("#name").val() , "MinAge": $("#minAge").val(),"MinGap": $("#minGap").val()})
+                    console.log(data);
+                    $.ajax({
+                        type: "post",
+                        url: "http://localhost:5041/api/Dose",
+                        dataType: "json",
+                        data: data,
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            alert(data);
+                        },
+    
+                    });
+    
+                });
+            });
+        </script>
 
     </body>
 </html>

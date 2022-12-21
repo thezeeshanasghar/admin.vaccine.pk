@@ -17,6 +17,7 @@
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     </head>
 
@@ -341,6 +342,36 @@
                                     <span class="menu-item">Clinics</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="brandTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">Brand Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="clinicTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">Clinic Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="doseTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">Dose Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="doctorTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">Doctor Table</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="vaccineTable.html">
+                                    <i class="icon nav-icon" data-feather="flag"></i>
+                                    <span class="menu-item">vaccine Table</span>
+                                </a>
+                            </li>
 
                         </ul>
                     </div>
@@ -386,53 +417,59 @@
                                         <h4 class="card-title">Doctor Form</h4>
                                     </div><!-- end card header -->
                                     <div class="card-body">          
-                                    <form>
+                                    <form  id="myform" method="post" action="">
                                         <div class="row mb-4">
-                                            <label for="Name" class="col-sm-3 col-form-label">Name</label>
+                                            <label for="name" class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="Name">
+                                                <input type="text" class="form-control" name="name" id="name">
                                             </div>
                                         </div><!-- end row -->
                                         <div class="row mb-4">
-                                            <label for="Email" class="col-sm-3 col-form-label">Email</label>
+                                            <label for="email" class="col-sm-3 col-form-label">Email</label>
                                             <div class="col-sm-9">
-                                                <input type="email" class="form-control" id="Email">
+                                                <input type="email" class="form-control" name="email" id="email">
                                             </div>
                                         </div><!-- end row -->
                                         <div class="row mb-4">
-                                            <label for="MobileNumber" class="col-sm-3 col-form-label">Mobile Number</label>
+                                            <label for="mobileNumber" class="col-sm-3 col-form-label">Mobile Number</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="MobileNumber">
+                                                <input type="number" class="form-control"  name="mobileNumber" id="mobileNumber">
                                             </div>
                                         </div><!-- end row -->
                                         <div class="row mb-4">
-                                            <label for="IsAPproved" class="col-sm-3 col-form-label">Is Approved</label>
+                                            <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control"  name="password" id="password">
+                                            </div>
+                                        </div><!-- end row -->
+                                        <div class="row mb-4">
+                                            <label for="isApproved" class="col-sm-3 col-form-label">Is Approved</label>
                                             <div class="col-sm-9">
                                                 <div class="form-check mb-4">
-                                                    <input type="checkbox" class="form-check-input" id="IsAPproved">
-                                                    <label class="form-check-label" for="IsAPproved">IsAPproved</label>
+                                                    <input type="checkbox" class="form-check-input" name="isApproved" id="isApproved">
+                                                    <label class="form-check-label" for="isApproved">IsApproved</label>
                                                 </div>
                                             </div>
                                         </div><!-- end row -->
                                         <div class="row mb-4">
-                                            <label for="IsEnabled" class="col-sm-3 col-form-label">Is Enabled</label>
+                                            <label for="isEnabled" class="col-sm-3 col-form-label">Is Enabled</label>
                                             <div class="col-sm-9">
                                                 <div class="form-check mb-4">
-                                                    <input type="checkbox" class="form-check-input" id="IsEnabled">
-                                                    <label class="form-check-label" for="IsEnabled">IsEnabled</label>
+                                                    <input type="checkbox" class="form-check-input" name="isEnabled" id="isEnabled">
+                                                    <label class="form-check-label" for="isEnabled">IsEnabled</label>
                                                 </div>
                                             </div>
                                         </div><!-- end row -->
                                         <div class="row mb-4">
-                                            <label for="PMDC" class="col-sm-3 col-form-label">PMDC</label>
+                                            <label for="pmdc" class="col-sm-3 col-form-label">PMDC</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="PMDC">
+                                                <input type="text" class="form-control" name="pmdc" id="pmdc">
                                             </div>
                                         </div><!-- end row -->
                                         <div class="row mb-4">
-                                            <label for="DoctorType" class="col-sm-3 col-form-label">Doctor Type</label>
+                                            <label for="doctorType" class="col-sm-3 col-form-label">Doctor Type</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="DoctorType">
+                                                <input type="text" class="form-control" name="doctorType" id="doctorType">
                                             </div>
                                         </div><!-- end row -->
 
@@ -627,6 +664,28 @@
         <script src="assets/libs/feather-icons/feather.min.js"></script>
 
         <script src="assets/js/app.js"></script>
+        <script type="text/javascript">
+            $(function () {
+    
+                $("#myform").submit(function (e) {
+                    e.preventDefault();
+                    var data = JSON.stringify({ "Name": $("#name").val(),"Email": $("#email").val(),"MobileNumber": $("#mobileNumber").val(),"Password": $("#password").val(),"IsApproved": $("#isApproved").is(':checked')? true:false,"IsEnabled": $("#isEnabled").is(":checked")? true:false,"PMDC": $("#pmdc").val(),"DoctorType": $("#doctorType").val() })
+                    console.log(data);
+                    $.ajax({
+                        type: "post",
+                        url: "http://localhost:5041/api/Doctor",
+                        dataType: "json",
+                        data: data,
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            alert(data);
+                        },
+    
+                    });
+    
+                });
+            });
+        </script>
 
     </body>
 </html>

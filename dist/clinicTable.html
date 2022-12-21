@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Vaccine</title>
+        <title>Clinic Table</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Free Admin & Dashboard Template" name="description" />
         <meta content="Pichforest" name="author" />
@@ -17,7 +17,6 @@
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     </head>
 
@@ -372,7 +371,6 @@
                                     <span class="menu-item">vaccine Table</span>
                                 </a>
                             </li>
-
                         </ul>
                     </div>
                     <!-- Sidebar -->
@@ -394,12 +392,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                                    <h4 class="mb-0">Add Vaccine</h4>
+                                    <h4 class="mb-0">Clinic Table</h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Components</a></li>
-                                            <li class="breadcrumb-item active">Vaccine </li>
+                                            <li class="breadcrumb-item active">Clinic Table</li>
                                         </ol>
                                     </div>
 
@@ -408,57 +406,48 @@
                         </div>
                         <!-- end page title -->
 
-                        
-
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-header justify-content-between d-flex align-items-center">
-                                        <h4 class="card-title">Vaccine Form</h4>
+                                        <h4 class="card-title">Clinic Table</h4>
                                     </div><!-- end card header -->
-                                    <div class="card-body">          
-                                    <form id="myform" method="post" action="">
-                                        <div class="row mb-4">
-                                            <label for="name" class="col-sm-3 col-form-label">Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="name" id="name">
-                                            </div>
-                                        </div><!-- end row -->
-                                        <div class="row mb-4">
-                                            <label for="isSpecial" class="col-sm-3 col-form-label">IsSpecial</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-check mb-4">
-                                                    <input type="checkbox" class="form-check-input" name="isSpecial" id="isSpecial">
-                                                    <label class="form-check-label" for="isSpecial">IsSpecial</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-4">
-                                            <label for="infinite" class="col-sm-3 col-form-label">Infinite</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-check mb-4">
-                                                    <input type="checkbox" class="form-check-input" name="infinite" id="infinite">
-                                                    <label class="form-check-label" for="infinite">Infinite</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row justify-content-end">
-                                            <div class="col-sm-9">
-                                                <div>
-                                                    <button type="submit" class="btn btn-primary w-md">Submit</button>
-                                                </div>
-                                            </div><!-- end col -->
-                                        </div><!-- end row -->
-                                    </form><!-- end form -->
-                                    </div>
+                                    <div class="card-body">                                        
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Name</th>
+                                                        <th>Number</th>
+                                                        <th>Address</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="table_body">
+                                    
+                                                </tbody>
+                                            </table><!-- end table -->
+                                        </div><!-- end table responsive -->
+                                    </div><!-- end card body -->
                                 </div><!-- end card -->
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                        <!-- End Form Layout -->
+                            </div><!-- end col --> 
+                        </div><!-- end row -->           
                     </div> <!-- container-fluid -->
-                </div><!-- End Page-content -->
-
+                </div>
+                <script>
+                    fetch("http://localhost:5041/api/Clinic").then((data)=>{
+                        console.log(data)
+                        return data.json()
+                    }).then((objData)=>{
+                        console.log(objData)
+                        let tableDate=""
+                        objData.map((values)=>{
+                            tableDate+=`<tr><td>${values.id}</td><td>${values.name}</td><td>${values.number}</td><td>${values.address}</td></tr>`
+                        })
+                        document.getElementById("table_body").innerHTML=tableDate
+                    })
+                </script>
+                <!-- End Page-content -->
                 
                 <footer class="footer">
                     <div class="container-fluid">
@@ -634,30 +623,6 @@
         <script src="assets/libs/feather-icons/feather.min.js"></script>
 
         <script src="assets/js/app.js"></script>
-        <script type="text/javascript">
-            $(function () {
-    
-                $("#myform").submit(function (e) {
-                   
-                    e.preventDefault();
-                    // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
-                    var data = JSON.stringify({ "Name": $("#name").val(),"IsSpecial": $("#isSpecial").is(':checked')? true:false,"Infinite": $("#infinite").is(":checked")? true:false})
-                    console.log(data);
-                    $.ajax({
-                        type: "post",
-                        url: "http://localhost:5041/api/Vaccine",
-                        dataType: "json",
-                        data: data,
-                        contentType: "application/json; charset=utf-8",
-                        success: function (data) {
-                            alert(data);
-                        },
-    
-                    });
-    
-                });
-            });
-        </script>
 
     </body>
 </html>
