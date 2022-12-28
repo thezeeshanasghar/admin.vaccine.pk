@@ -38,6 +38,8 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -394,7 +396,38 @@
     <script src="assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+
+
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+
+    <script src="assets/js/app.js"></script>
+    <script type="text/javascript">
+        $(function () {
+    
+            $("#myform").submit(function (e) {
+                   
+                e.preventDefault();
+                    // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
+                var data = JSON.stringify({ "Name": $("#name").val()})
+                console.log(data);
+                $.ajax({
+                    type: "post",
+                    url: "http://localhost:5041/api/Brand",
+                    dataType: "json",
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        alert(data);
+                    },
+    
+                });
+                document.getElementById("myform").reset();
+    
+                });
+            });
+    </script>
 
 </body>
 
