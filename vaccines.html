@@ -271,44 +271,9 @@
 
     </header><!-- End Header -->
 
-    <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
 
-        <ul class="sidebar-nav" id="sidebar-nav">
-
-            <li class="nav-item">
-                <a class="nav-link " href="index.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="vaccines.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Vaccines</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="index.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Doctors</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="index.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Patients</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
-                <a class="nav-link " href="index.html">
-                    <i class="bi bi-grid"></i>
-                    <span>Messages</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-        </ul>
-
-    </aside><!-- End Sidebar-->
+    <iframe src="sidebar.html"
+        onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
 
     <main id="main" class="main">
 
@@ -323,9 +288,9 @@
         </div><!-- End Page Title -->
 
         <section class="section dashboard">
-            <div class="row">
+            <div class="row" id="myvaccinedata">
                 <a href="#" style="padding-left: 98%;"><i class="fa fa-plus"></i></a>
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-body">
                         <content>
                             <div class="welcome-card">
@@ -354,9 +319,10 @@
 
                         </content>
                     </div>
-                </div>
+                </div> -->
+
             </div>
-        
+
         </section>
 
     </main><!-- End #main -->
@@ -375,10 +341,11 @@
         </div>
     </footer><!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -391,6 +358,24 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $.get("http://localhost:5041/api/Vaccine", function (data, status) {
+                console.log(data);
+                $.each(data, function (val, text) {
+                    console.log(text);
+                    $("#myvaccinedata").append(
+                        
+                        text.name
+                );
+
+                });
+            });
+        });
+
+       
+    </script>
 
 </body>
 
