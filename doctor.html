@@ -335,7 +335,7 @@
                                 </p>
                             </div>
                             <div class="col-4 d-flex justify-content-end flex-row">
-                                <button type="button" class="btn btn-outline-primary btn-lg" style="border: 5px solid; height: 40px;" onclick="approved_button()">
+                                <button type="button" class="btn btn-outline-primary btn-lg" style="border: 5px solid; height: 40px;" onclick="approved_button(${text.Id})">
                                     <span style="padding-bottom: 30px;">APPROVE</span> 
                                 </button>
                                 
@@ -355,7 +355,8 @@
                         );
                     }
 
-            )}
+                    )
+                }
             });
         }
 
@@ -367,10 +368,22 @@
     </script>
     <script>
         function approved_button(Id) {
-            $.get("http://localhost:5041/api/Doctor/patch", function (data, status) {
+            var patch = [
+                { "op": "replace", "path": "Isapproved", "value": "true" },
+            ]
 
-                console.log(data);
-            })
+            $.ajax({
+                type: 'PATCH',
+                url: `http://localhost:5041/api/doctor/${Id}`,
+                data: JSON.stringify(patch),
+                processData: false,
+                contentType: 'application/json',
+                success: function (data) {
+                    window.location("http://localhost/admin.vaccine.pk/doctor.html");
+                }
+
+
+            });
         };
 
 
