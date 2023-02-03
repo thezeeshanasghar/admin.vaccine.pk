@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+  <title>Login - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -136,14 +136,11 @@
   <script src="assets/js/main.js"></script>
   <script type="text/javascript">
     $(function () {
-
         $("#myform").submit(function (e) {
-
             e.preventDefault();
             // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
             var data = ({ MobileNumber: $("#mobileNumber").val(), Password: $("#password").val() })
             // var data1 = ({ "Name": $("#name").val(), "City": $("#city").val(), "Gender": $("#gender").val() })
-
             console.log(data);
             $.ajax({
                 type: "get",
@@ -151,29 +148,19 @@
                 dataType: "json",
                 data: data,
                 contentType: "application/json; charset=utf-8",
-                
                 success: function (response) {
                   if(response.toString()==""){
                     alert("wrong info")
                     console.log("fail")
                     document.getElementById("myform").reset();
-
                   }
                   else{
-                    
                     window.location.assign("http://localhost/admin.vaccine.pk/index.html")
-                    
-                    
-
                   }
                   ;
                 },
                 error: function (response) {
-                  // console.log(response)
-                  // alert("wrong info")
                   console.log("fail")
-                  // document.getElementById("myform").reset();
-
                 }
               }
             );
