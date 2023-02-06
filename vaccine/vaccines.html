@@ -92,8 +92,10 @@
                                                 <tr>
                                                     <th scope="col">Id</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">Brand</th>
-                                                    <th scope="col">Dose</th>
+                                                    <th scope="col">Number of Brands</th>
+                                                    <th scope="col">Number of Doses</th>
+                                                    <th scope="col">Add Dose</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody id="vaccineData"></tbody>
@@ -154,6 +156,8 @@
                             <td>${text.vaccine.Name}</td>
                             <td>${text.BrandCount}</td>
                             <td>${text.DoseCount}</td>
+                            <td><a href="/dose//Add-dose.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add dose</a></td>
+       
                         </tr>
                             `);
                     });

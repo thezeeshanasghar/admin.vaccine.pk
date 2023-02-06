@@ -150,7 +150,7 @@
             $("#myform").submit(function (e) {
                 e.preventDefault();
                 // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
-                var data = JSON.stringify({ "Name": $("#name").val(),"IsSpecial": $("#isSpecial").is(':checked')? true:false,"Infinite": $("#infinite").is(":checked")? true:false})
+                var data = JSON.stringify({ "Name": $("#name").val(),"IsSpecial": $("#isSpecial").is(':checked')? true:false,"Infinite": $("#infinite").is(":checked")? true:false,})
                 console.log(data);
                 $.ajax({
                     type: "post",
