@@ -62,7 +62,7 @@
         <section class="section">
             <div class="row">
                 <div class="col-lg-8">
-                    <form method="post" action='' class="row g-3 needs-validation" novalidate>
+                    <form id="myform" method="post" action='' class="row g-3 needs-validation" novalidate>
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Add New Vaccine</h5>
@@ -135,8 +135,8 @@
     <script src="/assets/vendor/chart.js/chart.min.js"></script>
     <script src="/assets/vendor/echarts/echarts.min.js"></script>
     <script src="/assets/vendor/quill/quill.min.js"></script>
-    <!-- <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script> -->
-    <!-- <script src="/assets/vendor/datatables/datatables.min.js"></script> -->
+    <!-- <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script> 
+    <script src="/assets/vendor/datatables/datatables.min.js"></script> -->
     <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="/assets/vendor/php-email-form/validate.js"></script>
     <!-- Template/e -->
@@ -161,6 +161,9 @@
                     success: function (data) {
                         alert(data);
                     },
+                    error:function(data){
+                        alert("error")
+                    }
 
                 });
                 document.getElementById("myform").reset();
