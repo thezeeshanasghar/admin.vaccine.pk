@@ -151,10 +151,13 @@
    
     <script type="text/javascript">
         $(function () {
+            var url=new URL(window.location.href);
+            var search_id=url.searchParams.get("id")
+            var vac_id=parseInt(search_id)
             $("#myform").submit(function (e) {
                 e.preventDefault();
                 // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
-                var data = JSON.stringify({ Name: $("#name").val() });
+                var data = JSON.stringify({ Name: $("#name").val(),"VaccineId":vac_id });
                 console.log(data);
                 $.ajax({
                     type: "post",
