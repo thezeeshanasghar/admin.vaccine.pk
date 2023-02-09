@@ -83,11 +83,23 @@
                                                 <input type="text" class="form-control" name="name" id="name">
                                             </div>
                                         </div><!-- end row -->
+                                        <div class="row mb-4">
+                                            <label for="minAge" class="col-sm-3 col-form-label">MinAge</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" name="minAge" id="minAge">
+                                            </div>
+                                        </div><!-- end row -->
+                                        <div class="row mb-4">
+                                            <label for="minGap" class="col-sm-3 col-form-label">MinGap</label>
+                                            <div class="col-sm-9">
+                                                <input type="" class="form-control" name="minGap" id="minGap">
+                                            </div>
+                                        </div><!-- end row -->
 
                                         <div class="row justify-content-end">
                                             <div class="col-sm-9">
                                                 <div>
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                    <button type="submit" class="btn btn-primary w-md">Submit</button>
                                                 </div>
                                             </div><!-- end col -->
                                         </div><!-- end row -->
@@ -139,40 +151,37 @@
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/ap.js"></script> -->
-   
     <script type="text/javascript">
-       
-            $(document).on("click",".btn-primary",function(){
-             console.log('successupdate');
-             var fname = $("#name").val();
-             console.log(fname);
-console.log("Window location:",window.location);
-const mykeysValues=window.location.search;
-console.log("keys & values:",mykeysValues);
-const urlParams=new URLSearchParams(mykeysValues);
-const para1=urlParams.get('id');
-console.log(para1);
-             
+        $(function () {
+            var url=new URL(window.location.href);
+            var search_id=url.searchParams.get("id")
+            var vac_id=parseInt(search_id)
+            
+            $("#myform").submit(function (e) {
+               
+                e.preventDefault();
+                var data = JSON.stringify({ "Name":$("#name").val(), "MinAge": parseInt($("#minAge").val()), "MinGap": parseInt($("#minGap").val()),"VaccineId":vac_id})
+                console.log(data);
                 $.ajax({
-                    type: "patch",
-                    data:[
-  {
-    "operationType": 0,
-    "path": "name",
-    "op": "replace",
-    "from": "dtaa",
-    "value": "dtaa111"
-  }
-],
-                    url: `http://localhost:5041/api/Dose/${para1}`,
-                    success: function(data) {
-                         alert('your data successfully updated');
-                         data
-                         }
-                })
+                    type: "post",
+                    url: "http://localhost:5041/api/Dose",
+                    dataType: "json",
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        alert(data);
+                    },
+
+                });
+                document.getElementById("myform").reset();
+
+                
+            });
+
         });
-       
-</script>
+    </script>
+
+
 </body>
 
 </html>
