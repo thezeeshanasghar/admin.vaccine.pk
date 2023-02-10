@@ -73,7 +73,7 @@
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-header justify-content-between d-flex align-items-center">
-                                    <h4 class="card-title">Dose Form</h4>
+                                    <h4 class="card-title">Update Dose Form</h4>
                                 </div><!-- end card header -->
                                 <div class="card-body">
                                     <form id="myform" method="patch" action="" style="padding-top:10px;">
@@ -99,7 +99,7 @@
                                         <div class="row justify-content-end">
                                             <div class="col-sm-9">
                                                 <div>
-                                                    <button type="submit" h class="btn btn-primary">Submit</button>
+                                                    <button type="submit" h class="btn btn-primary">Update</button>
                                                 </div>
                                             </div><!-- end col -->
                                         </div><!-- end row -->
@@ -183,6 +183,7 @@ document.getElementById("minGap").value=para4;
                     contentType: "application/json; charset=utf-8",
                     success: function(data) {
                          alert('your data successfully updated');
+                         window.location.assign("/dose.html");
                          }
                 })
         });
