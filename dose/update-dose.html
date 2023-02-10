@@ -57,11 +57,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Doses</h1>
+            <h1>Update Doses</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Doses</li>
+                    <li class="breadcrumb-item active">Update Doses</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -76,18 +76,30 @@
                                     <h4 class="card-title">Dose Form</h4>
                                 </div><!-- end card header -->
                                 <div class="card-body">
-                                    <form id="myform" method="post" action="" style="padding-top:10px;">
+                                    <form id="myform" method="patch" action="" style="padding-top:10px;">
                                         <div class="row mb-4">
                                             <label for="name" class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="name" id="name" value=${para2}>
+                                                <input type="text" class="form-control" name="name" id="name">
+                                            </div>
+                                        </div><!-- end row -->
+                                        <div class="row mb-4">
+                                            <label for="minAge" class="col-sm-3 col-form-label">MinAge</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" name="minAge" id="minAge">
+                                            </div>
+                                        </div><!-- end row -->
+                                        <div class="row mb-4">
+                                            <label for="minGap" class="col-sm-3 col-form-label">MinGap</label>
+                                            <div class="col-sm-9">
+                                                <input type="" class="form-control" name="minGap" id="minGap">
                                             </div>
                                         </div><!-- end row -->
 
                                         <div class="row justify-content-end">
                                             <div class="col-sm-9">
                                                 <div>
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                    <button type="submit" h class="btn btn-primary">Submit</button>
                                                 </div>
                                             </div><!-- end col -->
                                         </div><!-- end row -->
@@ -101,8 +113,9 @@
             </div><!-- End Page-content -->
         </div>
 
-    </main><!-- End #main -->
 
+    </main><!-- End #main -->
+     
     <!-- ======= Footer ======= -->
 
     <!-- ======= Footer ======= -->
@@ -150,29 +163,19 @@ const para1=urlParams.get('id');
 console.log(para1);
 console.log(para2);
        
-            $(document).on("click",".btn-primary",function(){
+            $(document).on("click",".btn-primary",function(e){
+                e.preventDefault();
+                var data = JSON.stringify({"id": para1, "Name":$("#name").val(), "MinAge": parseInt($("#minAge").val()), "MinGap": parseInt($("#minGap").val())})
              console.log('successupdate');
-             var fname = $("#name").val();
-             console.log(fname);
-
-
-             
+             console.log(data);
                 $.ajax({
                     type: "patch",
-                    data:[
-  {
-    "operationType": 0,
-    "path": "name",
-    "op": "replace",
-    "from": para2,
-    "value": fname
-  }
-],
-
                     url: `http://localhost:5041/api/Dose/${para1}`,
+                    dataType: "json",
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
                     success: function(data) {
                          alert('your data successfully updated');
-                         
                          }
                 })
         });
