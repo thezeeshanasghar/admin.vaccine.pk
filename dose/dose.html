@@ -77,8 +77,7 @@
                                                 class="fa fa-plus"></i></a>
                                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                             <li>
-                                                <a class="dropdown-item" href="/dose/Add-dose.html">Add
-                                                    dose</a>
+                                                <a class="dropdown-item" href="/dose/Add-dose.html">Add dose</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -92,10 +91,12 @@
                                                 <tr>
                                                     <th scope="col">Id</th>
                                                     <th scope="col">Name</th>
-                                                 
+                                                    <th scope="col">Edit</th>
+                                                    <th scope="col">Delete</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="doseData"></tbody>
+                                            <tbody id="doseData">
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -150,13 +151,44 @@
                         $("#doseData").append(`
                         <tr>
                             <td>${text.Id}</td>
-                            <td>${text.Name}</td>
+                            <td data-id="${text.Name}">${text.Name}</td>
+                            <td><a href="/dose/update-dose.html?action=patch&id=${text.Id}" class="btn btn-primary">Edit</a></td>
+                            <td><a href="#?action=delete&id=${text.Id}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
+                           
                         </tr>
                             `);
+                            
                     });
                 }
+        
             );
+           
+
         });
+        $(document).on("click",".btn-danger",function(){
+             console.log('success');
+             var ids=$(this).data("id");
+             console.log(ids);
+                var ele=this;
+                $.ajax({
+                    type: "delete",
+                    data: ids,
+                    url: `http://localhost:5041/api/Dose/${ids}`,
+                    
+                     success:function(data) {
+                        alert("your selected data deleted");
+                         if (data==1) {
+                             $("#error-message").html("Can't Delete Record.").slideDown();
+                             $("#success-message").slideUp();
+                         }else{
+                             $(ele).closest("tr").fadeOut();
+                         }
+                        
+                     }
+                 })
+        });
+
+    
     </script>
 </body>
 
