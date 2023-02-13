@@ -72,7 +72,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card recent-sales overflow-auto">
-                                    <div class="filter">
+                                    <!-- <div class="filter">
                                         <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
                                                 class="fa fa-plus"></i></a>
                                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -81,7 +81,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    
+                                     -->
 
                                     <div class="card-body">
                                         <h5 class="card-title">Doses Table</h5>
@@ -152,9 +152,8 @@
                         <tr>
                             <td>${text.Id}</td>
                             <td data-id="${text.Name}">${text.Name}</td>
-                            <td><a href="/dose/update-dose.html?action=patch&id=${text.Id}&id1=${text.Name}&id2=${text.MinAge}&id3=${text.MinGap}" class="btn btn-primary">Edit</a></td>
                             <td><a href="#?action=delete&id=${text.Id}&id1=${text.Name}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
-                           
+                            <td><a href="/dose/update-dose.html?action=patch&id=${text.Id}&id1=${text.Name}&id2=${text.MinAge}&id3=${text.MinGap}" class="btn btn-primary">Update</a></td>
                         </tr>
                             `);
                             
@@ -162,8 +161,6 @@
                 }
         
             );
-           
-
         });
         $(document).on("click",".btn-danger",function(){
              console.log('success');
@@ -186,11 +183,11 @@
                         //      $(ele).closest("tr").fadeOut();
                         //  }
                        
-                        
+                        $(ele).closest("tr").fadeOut();
                      }
                     
                  })
-                 $(ele).closest("tr").fadeOut();
+                 
                     } else {
                             $("#error-message").html("Can't Delete Record.").slideDown();
                              $("#success-message").slideUp();

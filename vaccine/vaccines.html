@@ -96,7 +96,8 @@
                                                     <th scope="col">Add Brand</th>
                                                     <th scope="col">Number of Doses</th>
                                                     <th scope="col">Add Dose</th>
-                                                    
+                                                    <th scope="col">Delete</th>
+                                                    <th scope="col">Update</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="vaccineData"></tbody>
@@ -159,6 +160,9 @@
                             <td><a href="/brand//Add-brand.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add</a></td>
                             <td>${text.DoseCount}</td>
                             <td><a href="/dose//Add-dose.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add</a></td>
+                            <td><a href="#?action=delete&id=${text.vaccine.Id}" data-id="${text.vaccine.Id}" class="btn btn-danger">Delete</a></td>
+                            <td><a href="/brand/update-brand.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}" class="btn btn-primary">Update</a></td>
+
                             
        
                         </tr>
@@ -167,6 +171,37 @@
                 }
             );
         });
+        $(document).on("click",".btn-danger",function(){
+             console.log('success');
+             var ids=$(this).data("id");
+             console.log(ids);
+                var ele=this;
+                let text = "if you are sure to delete then press ok either press cancel";
+                         if (confirm(text) == true) {
+                $.ajax({
+                    type: "delete",
+                    data: ids,
+                    url: `http://localhost:5041/api/Vaccine/${ids}`,
+                    
+                     success:function(data) {
+                        // alert("your selected data deleted");
+                        //  if (data==1) {
+                        //      $("#error-message").html("Can't Delete Record.").slideDown();
+                        //      $("#success-message").slideUp();
+                        //  }else{
+                        //      $(ele).closest("tr").fadeOut();
+                        //  }
+                        $(ele).closest("tr").fadeOut();
+                        
+                     }
+                    
+                 })
+                    } else {
+                            $("#error-message").html("Can't Delete Record.").slideDown();
+                             $("#success-message").slideUp();
+                         }
+        });
+
     </script>
 </body>
 
