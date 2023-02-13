@@ -170,22 +170,31 @@
              var ids=$(this).data("id");
              console.log(ids);
                 var ele=this;
+                let text = "if you are sure to delete of id=${ids} then press ok either press cancel";
+                         if (confirm(text) == true) {
                 $.ajax({
                     type: "delete",
                     data: ids,
                     url: `http://localhost:5041/api/Dose/${ids}`,
                     
                      success:function(data) {
-                        alert("your selected data deleted");
-                         if (data==1) {
-                             $("#error-message").html("Can't Delete Record.").slideDown();
-                             $("#success-message").slideUp();
-                         }else{
-                             $(ele).closest("tr").fadeOut();
-                         }
+                        // alert("your selected data deleted");
+                        //  if (data==1) {
+                        //      $("#error-message").html("Can't Delete Record.").slideDown();
+                        //      $("#success-message").slideUp();
+                        //  }else{
+                        //      $(ele).closest("tr").fadeOut();
+                        //  }
+                       
                         
                      }
+                    
                  })
+                 $(ele).closest("tr").fadeOut();
+                    } else {
+                            $("#error-message").html("Can't Delete Record.").slideDown();
+                             $("#success-message").slideUp();
+                         }
         });
 
     
