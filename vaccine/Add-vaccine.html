@@ -70,8 +70,7 @@
                                 <div class="row mb-3">
                                     <label for="name" class="form-label">Vaccine Name</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name='name' id="name"
-                                            required />
+                                        <input type="text" class="form-control" name='name' id="name" required />
                                         <div class="invalid-feedback">
                                             Please Enter The Vaccine Name
                                         </div>
@@ -101,6 +100,12 @@
                                 <div class="col-12">
                                     <input class="btn btn-primary" name='submit' type="submit">
 
+                                </div>
+                                        <div id="successMessage" style="display:none;" class="alert alert-success alert-dismissible fade show" role="alert"> <i class="bi bi-check-circle me-1"></i>your vaccine add successfully
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                            <div id="errorMessage" style="display:none;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>Your vaccine not add successfully 
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                             
                                 </div>
                             </div>
                         </div>
@@ -158,10 +163,12 @@
                     data: data,
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
-                        alert("your vaccine add successfully");
+                        // alert("your vaccine add successfully");
+                        $("#successMessage").show();
                     },
                     error:function(data){
-                        alert("error")
+                        //alert("error")
+                        $("#errorMessage").show();
                     }
 
                 });
