@@ -176,14 +176,14 @@ document.getElementById("name").value=para2;
                     contentType: "application/json; charset=utf-8",
                     success: function(data) {
                         //  alert('your data successfully updated');
+                        $('#errorMessage').hide('fast');
                         $("#successMessage").show();
                          //window.location.assign("/brand/brand.html");
                          },
                          error:function(data){
                         //alert("error")
-                        if ((dara == null)&& (data == 0)){ 
                         $("#errorMessage").show();
-                        }
+                        
                     },
                 })
         });
