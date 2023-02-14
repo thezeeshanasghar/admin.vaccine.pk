@@ -80,7 +80,7 @@
                                         <div class="row mb-4">
                                             <label for="name" class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="" name="name" id="name">
+                                                <input type="text" class="form-control" value="" name="name" id="name" required/>
                                             </div>
                                         </div><!-- end row -->
                                         <div class="row justify-content-end">
@@ -90,6 +90,12 @@
                                                 </div>
                                             </div><!-- end col -->
                                         </div><!-- end row -->
+                                        <div id="successMessage" style="display:none;" class="alert alert-success alert-dismissible fade show" role="alert"> <i class="bi bi-check-circle me-1"></i>your dose update successfully
+                                            <a href="brand.html">Click here to see all brands</a>
+                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                             <div id="errorMessage" style="display:none;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>Your dose not update successfully 
+                                                 <a href="brand.html">Click here to see all brands</a>
+                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                     </form><!-- end form -->
                                 </div>
                             </div><!-- end card -->
@@ -169,9 +175,16 @@ document.getElementById("name").value=para2;
                     data: data,
                     contentType: "application/json; charset=utf-8",
                     success: function(data) {
-                         alert('your data successfully updated');
-                         window.location.assign("/brand/brand.html");
-                         }
+                        //  alert('your data successfully updated');
+                        $("#successMessage").show();
+                         //window.location.assign("/brand/brand.html");
+                         },
+                         error:function(data){
+                        //alert("error")
+                        if ((dara == null)&& (data == 0)){ 
+                        $("#errorMessage").show();
+                        }
+                    },
                 })
         });
        
