@@ -196,6 +196,7 @@ document.getElementById("minGap").value=para4;
                     },
                     error:function(data){
                         //alert("error")
+                        $("#successMessage").hide('fast');
                         $("#errorMessage").show();
                     },
                 })
