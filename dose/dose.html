@@ -91,6 +91,8 @@
                                                 <tr>
                                                     <th scope="col">Id</th>
                                                     <th scope="col">Name</th>
+                                                    <th scope="col">MinAge</th>
+                                                    <th scope="col">MinGap</th>
                                                     <th scope="col">Delete</th>
                                                     <th scope="col">Update</th>
                                                 </tr>
@@ -152,6 +154,8 @@
                         <tr>
                             <td>${text.Id}</td>
                             <td data-id="${text.Name}">${text.Name}</td>
+                            <td>${text.MinAge}</td>
+                            <td>${text.MinGap}</td>
                             <td><a href="#?action=delete&id=${text.Id}&id1=${text.Name}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
                             <td><a href="/dose/update-dose.html?action=patch&id=${text.Id}&id1=${text.Name}&id2=${text.MinAge}&id3=${text.MinGap}" class="btn btn-primary">Update</a></td>
                         </tr>

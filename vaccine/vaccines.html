@@ -86,7 +86,8 @@
 
                                     <div class="card-body">
                                         <h5 class="card-title">Vaccine Table</h5>
-
+                                        <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
@@ -165,7 +166,7 @@
                             <td>${text.DoseCount}</td>
                             <td><a href="/dose//Add-dose.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add</a></td>
                             <td><a href="#?action=delete&id=${text.vaccine.Id}" data-id="${text.vaccine.Id}" class="btn btn-danger">Delete</a></td>
-                            <td><a href="/brand/update-brand.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}" class="btn btn-primary">Update</a></td>
+                            <td><a href="/vaccine/update-vaccine.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}" class="btn btn-primary">Update</a></td>
 
                             
        
@@ -197,13 +198,26 @@
                         //  }
                         $(ele).closest("tr").fadeOut();
                         
-                     }
-                    
+                     },
+                     error: function(data) {
+    //   var err = eval("(" + xhr.responseText + ")");
+    //   console.log(err.Message);
+    //   console.log('xhr: ');
+    //   console.log(xhr);
+    //   console.log('status: ' + status);
+    //   console.log('error: ' + error);
+    console.log(data)
+    $("#errorMessage").show();
+    $("#errorMessage").html(data.responseText)
+   // alert(data.responseText)
+    },
                  })
                     } else {
                             $("#error-message").html("Can't Delete Record.").slideDown();
                              $("#success-message").slideUp();
+                            
                          }
+   
         });
 
     </script>
