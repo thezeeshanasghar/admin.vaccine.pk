@@ -86,7 +86,7 @@
 
                                     <div class="card-body">
                                         <h5 class="card-title">Vaccine Table</h5>
-                                        <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>
+                                        <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                         <table class="table table-striped">
                                             <thead>
@@ -208,7 +208,7 @@
     //   console.log('error: ' + error);
     console.log(data)
     $("#errorMessage").show();
-    $("#errorMessage").html(data.responseText)
+    $("#asdf").html(data.responseText)
    // alert(data.responseText)
     },
                  })
