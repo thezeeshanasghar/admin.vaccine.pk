@@ -80,7 +80,10 @@
                                         <div class="row mb-4">
                                             <label for="name" class="col-sm-3 col-form-label">Vaccine Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="" name="name" id="name">
+                                                <input type="text" class="form-control" value="" name="name" id="name" required/>
+                                                <div class="invalid-feedback">
+                                                    Please Enter The Vaccine Name
+                                                </div>
                                             </div>
                                         </div><!-- end row -->
 
@@ -105,21 +108,21 @@
                                         <div class="row justify-content-end">
                                             <div class="col-sm-9">
                                                 <div>
-                                                    <button type="submit" h class="btn btn-primary">Update</button>
+                                                    <button type="submit"  class="btn btn-primary">Update</button>
                                                 </div>
                                             </div><!-- end col -->
                                         </div><!-- end row -->
                                         <div id="successMessage" style="display:none;margin-top: 10px;"
                                             class="alert alert-success alert-dismissible fade show" role="alert"> <i
                                                 class="bi bi-check-circle me-1"></i>your vaccine update successfully
-                                            <a href="vaccines.html">Click here to see all vaccine</a>
+                                            <a href="list.html">Click here to see all vaccine</a>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div id="errorMessage" style="display:none;margin-top: 10px;"
                                             class="alert alert-danger alert-dismissible fade show" role="alert"> <i
                                                 class="bi bi-exclamation-octagon me-1"></i>Something went wrong
-                                            <a href="vaccines.html">Click here to see all vaccine</a>
+                                            <a href="list.html">Click here to see all vaccine</a>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"
                                                 aria-label="Close"></button>
                                         </div>
@@ -187,8 +190,8 @@
         console.log(para3);
         console.log(para4);
         document.getElementById("name").value = para2;
-        document.getElementById('input[name="isSpecial"]:checked').value = checked;
-        document.getElementById("infinite").value = para4;
+        // document.getElementById('input[name="isSpecial"]:checked').value = checked;
+        // document.getElementById("infinite").value = para4;
         $(document).on("click", ".btn-primary", function (e) {
             e.preventDefault();
             var data = JSON.stringify({ "id": para1, "Name": $("#name").val(), "MinAge": parseInt($("#minAge").val()), "MinGap": parseInt($("#minGap").val()) })
@@ -197,7 +200,7 @@
             console.log(data);
             $.ajax({
                 type: "patch",
-                url: `http://localhost:5041/api/Dose/${para1}`,
+                url: `http://localhost:5041/api/Vaccine/${para1}`,
                 dataType: "json",
                 data: data,
                 contentType: "application/json; charset=utf-8",
