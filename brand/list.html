@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Doses</title>
+    <title>Brand</title>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -54,11 +54,11 @@
 
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Doses</h1>
+            <h1>Brands</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Doses</li>
+                    <li class="breadcrumb-item active">Brands</li>
                 </ol>
             </nav>
         </div>
@@ -72,33 +72,18 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card recent-sales overflow-auto">
-                                    <!-- <div class="filter">
-                                        <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
-                                                class="fa fa-plus"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                            <li>
-                                                <a class="dropdown-item" href="/dose/Add-dose.html">Add dose</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                     -->
-
                                     <div class="card-body">
-                                        <h5 class="card-title">Doses Table</h5>
-
+                                        <h5 class="card-title">Brand Table</h5>
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Id</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">MinAge</th>
-                                                    <th scope="col">MinGap</th>
                                                     <th scope="col">Delete</th>
                                                     <th scope="col">Update</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="doseData">
-                                            </tbody>
+                                            <tbody id="brandData"></tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -145,25 +130,21 @@
     <script type="text/javascript">
         $(function () {
             $.get(
-                "http://localhost:5041/api/Dose",
+                "http://localhost:5041/api/brand",
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
-                        console.log(text);
-                        $("#doseData").append(`
+                        
+                        $("#brandData").append(`
                         <tr>
                             <td>${text.Id}</td>
-                            <td data-id="${text.Name}">${text.Name}</td>
-                            <td>${text.MinAge}</td>
-                            <td>${text.MinGap}</td>
-                            <td><a href="#?action=delete&id=${text.Id}&id1=${text.Name}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
-                            <td><a href="/dose/update-dose.html?action=patch&id=${text.Id}&id1=${text.Name}&id2=${text.MinAge}&id3=${text.MinGap}" class="btn btn-primary">Update</a></td>
+                            <td>${text.Name}</td>
+                            <td><a href="#?action=delete&id=${text.Id}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
+                            <td><a href="/brand/update.html?action=patch&id=${text.Id}&id1=${text.Name}" class="btn btn-primary">Update</a></td>
                         </tr>
                             `);
-                            
                     });
                 }
-        
             );
         });
         $(document).on("click",".btn-danger",function(){
@@ -176,7 +157,7 @@
                 $.ajax({
                     type: "delete",
                     data: ids,
-                    url: `http://localhost:5041/api/Dose/${ids}`,
+                    url: `http://localhost:5041/api/Brand/${ids}`,
                     
                      success:function(data) {
                         // alert("your selected data deleted");
@@ -186,8 +167,8 @@
                         //  }else{
                         //      $(ele).closest("tr").fadeOut();
                         //  }
-                       
                         $(ele).closest("tr").fadeOut();
+                        
                      }
                     
                  })
@@ -198,7 +179,6 @@
                          }
         });
 
-    
     </script>
 </body>
 
