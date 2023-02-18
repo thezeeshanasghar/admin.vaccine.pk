@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Vaccine</title>
+    <title>Brand</title>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -54,11 +54,11 @@
 
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Vaccines</h1>
+            <h1>Brands</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Vaccines</li>
+                    <li class="breadcrumb-item active">Brands</li>
                 </ol>
             </nav>
         </div>
@@ -72,41 +72,18 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card recent-sales overflow-auto">
-                                    <div class="filter">
-                                        <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
-                                                class="fa fa-plus"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                            <li>
-                                                <a class="dropdown-item" href="/vaccine/Add-vaccine.html">Add
-                                                    Vaccine</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    
-
                                     <div class="card-body">
-                                        <h5 class="card-title">Vaccine Table</h5>
-                                        <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
-                                            <a href="vaccines.html">Click here to see all vaccine</a>
-                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                                        <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                        <h5 class="card-title">Brand Table</h5>
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Id</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">Is Special</th>
-                                                    <th scope="col">Infinite</th>
-                                                    <th scope="col">Number of Brands</th>
-                                                    <th scope="col">Add Brand</th>
-                                                    <th scope="col">Number of Doses</th>
-                                                    <th scope="col">Add Dose</th>
                                                     <th scope="col">Delete</th>
                                                     <th scope="col">Update</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="vaccineData"></tbody>
+                                            <tbody id="brandData"></tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -153,26 +130,17 @@
     <script type="text/javascript">
         $(function () {
             $.get(
-                "http://localhost:5041/api/Vaccine/vaccine-with-count",
+                "http://localhost:5041/api/brand",
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
-                        console.log(text);
-                        $("#vaccineData").append(`
+                        
+                        $("#brandData").append(`
                         <tr>
-                            <td>${text.vaccine.Id}</td>
-                            <td>${text.vaccine.Name}</td>
-                            <td>${text.vaccine.IsSpecial}</td>
-                            <td>${text.vaccine.Infinite}</td>
-                            <td>${text.BrandCount}</td>
-                            <td><a href="/brand//Add-brand.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add</a></td>
-                            <td>${text.DoseCount}</td>
-                            <td><a href="/dose//Add-dose.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add</a></td>
-                            <td><a href="#?action=delete&id=${text.vaccine.Id}" data-id="${text.vaccine.Id}" class="btn btn-danger">Delete</a></td>
-                            <td><a href="/vaccine/update-vaccine.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}" class="btn btn-primary">Update</a></td>
-
-                            
-       
+                            <td>${text.Id}</td>
+                            <td>${text.Name}</td>
+                            <td><a href="#?action=delete&id=${text.Id}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
+                            <td><a href="/brand/update.html?action=patch&id=${text.Id}&id1=${text.Name}" class="btn btn-primary">Update</a></td>
                         </tr>
                             `);
                     });
@@ -189,7 +157,7 @@
                 $.ajax({
                     type: "delete",
                     data: ids,
-                    url: `http://localhost:5041/api/Vaccine/${ids}`,
+                    url: `http://localhost:5041/api/Brand/${ids}`,
                     
                      success:function(data) {
                         // alert("your selected data deleted");
@@ -200,28 +168,15 @@
                         //      $(ele).closest("tr").fadeOut();
                         //  }
                         $(ele).closest("tr").fadeOut();
-                        $("#successMessage").show();
-                        $("#zxcv").html(data.responseText)
-                     },
-                     error: function(data) {
-    //   var err = eval("(" + xhr.responseText + ")");
-    //   console.log(err.Message);
-    //   console.log('xhr: ');
-    //   console.log(xhr);
-    //   console.log('status: ' + status);
-    //   console.log('error: ' + error);
-    console.log(data)
-    $("#errorMessage").show();
-    $("#asdf").html(data.responseText)
-   // alert(data.responseText)
-    },
+                        
+                     }
+                    
                  })
+                 
                     } else {
                             $("#error-message").html("Can't Delete Record.").slideDown();
                              $("#success-message").slideUp();
-                            
                          }
-   
         });
 
     </script>

@@ -72,20 +72,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card recent-sales overflow-auto">
-                                    <!-- <div class="filter">
-                                        <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
-                                                class="fa fa-plus"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                            <li>
-                                                <a class="dropdown-item" href="/dose/Add-dose.html">Add dose</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                     -->
-
                                     <div class="card-body">
                                         <h5 class="card-title">Doses Table</h5>
-
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
@@ -157,7 +145,7 @@
                             <td>${text.MinAge}</td>
                             <td>${text.MinGap}</td>
                             <td><a href="#?action=delete&id=${text.Id}&id1=${text.Name}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
-                            <td><a href="/dose/update-dose.html?action=patch&id=${text.Id}&id1=${text.Name}&id2=${text.MinAge}&id3=${text.MinGap}" class="btn btn-primary">Update</a></td>
+                            <td><a href="/dose/update.html?action=patch&id=${text.Id}&id1=${text.Name}&id2=${text.MinAge}&id3=${text.MinGap}" class="btn btn-primary">Update</a></td>
                         </tr>
                             `);
                             
