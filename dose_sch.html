@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+
+    <title>Schedule</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <link href="/assets/img/favicon.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+  * Template Name: NiceAdmin - v2.4.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <iframe src="/header.html"
+            onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+    </header><!-- End Header -->
+
+    <iframe src="/sidebar.html"
+        onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+
+
+        <main id="main" class="main">
+
+    
+            <section class="section dashboard">
+                <div class="row">
+                    <content class="padding">
+                        <div id="schedule">
+                          
+    
+                          
+                            <!-- <div class="card">
+                                <div class="card-body">
+                                    
+                                    <div class="welcome-card">
+                                        <div class="row" style="padding-top: 10px;">
+                                            <div class="col-8">
+                                                <p>
+                                                    <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">Date : today</span>
+                                                </p>
+                                            </div>
+                                            
+                                            
+                                            <hr>
+
+                                        </div>
+                                        <p style="color: rgb(8, 5, 5); font-size: 20px;">dose 1 : </p>
+                                        <p style="color: rgb(2, 1, 1); font-size: 20px;">dose 2 : </p>
+                                        <p style="color: rgb(5, 3, 3); font-size: 20px;">dose 3 : </p>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div> -->
+                            
+                        </div>
+                    </content>
+                </div>
+    
+            </section>
+    
+        </main><!-- End #main -->
+    
+
+    
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
+    
+        <!-- Vendor JS Files -->
+    
+        <script src="/https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
+        <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+        <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/vendor/chart.js/chart.min.js"></script>
+        <script src="/assets/vendor/echarts/echarts.min.js"></script>
+        <script src="/assets/vendor/quill/quill.min.js"></script>
+        <!-- <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script> -->
+        <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+        <script src="/assets/vendor/php-email-form/validate.js"></script>
+    
+        <!-- Template/ Main JS File -->
+        <script src="/assets/js/main.js"></script>
+       
+        
+        <!-- <script>
+            function approved(approvedBool) {
+                $.get(`http://localhost:5041/api/doctor/approved/${approvedBool}`, function (data, status) {
+                    console.log(data);
+                    if (approvedBool == false) {
+                        $.each(data, function (val, text) {
+                            console.log(text);
+                            $("#schedule").append(`
+    <div id="NotApproved">
+            <div class="card">
+                <div class="card-body">
+                    <content>
+                        <div class="welcome-card">
+                            <div class="row" style="padding-top: 10px;">
+                                <div class="col-8">
+                                    <p>
+                                        <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
+                                    </p>
+                                </div>
+                                <div class="col-4 d-flex justify-content-end flex-row">
+                                    <button type="button" class="btn btn-outline-primary btn-lg" style="border: 5px solid; height: 40px;" onclick="approved_button(${text.Id})">
+                                        <span style="padding-bottom: 30px;">APPROVE</span> 
+                                    </button>
+                                    
+                                </div>
+                                
+                                <hr>
+    
+                            </div>
+                            <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email}</p>
+                            <p style="color: dimgrey; font-size: 20px;">Number : ${text.MobileNumber} </p>
+                            <p style="color: dimgrey; font-size: 20px;">PMDC :${text.PMDC} </p>
+                        </div>
+                    </content>
+                </div>
+            </div>
+        </div>`
+                            );
+    
+                        }
+                        );
+                    }
+                   
+                       
+                    
+                });
+            }
+    
+        </script> -->
+
+        <script type="text/javascript">
+            $(function () {
+            var finalData = [];
+            $.get(
+                "http://localhost:5041/api/dose",
+                function (data, status) {
+                    console.log(data);
+                    var prevDate, i=0, j=0,prevVac ,resultDate;
+                    $.each(data, function (val, text) {
+                        debugger;
+                        resultDate = new Date();
+                        if(i != 0) {
+                            resultDate = new Date(resultDate.setDate(prevDate.getDate() + text.MinGap));
+                        }
+                        if(prevVac!=text.VaccineId){
+                            i=0;
+                            resultDate = new Date();
+                        }
+                        finalData.push({
+                            "VaccineId":"" + text.VaccineId + "",
+                            "dose_name":text.Name,
+                            "date":resultDate,
+                        });
+                        prevDate=resultDate;
+                        i++;
+                        j++;
+                        prevVac=text.VaccineId
+                        
+                    });
+                    console.log(finalData);
+
+                    $.each(finalData, function(key, value){
+                        var dateText = new Date(value.date).toLocaleDateString().replaceAll(' ', '');
+                        //console.log(new Date(value.date))
+                        if(!$('#div' + dateText.replaceAll('/', '')).length){
+                            $("#schedule").append(`
+                        <div class="card">
+                                <div class="card-header">
+                                    <span style="font-weight: normal;padding-left: 10px; font-size: 10px;">Date :${dateText}</span>    
+                                </div>
+                                <div class="card-body" id="div`+dateText.replaceAll('/', '')+`">
+                                    <div class="welcome-card"></div>
+                                </div>
+                            </div>
+                        
+                            `);
+                        }
+
+                        $('#div' + dateText.replaceAll('/', '') + ' .welcome-card').append(`
+                            <p style="color: rgb(8, 5, 5); font-size: 20px;">${value.dose_name} </p>
+                        `);
+
+                    });
+                  
+                    
+                }
+            );
+        });
+    
+    
+        </script>
+    
+    
+        </body>
+    
+    </html>
