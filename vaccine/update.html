@@ -66,76 +66,61 @@
             </nav>
         </div><!-- End Page Title -->
 
-        <div class="main-content">
-            <div class="page-content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="card">
-                                <div class="card-header justify-content-between d-flex align-items-center">
-                                    <h4 class="card-title">Update Vaccine Form</h4>
-                                </div><!-- end card header -->
-                                <div class="card-body">
-                                    <form id="myform" method="patch" action="" style="padding-top:10px;">
-                                        <div class="row mb-4">
-                                            <label for="name" class="col-sm-3 col-form-label">Vaccine Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="" name="name" id="name" required/>
-                                                <div class="invalid-feedback">
-                                                    Please Enter The Vaccine Name
-                                                </div>
-                                            </div>
-                                        </div><!-- end row -->
-
-                                        <div class="row mb-3">
-                                            <label for="IsSpecial" class="col-sm-3 col-form-label">IsSpecial</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-check mb-4">
-                                                    <input type="checkbox" class="form-check-input" id="isSpecial">
-                                                </div>
-                                            </div>
-                                        </div><!-- end row -->
-
-                                        <div class="row mb-4">
-                                            <label for="Infinite" class="col-sm-3 col-form-label">Infinite</label>
-                                            <div class="col-sm-9">
-                                                <div class="form-check mb-4">
-                                                    <input type="checkbox" class="form-check-input" id="infinite">
-                                                </div>
-                                            </div>
-                                        </div><!-- end row -->
-
-                                        <div class="row justify-content-end">
-                                            <div class="col-sm-9">
-                                                <div>
-                                                    <button type="submit"  class="btn btn-primary">Update</button>
-                                                </div>
-                                            </div><!-- end col -->
-                                        </div><!-- end row -->
-                                        <div id="successMessage" style="display:none;margin-top: 10px;"
-                                            class="alert alert-success alert-dismissible fade show" role="alert"> <i
-                                                class="bi bi-check-circle me-1"></i>your vaccine update successfully
-                                            <a href="list.html">Click here to see all vaccine</a>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close"></button>
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-8">
+                    <form id="myform" method="post" action=''>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Update vaccine form</h5>
+                                <!-- Custom Styled Validation -->
+                                <div class="row mb-3">
+                                    <label for="name" class="form-label">Vaccine Name</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group has-validation">
+                                        <input type="text" class="form-control" name='name' id="name" required>
+                                        <div class="invalid-feedback">
+                                            Please Enter The Vaccine Name
                                         </div>
-                                        <div id="errorMessage" style="display:none;margin-top: 10px;"
-                                            class="alert alert-danger alert-dismissible fade show" role="alert"> <i
-                                                class="bi bi-exclamation-octagon me-1"></i>Something went wrong
-                                            <a href="list.html">Click here to see all vaccine</a>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close"></button>
-                                        </div>
-                                    </form><!-- end form -->
+                                    </div>
+                                    </div>
                                 </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                    </div><!-- end row -->
-                    <!-- End Form Layout -->
-                </div> <!-- container-fluid -->
-            </div><!-- End Page-content -->
-        </div>
+                                <div class="row mb-3">
+                                    <label for="IsSpecial" class="col-sm-3 col-form-label">IsSpecial</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check mb-4">
+                                            <input type="checkbox" class="form-check-input" id="isSpecial">   
+                                        </div>
+                                    </div>
+                                </div><!-- end row -->
+                                <div class="row mb-4">
+                                    <label for="Infinite" class="col-sm-3 col-form-label">Infinite</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check mb-4">
+                                            <input type="checkbox" class="form-check-input" id="infinite">
+                                         
+                                        </div>
+                                        
+                                    </div>
+                                </div><!-- end row -->
+                                <div class="col-12">
+                                    <input class="btn btn-primary" name='submit' type="submit">
 
+                                </div>
+                                        <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                             <i class="bi bi-check-circle me-1"></i>your vaccine update successfully     <a href="list.html">Click here to see all vaccine</a>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                            <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                 <i class="bi bi-exclamation-octagon me-1"></i>Something went wrong    <a href="list.html">Click here to see all vaccine</a>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                             
+                                </div>
+                            </div>
+                        </div>
+                    </form><!-- End Custom Styled Validation -->
+                </div>
+            </div>
+        </section>
 
     </main><!-- End #main -->
 
@@ -190,6 +175,14 @@
         console.log(para3);
         console.log(para4);
         document.getElementById("name").value = para2;
+        if(para3=="true"){
+            // console.log("1");
+        $('#isSpecial').prop('checked',true);}
+        if(para4=="true"){
+        $('#infinite').prop('checked',true);}
+    //     $('#typeOfSearch').change(function() {
+    //     $('#typeSelected').html(($(this).is(':checked') ? "TRUE" : "FALSE"));
+    // });
         // document.getElementById('input[name="isSpecial"]:checked').value = checked;
         // document.getElementById("infinite").value = para4;
         $(document).on("click", ".btn-primary", function (e) {

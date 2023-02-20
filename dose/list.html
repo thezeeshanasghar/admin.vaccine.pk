@@ -74,6 +74,12 @@
                                 <div class="card recent-sales overflow-auto">
                                     <div class="card-body">
                                         <h5 class="card-title">Doses Table</h5>
+                                        <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
+                                            <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
+                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                        <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                             <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
@@ -174,7 +180,9 @@
                         //  }else{
                         //      $(ele).closest("tr").fadeOut();
                         //  }
-                       
+                        $("#errorMessage").hide('fast');
+                        $("#successMessage").show();
+                        $("#zxcv").html("Your selected dose deleted successfully")
                         $(ele).closest("tr").fadeOut();
                      }
                     
@@ -183,6 +191,10 @@
                     } else {
                             $("#error-message").html("Can't Delete Record.").slideDown();
                              $("#success-message").slideUp();
+                             console.log(data)
+    $("#successMessage").hide('fast');
+    $("#errorMessage").show();
+    $("#asdf").html("Your selected dose not deleted successfully")
                          }
         });
 

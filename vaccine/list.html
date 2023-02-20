@@ -198,8 +198,9 @@
                         //      $(ele).closest("tr").fadeOut();
                         //  }
                         console.log(data)
+                        $("#errorMessage").hide('fast');
                         $("#successMessage").show();
-                        $("#zxcv").html("your vaccine del successfully")
+                        $("#zxcv").html("Your selected vaccine delete successfully")
                         $(ele).closest("tr").fadeOut();
                      },
                      error: function(data) {
@@ -210,6 +211,7 @@
     //   console.log('status: ' + status);
     //   console.log('error: ' + error);
     console.log(data)
+    $("#successMessage").hide('fast');
     $("#errorMessage").show();
     $("#asdf").html(data.responseText)
    // alert(data.responseText)
