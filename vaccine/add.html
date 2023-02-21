@@ -59,60 +59,60 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
-        <section class="section">
-            <div class="row">
-                <div class="col-lg-8">
-                    <form id="myform" method="post" action=''>
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Add New Vaccine</h5>
-                                <!-- Custom Styled Validation -->
-                                <div class="row mb-3">
-                                    <label for="name" class="form-label">Vaccine Name</label>
-                                    <div class="col-sm-9">
-                                        <div class="input-group has-validation">
-                                        <input type="text" class="form-control" name='name' id="name" required>
-                                        <div class="invalid-feedback">
-                                            Please Enter The Vaccine Name
+                <section class="section">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <form id="myform" method="post" action=''>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Add New Vaccine</h5>
+                                        <!-- Custom Styled Validation -->
+                                        <div class="row mb-3">
+                                            <label for="name" class="form-label">Vaccine Name</label>
+                                            <div class="col-sm-9">
+                                                <div class="input-group has-validation">
+                                                <input type="text" class="form-control" name='name' id="name" required>
+                                                <div class="invalid-feedback">
+                                                    Please Enter The Vaccine Name
+                                                </div>
+                                            </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="IsSpecial" class="col-sm-3 col-form-label">IsSpecial</label>
-                                    <div class="col-sm-9">
-                                        <div class="form-check mb-4">
-                                            <input type="checkbox" class="form-check-input" id="isSpecial">   
-                                        </div>
-                                    </div>
-                                </div><!-- end row -->
-                                <div class="row mb-4">
-                                    <label for="Infinite" class="col-sm-3 col-form-label">Infinite</label>
-                                    <div class="col-sm-9">
-                                        <div class="form-check mb-4">
-                                            <input type="checkbox" class="form-check-input" id="infinite">
-                                         
-                                        </div>
-                                        
-                                    </div>
-                                </div><!-- end row -->
-                                <div class="col-12">
-                                    <input class="btn btn-primary" name='submit' type="submit">
+                                        <div class="row mb-3">
+                                            <label for="IsSpecial" class="col-sm-3 col-form-label">IsSpecial</label>
+                                            <div class="col-sm-9">
+                                                <div class="form-check mb-4">
+                                                    <input type="checkbox" class="form-check-input" id="isSpecial">   
+                                                </div>
+                                            </div>
+                                        </div><!-- end row -->
+                                        <div class="row mb-4">
+                                            <label for="Infinite" class="col-sm-3 col-form-label">Infinite</label>
+                                            <div class="col-sm-9">
+                                                <div class="form-check mb-4">
+                                                    <input type="checkbox" class="form-check-input" id="infinite">
+                                                
+                                                </div>
+                                                
+                                            </div>
+                                        </div><!-- end row -->
+                                        <div class="col-12">
+                                            <input class="btn btn-primary" name='submit' type="submit">
 
+                                        </div>
+                                                <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
+                                                    <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                                    <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                                                        <i class="bi bi-exclamation-octagon me-1"></i> <span id="asdf"></span>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                        <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
-                                            <i class="bi bi-check-circle me-1"></i>your vaccine add successfully
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                                            <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
-                                                <i class="bi bi-exclamation-octagon me-1"></i> <span id="asdf"></span>
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                                </div>
-                            </div>
+                            </form><!-- End Custom Styled Validation -->
                         </div>
-                    </form><!-- End Custom Styled Validation -->
-                </div>
-            </div>
-        </section>
+                    </div>
+                </section>    
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
@@ -164,9 +164,10 @@
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
                         // alert("your vaccine add successfully");
-                        console.log(data)
+                        console.log(data.statusText)
                         $('#errorMessage').hide('fast'); 
                         $("#successMessage").show();
+                        $("#zxcv").html("your vaccine add successfully")
                     },
                     error:function(data){
                         //alert("error")
