@@ -66,54 +66,42 @@
             </nav>
         </div><!-- End Page Title -->
 
-        <div class="main-content">
-            <div class="page-content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6">
-                            <div class="card">
-                                <div class="card-header justify-content-between d-flex align-items-center">
-                                    <h4 class="card-title">Update Brand Form</h4>
-                                </div><!-- end card header -->
-                                <div class="card-body">
-                                    <form id="myform" method="patch" action="" style="padding-top:10px;">
-                                        <div class="row mb-4">
-                                            <label for="name" class="col-sm-3 col-form-label">Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" value="" name="name" id="name"
-                                                    required />
-                                            </div>
-                                        </div><!-- end row -->
-                                        <div class="row justify-content-end">
-                                            <div class="col-sm-9">
-                                                <div>
-                                                    <button type="submit" h class="btn btn-primary">Update</button>
-                                                </div>
-                                            </div><!-- end col -->
-                                        </div><!-- end row -->
-                                        <div id="successMessage" style="display:none;margin-top: 10px;"
-                                            class="alert alert-success alert-dismissible fade show" role="alert"> <i
-                                                class="bi bi-check-circle me-1"></i>your dose update successfully
-                                            <a href="add.html">Click here to see all brands</a>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close"></button>
+        <section class="section">
+            <div class="row">
+                <div class="col-xl-6">
+                    <form id="myform" method="post" action=''>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Update Brand form</h5>
+                                <!-- Custom Styled Validation -->
+                                <div class="row mb-3">
+                                    <label for="name" class="form-label">Brand Name</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" class="form-control" name='name' id="name" required />
+                                    </div>
+                                </div><!-- end row -->
+                                 <div class="row justify-content-end">
+                                    <div class="col-sm-7">
+                                        <div>
+                                            <button type="submit" class="btn btn-primary w-md">
+                                                Update
+                                            </button>
                                         </div>
-                                        <div id="errorMessage" style="display:none;margin-top: 10px;"
-                                            class="alert alert-danger alert-dismissible fade show" role="alert"> <i
-                                                class="bi bi-exclamation-octagon me-1"></i>Something went wrong
-                                            <a href="add.html">Click here to see all brands</a>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close"></button>
-                                        </div>
-                                    </form><!-- end form -->
+                                    </div>
+                                    <!-- end col -->
+                                    <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                         <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span><a href="list.html">Click here to see all brands</a>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                        <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                                            <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span><a href="list.html">Click here to see all brands</a>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                 </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                    </div><!-- end row -->
-                    <!-- End Form Layout -->
-                </div> <!-- container-fluid -->
-            </div><!-- End Page-content -->
-        </div>
+                            </div>
+                        </div>
+                    </form><!-- End Custom Styled Validation -->
+                </div>
+            </div>
+        </section> 
 
 
     </main><!-- End #main -->
@@ -184,12 +172,13 @@
                 data: data,
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    $('#errorMessage').hide('fast');
-                    $("#successMessage").show();
-                },
+                    $('#errorMessage').hide('fast'); 
+                        $("#successMessage").show();
+                        $("#zxcv").html("your brand update successfully")},
                 error: function (data) {
-                    $("#errorMessage").show();
-
+                    $("#successMessage").hide('fast');
+                        $("#errorMessage").show();
+                        $("#asdf").html(data.statusText)
                 },
             })
         });

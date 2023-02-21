@@ -187,13 +187,7 @@
                     url: `http://localhost:5041/api/Vaccine/${ids}`,
                     
                      success:function(data) {
-                        // alert("your selected data deleted");
-                        //  if (data==1) {
-                        //      $("#error-message").html("Can't Delete Record.").slideDown();
-                        //      $("#success-message").slideUp();
-                        //  }else{
-                        //      $(ele).closest("tr").fadeOut();
-                        //  }
+                        
                         console.log(data)
                         $("#errorMessage").hide('fast');
                         $("#successMessage").show();
@@ -201,17 +195,10 @@
                         $(ele).closest("tr").fadeOut();
                      },
                      error: function(data) {
-    //   var err = eval("(" + xhr.responseText + ")");
-    //   console.log(err.Message);
-    //   console.log('xhr: ');
-    //   console.log(xhr);
-    //   console.log('status: ' + status);
-    //   console.log('error: ' + error);
     console.log(data)
     $("#successMessage").hide('fast');
     $("#errorMessage").show();
     $("#asdf").html(data.responseText)
-   // alert(data.responseText)
     },
                  })
                     } else {

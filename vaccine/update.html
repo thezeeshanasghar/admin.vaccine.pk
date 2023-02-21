@@ -76,12 +76,9 @@
                                 <!-- Custom Styled Validation -->
                                 <div class="row mb-3">
                                     <label for="name" class="form-label">Vaccine Name</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-12">
                                         <div class="input-group has-validation">
                                         <input type="text" class="form-control" name='name' id="name" required>
-                                        <div class="invalid-feedback">
-                                            Please Enter The Vaccine Name
-                                        </div>
                                     </div>
                                     </div>
                                 </div>
@@ -104,14 +101,14 @@
                                     </div>
                                 </div><!-- end row -->
                                 <div class="col-12">
-                                    <input class="btn btn-primary" name='submit' type="submit">
+                                    <input class="btn btn-primary" name='submit' value="Update" type="submit">
 
                                 </div>
                                         <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
-                                             <i class="bi bi-check-circle me-1"></i>your vaccine update successfully     <a href="list.html">Click here to see all vaccine</a>
+                                             <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>    <a href="list.html">Click here to see all vaccine</a>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                             <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                 <i class="bi bi-exclamation-octagon me-1"></i>Something went wrong    <a href="list.html">Click here to see all vaccine</a>
+                                                 <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"> </span>    <a href="list.html">Click here to see all vaccine</a>
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                              
                                 </div>
@@ -187,7 +184,7 @@
         // document.getElementById("infinite").value = para4;
         $(document).on("click", ".btn-primary", function (e) {
             e.preventDefault();
-            var data = JSON.stringify({ "id": para1, "Name": $("#name").val(), "MinAge": parseInt($("#minAge").val()), "MinGap": parseInt($("#minGap").val()) })
+            var data = JSON.stringify({ "id": para1, "Name": $("#name").val(), "IsSpecial": $("#isSpecial").is(':checked')? true:false,"Infinite": $("#infinite").is(":checked")? true:false })
             console.log('successupdate');
 
             console.log(data);
@@ -200,11 +197,12 @@
                 success: function (data) {
                     $('#errorMessage').hide('fast');
                     $("#successMessage").show();
-
+                    $("#zxcv").html("your vaccine update successfully")
                 },
                 error: function (data) {
                     $("#successMessage").hide('fast');
                     $("#errorMessage").show();
+                    $("#asdf").html(data.statusText)
                 },
             })
         });

@@ -166,26 +166,21 @@
                     url: `http://localhost:5041/api/Brand/${ids}`,
                     
                      success:function(data) {
-                        // alert("your selected data deleted");
-                        //  if (data==1) {
-                        //      $("#error-message").html("Can't Delete Record.").slideDown();
-                        //      $("#success-message").slideUp();
-                        //  }else{
-                        //      $(ele).closest("tr").fadeOut();
-                        //  }
                         $("#errorMessage").hide('fast');
                         $("#successMessage").show();
                         $("#zxcv").html("Your selected brand deleted successfully")
                         $(ele).closest("tr").fadeOut();
-                        
-                     }
+                     },
+                     error: function(data) {
+    console.log(data)
+    $("#successMessage").hide('fast');
+    $("#errorMessage").show();
+    $("#asdf").html(data.responseText)
+    },
                     
                  })
                  
                     } else {
-                        $("#successMessage").hide('fast');
-    $("#errorMessage").show();
-    $("#asdf").html("Your selected dose not deleted successfully")
                             $("#error-message").html("Can't Delete Record.").slideDown();
                              $("#success-message").slideUp();
                          }
