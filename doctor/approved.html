@@ -167,8 +167,7 @@
                                                     <div class="col-4 d-flex justify-content-end flex-row">
                                                         <p style="font-weight: bold; font-size: 20px; padding-right: 30px;padding-top: 10px;">Expiry</p>
                                                         <p style=" font-size: 20px; padding-right: 30px; padding-top: 10px;">23 Febuary</p>
-                                                        <i class="fa-solid fa-trash-can"
-                                                            style="font-size: 40px; color: blue;"></i>
+                                                        <i class="fa-solid fa-trash-can" href="#?action=delete&id=${text.Id}" data-id="${text.Id}" style="font-size: 40px; color: blue;"></i>
                                                     </div>
                                                     
                                                     <hr>
@@ -200,6 +199,53 @@
                   
                 });
             }
+            $(document).on("click",".fa-trash-can",function(){
+             console.log('success');
+             var ids=$(this).data("id");
+             console.log(ids);
+                var ele=this;
+                let text = "if you are sure to delete then press ok either press cancel";
+             if (confirm(text) == true) {
+             $.ajax({
+                    type: "delete",
+                    data: ids,
+                    url: `http://localhost:5041/api/Doctor/${ids}`,
+                    
+                     success:function(data) {
+                        // alert("your selected data deleted");
+                        //  if (data==1) {
+                        //      $("#error-message").html("Can't Delete Record.").slideDown();
+                        //      $("#success-message").slideUp();
+                        //  }else{
+                        //      $(ele).closest("tr").fadeOut();
+                        //  }
+                        console.log(data)
+                        $("#errorMessage").hide('fast');
+                        $("#successMessage").show();
+                        $("#zxcv").html("Your selected vaccine delete successfully")
+                        $(ele).closest("tr").fadeOut();
+                     },
+                     error: function(data) {
+    //   var err = eval("(" + xhr.responseText + ")");
+    //   console.log(err.Message);
+    //   console.log('xhr: ');
+    //   console.log(xhr);
+    //   console.log('status: ' + status);
+    //   console.log('error: ' + error);
+    console.log(data)
+    $("#successMessage").hide('fast');
+    $("#errorMessage").show();
+    $("#asdf").html(data.responseText)
+   // alert(data.responseText)
+    },
+                 })
+                    } else {
+                            $("#error-message").html("Can't Delete Record.").slideDown();
+                             $("#success-message").slideUp();
+                            
+                         }
+   
+            });
     
         </script>
        
