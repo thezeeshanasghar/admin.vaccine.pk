@@ -100,11 +100,12 @@
                                     <input class="btn btn-primary" name='submit' type="submit">
 
                                 </div>
-                                        <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> <i class="bi bi-check-circle me-1"></i>your vaccine add successfully
+                                        <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
+                                            <i class="bi bi-check-circle me-1"></i>your vaccine add successfully
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                                            <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>Something went wrong 
+                                            <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                                                <i class="bi bi-exclamation-octagon me-1"></i> <span id="asdf"></span>
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                             
                                 </div>
                             </div>
                         </div>
@@ -163,13 +164,16 @@
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
                         // alert("your vaccine add successfully");
+                        console.log(data)
                         $('#errorMessage').hide('fast'); 
                         $("#successMessage").show();
                     },
                     error:function(data){
                         //alert("error")
+                        console.log(data)
                         $("#successMessage").hide('fast');
-                        $("#errorMessage").show();                    
+                        $("#errorMessage").show();
+                        $("#asdf").html(data.statusText)                    
                     }
 
                 });
