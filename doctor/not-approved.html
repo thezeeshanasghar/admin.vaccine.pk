@@ -70,47 +70,6 @@
                 <div class="row">
                     <content class="padding">
                         <div id="not-approved-content">
-                          
-    
-                            <!-- <div id="NotApproved" class="tabcontent">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <content>
-                                            <div class="welcome-card">
-                                                <div class="row" style="padding-top: 10px;">
-                                                    <div class="col-8">
-                                                        <p>
-                                                            <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">Name</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-4 d-flex justify-content-end flex-row">
-                                                        <button type="button" class="btn btn-outline-primary btn-lg" style="border: 5px solid; height: 40px;">
-                                                            <span style="padding-bottom: 30px;">APPROVE</span> 
-                                                        </button>
-                                                        
-                                                    </div>
-                                                    
-                                                    <hr>
-    
-                                                </div>
-                                                <p style="color: dimgrey; font-size: 20px;">Email : </p>
-                                                <p style="color: dimgrey; font-size: 20px;">Number : </p>
-                                                <p style="color: dimgrey; font-size: 20px;">PMDC : </p>
-                                                <div class="row">
-                                                    <div class="col-8">
-                                                        <button type="button" class="btn btn-outline-primary btn-lg"><i class='fas fa-fingerprint'></i>
-                                                            <span class="pe-3">PERMISSIONS</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary btn-lg">
-                                                            <span class="pe-3">PATIENTS</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </content>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </content>
                 </div>
@@ -126,8 +85,8 @@
     
         <!-- Vendor JS Files -->
     
-        <script src="/https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
         <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
         <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/assets/vendor/chart.js/chart.min.js"></script>
@@ -148,40 +107,38 @@
         <script>
             function approved(approvedBool) {
                 $.get(`http://localhost:5041/api/doctor/approved/${approvedBool}`, function (data, status) {
-                    console.log(data);
                     if (approvedBool == false) {
                         $.each(data, function (val, text) {
-                            console.log(text);
                             $("#not-approved-content").append(`
-    <div id="NotApproved" class="tabcontent" style="display:block;">
-            <div class="card">
-                <div class="card-body">
-                    <content>
-                        <div class="welcome-card">
-                            <div class="row" style="padding-top: 10px;">
-                                <div class="col-8">
-                                    <p>
-                                        <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
-                                    </p>
+                                <div id="NotApproved" class="tabcontent" style="display:block;">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <content>
+                                            <div class="welcome-card">
+                                                <div class="row" style="padding-top: 10px;">
+                                                    <div class="col-8">
+                                                        <p>
+                                                            <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-4 d-flex justify-content-end flex-row">
+                                                        <button type="button" class="btn btn-outline-primary btn-lg" style="border: 5px solid; height: 40px;" onclick="approved_button(${text.Id})">
+                                                            <span style="padding-bottom: 30px;">APPROVE</span> 
+                                                        </button>
+                                                        
+                                                    </div>
+                                                    
+                                                    <hr>
+                        
+                                                </div>
+                                                <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email}</p>
+                                                <p style="color: dimgrey; font-size: 20px;">Number : ${text.MobileNumber} </p>
+                                                <p style="color: dimgrey; font-size: 20px;">PMDC :${text.PMDC} </p>
+                                            </div>
+                                        </content>
+                                    </div>
                                 </div>
-                                <div class="col-4 d-flex justify-content-end flex-row">
-                                    <button type="button" class="btn btn-outline-primary" style="border: 5px solid; text:center;display: flex;height: 40px;" onclick="approved_button(${text.Id})">
-                                        <span style="display:flex">APPROVE</span> 
-                                    </button>
-                                    
-                                </div>
-                                
-                                <hr>
-    
-                            </div>
-                            <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email}</p>
-                            <p style="color: dimgrey; font-size: 20px;">Number : ${text.MobileNumber} </p>
-                            <p style="color: dimgrey; font-size: 20px;">PMDC :${text.PMDC} </p>
-                        </div>
-                    </content>
-                </div>
-            </div>
-        </div>`
+                            </div>`
                             );
     
                         }
@@ -204,9 +161,9 @@
     
                 $.ajax({
                     type: 'PATCH',
-                    url: `http://localhost:5041/api/doctor/${Id}`,
+                    url: `http://localhost:5041/api/doctor/notapproved/${Id}`,
                     data: JSON.stringify(patch),
-                    processData: false,
+                    processData: true,
                     contentType: 'application/json',
                     success: function (data) {
                         window.location.assign("./approved.html")
@@ -214,6 +171,9 @@
     
     
                 });
+ 
+                
+                            
             };
     
     

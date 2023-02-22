@@ -174,39 +174,18 @@
             $.get(
                 "http://localhost:5041/api/dose",
                 function (data, status) {
-                    console.log(data);
-                    var prevDate, i=0, j=0,prevVac ,resultDate;
-                    $.each(data, function (val, text) {
-                        debugger;
-                        resultDate = new Date();
-                        if(i != 0) {
-                            resultDate = new Date(resultDate.setDate(prevDate.getDate() + text.MinGap));
-                        }
-                        if(prevVac!=text.VaccineId){
-                            i=0;
-                            resultDate = new Date();
-                        }
-                        finalData.push({
-                            "VaccineId":"" + text.VaccineId + "",
-                            "dose_name":text.Name,
-                            "date":resultDate,
-                        });
-                        prevDate=resultDate;
-                        i++;
-                        j++;
-                        prevVac=text.VaccineId
-                        
-                    });
+                    finalData = data;
                     console.log(finalData);
 
                     $.each(finalData, function(key, value){
-                        var dateText = new Date(value.date).toLocaleDateString().replaceAll(' ', '');
+                        var dateText = new Date(value.DoseDate).toLocaleDateString().replaceAll(' ', '');
                         //console.log(new Date(value.date))
                         if(!$('#div' + dateText.replaceAll('/', '')).length){
                             $("#schedule").append(`
                         <div class="card">
                                 <div class="card-header">
-                                    <span style="font-weight: normal;padding-left: 10px; font-size: 10px;">Date :${dateText}</span>    
+                                    <span style="font-weight: normal;padding-left: 10px; font-size: 10px;">Date :${dateText}</span> 
+                                    <input type="date" id="calender" name="calender">   
                                 </div>
                                 <div class="card-body" id="div`+dateText.replaceAll('/', '')+`">
                                     <div class="welcome-card"></div>
@@ -217,7 +196,7 @@
                         }
 
                         $('#div' + dateText.replaceAll('/', '') + ' .welcome-card').append(`
-                            <p style="color: rgb(8, 5, 5); font-size: 20px;">${value.dose_name} </p>
+                            <p style="color: rgb(8, 5, 5); font-size: 20px;">${value.Name} </p>
                         `);
 
                     });
