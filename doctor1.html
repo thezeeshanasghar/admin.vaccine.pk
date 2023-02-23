@@ -102,6 +102,12 @@
                                     <section class="section dashboard">
                                         <div class="row">
                                             <content class="padding">
+                                                <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
+                                                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                                   <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                                                       <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
+                                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                                 <div id=approved-content>
                                                 </div>
                                             </content>
@@ -112,6 +118,12 @@
                                     <section class="section dashboard">
                                         <div class="row">
                                             <content class="padding">
+                                                <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
+                                                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                                   <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                                                       <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
+                                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                                 <div id="not-approved-content">
 
                                                 </div>
@@ -192,8 +204,8 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
+            // document.getElementById(cityName).style.display = "block";
+             evt.currentTarget.className += " active";
         }
         function approved() {
             $.get(`http://localhost:5041/api/Doctor/approved/${true}`, function (data, status) {
@@ -212,9 +224,8 @@
                                         </div>
                                         <div class="col-4 d-flex justify-content-end flex-row">
                                             <p style="font-weight: bold; font-size: 20px; padding-right: 30px;padding-top: 10px;">Expiry</p>
-                                            <p style=" font-size: 20px; padding-right: 30px; padding-top: 10px;">23 Febuary</p>
-                                            <i class="fa-solid fa-trash-can"
-                                                style="font-size: 40px; color: blue;"></i>
+                                            <p style=" font-size: 20px; padding-right: 30px; padding-top: 10px;">28 February</p>
+                                            <i class="fa-solid fa-trash-can" data-id="${text.Id}" style="font-size: 40px; color: blue;"></i>
                                         </div>
                                         
                                         <hr>
@@ -245,9 +256,9 @@
                 console.log(data);
                 $.each(data, function (val, text) {
                     console.log(text);
-                    $("#approved-content").append(`
+                    $("#not-approved-content").append(`
                     <div id="NotApproved" class="tabcontent" style="display:block;">
-                        <content>
+                        <content id="data">
                             <div class="welcome-card">
                                 <div class="row" style="padding-top: 10px;">
                                     <div class="col-8">
@@ -281,6 +292,8 @@
 
         function approved_button(Id) {
              console.log(Id);
+             var ele=this;
+             $(ele).closest("#NotApproved").hide('fast');
             var patch = [
                 { "op": "replace", "path": "Isapproved", "value": "true" },
             ]
@@ -291,8 +304,19 @@
                 processData: false,
                 contentType: 'application/json',
                 success: function (data) {
-                    window.location.assign("./approved.html")
-                }
+                    // window.location.assign("./approved.html")
+                    //$(content).fadeOut();
+                    $(ele).closest("#NotApproved").fadeOut();
+                    $("#errorMessage").hide('fast');
+                       $("#successMessage").show();
+                       $("#zxcv").html("Your selected doctor approved successfully")
+                },
+                error: function(data) {
+                    console.log(data)
+                    $("#successMessage").hide('fast');
+                    $("#errorMessage").show();
+                    $("#asdf").html(data.responseText)
+                   },
             });
         };
 
@@ -311,8 +335,8 @@
                        console.log(data)
                        $("#errorMessage").hide('fast');
                        $("#successMessage").show();
-                       $("#zxcv").html("Your selected vaccine delete successfully")
-                       $(ele).closest("tr").fadeOut();
+                       $("#zxcv").html("Your selected doctor delete successfully")
+                       $(ele).closest("#Approved").fadeOut();
                     },
                     error: function(data) {
                     console.log(data)
