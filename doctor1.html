@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Doctors</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <!-- Template Main CSS File -->
+     <link href="assets/css/style.css" rel="stylesheet"> 
+
+    <style>
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+        }
+
+        /* Style the buttons inside the tab */
+
+
+        /* Change background color of buttons on hover */
+
+
+        /* Create an active/current tablink class */
+
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+
+            border-top: none;
+        }
+    </style>
+
+    <!-- =======================================================
+  * Template Name: NiceAdmin - v2.4.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+        <iframe src="/header.html"
+            onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+    </header><!-- End Header -->
+
+    <iframe src="sidebar.html"
+        onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Doctors</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Doctors</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Doctor Approved List</h5>
+                <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
+                    <li class="nav-item flex-fill" role="presentation"> 
+                        <button class="nav-link w-100 active" id="approved" onclick="activeButton(event, 'Approved')" data-bs-toggle="tab" data-bs-target="#home-justified" type="button" role="tab" aria-controls="home" aria-selected="true">Approved</button></li>
+                        <li class="nav-item flex-fill" role="presentation"> 
+                            <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" onclick="activeButton(event, 'NotApproved')" data-bs-target="#profile-justified" type="button" role="tab" aria-controls="profile" aria-selected="false" tabindex="-1">Not approved</button></li>
+                            <!-- <li class="nav-item flex-fill" role="presentation"> 
+                                <button class="nav-link w-100" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-justified" type="button" role="tab" aria-controls="contact" aria-selected="false" tabindex="-1">Contact<</ul>/button></li> -->
+                            </ul>
+                            <div class="tab-content pt-2" id="myTabjustifiedContent">
+                                <div class="tab-pane fade show active" id="approved-justified" role="tabpanel" aria-labelledby="approved">
+                                    <section class="section dashboard">
+                                        <div class="row">
+                                            <content class="padding">
+                                                <div id=approved-content>
+                                                </div>
+                                            </content>
+                                        </div>
+                                    </section> 
+                                </div>
+                                <div class="tab-pane fade" id="profile-justified" role="tabpanel" aria-labelledby="profile-tab">
+                                    <section class="section dashboard">
+                                        <div class="row">
+                                            <content class="padding">
+                                                <div id="not-approved-content">
+
+                                                </div>
+                                            </content>
+                                        </div>
+                                    </section>    
+                                </div>
+                                     <!-- <div class="tab-pane fade" id="contact-justified" role="tabpanel" aria-labelledby="contact-tab"> Saepe animi et soluta ad odit soluta sunt. Nihil quos omnis animi debitis cumque. Accusantium quibusdam perspiciatis qui qui omnis magnam. Officiis accusamus impedit molestias nostrum veniam. Qui amet ipsum iure. Dignissimos fuga tempore dolor.</div>
+                                    </div> -->
+                                </div>
+    </div>
+    </div>
+      
+
+    </main><!-- End #main -->
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer" class="footer">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Company Name</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+            Designed by <a href="">Company Name</a>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.min.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        function activeButton(evt, cityName) {
+            if (cityName == 'Approved') {
+
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].innerHTML = "";
+                }
+
+                $(function () {
+                approved();
+            })}
+            else {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].innerHTML = "";
+                }
+
+                $(function () {
+                notapproved();
+            });
+        }
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        function approved() {
+            $.get(`http://localhost:5041/api/Doctor/approved/${true}`, function (data, status) {
+                console.log(data);
+                $.each(data, function (val, text) {
+                    console.log(text);
+                    $("#approved-content").append(`
+                        <div id="Approved" class="tabcontent" style="display: block;">
+                            <content>
+                                <div class="welcome-card">
+                                    <div class="row" style="padding-top: 10px;">
+                                        <div class="col-8">
+                                            <p>
+                                                <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-4 d-flex justify-content-end flex-row">
+                                            <p style="font-weight: bold; font-size: 20px; padding-right: 30px;padding-top: 10px;">Expiry</p>
+                                            <p style=" font-size: 20px; padding-right: 30px; padding-top: 10px;">23 Febuary</p>
+                                            <i class="fa-solid fa-trash-can"
+                                                style="font-size: 40px; color: blue;"></i>
+                                        </div>
+                                        
+                                        <hr>
+
+                                    </div>
+                                    <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email} </p>
+                                    <p style="color: dimgrey; font-size: 20px;">Number : ${text.MobileNumber}  </p>
+                                    <p style="color: dimgrey; font-size: 20px;">PMDC : ${text.PMDC}  </p>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <button type="button" class="btn btn-outline-primary btn-lg"><i class='fas fa-fingerprint'></i>
+                                                <span class="pe-3">PERMISSIONS</span>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-primary btn-lg">
+                                                <span class="pe-3">PATIENTS</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </content>
+                        </div>` );
+                            });
+            });
+        }
+
+        function notapproved() {
+            $.get(`http://localhost:5041/api/Doctor/approved/${false}`, function (data, status) {
+                console.log(data);
+                $.each(data, function (val, text) {
+                    console.log(text);
+                    $("#approved-content").append(`
+                    <div id="NotApproved" class="tabcontent" style="display:block;">
+                        <content>
+                            <div class="welcome-card">
+                                <div class="row" style="padding-top: 10px;">
+                                    <div class="col-8">
+                                        <p>
+                                            <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-4 d-flex justify-content-end flex-row">
+                                        <button type="button" class="btn btn-outline-primary" style="border: 5px solid; text:center;display: flex;height: 40px;" onclick="approved_button(${text.Id})">
+                                            <span style="display:flex">APPROVE</span> 
+                                        </button>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email}</p>
+                                <p style="color: dimgrey; font-size: 20px;">Number : ${text.MobileNumber} </p>
+                                <p style="color: dimgrey; font-size: 20px;">PMDC :${text.PMDC} </p>
+                            </div>
+                        </content>
+                    </div>`
+                    );
+
+                });
+            });
+        }
+   
+        $(function () {
+            approved();
+          
+        });
+
+        function approved_button(Id) {
+             console.log(Id);
+            var patch = [
+                { "op": "replace", "path": "Isapproved", "value": "true" },
+            ]
+            $.ajax({
+                type: 'PATCH',
+                url: `http://localhost:5041/api/Doctor/notapproved/${Id}`,
+                data: JSON.stringify(patch),
+                processData: false,
+                contentType: 'application/json',
+                success: function (data) {
+                    window.location.assign("./approved.html")
+                }
+            });
+        };
+
+        $(document).on("click",".fa-trash-can",function(){
+            console.log('success');
+            var ids=$(this).data("id");
+            console.log(ids);
+               var ele=this;
+               let text = "if you are sure to delete then press ok either press cancel";
+            if (confirm(text) == true) {
+            $.ajax({
+                   type: "delete",
+                   data: ids,
+                   url: `http://localhost:5041/api/Doctor/${ids}`,
+                    success:function(data) {
+                       console.log(data)
+                       $("#errorMessage").hide('fast');
+                       $("#successMessage").show();
+                       $("#zxcv").html("Your selected vaccine delete successfully")
+                       $(ele).closest("tr").fadeOut();
+                    },
+                    error: function(data) {
+                    console.log(data)
+                    $("#successMessage").hide('fast');
+                    $("#errorMessage").show();
+                    $("#asdf").html(data.responseText)
+                   },
+                })
+                   }
+                   else {
+                           $("#error-message").html("Can't Delete Record.").slideDown();
+                            $("#success-message").slideUp();           
+                        }
+           });
+    </script>
+</body>
+
+</html>

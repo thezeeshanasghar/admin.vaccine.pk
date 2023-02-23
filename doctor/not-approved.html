@@ -102,9 +102,7 @@
             $(function () {
                 approved(false);
             });
-        </script>
-        
-        <script>
+       
             function approved(approvedBool) {
                 $.get(`http://localhost:5041/api/doctor/approved/${approvedBool}`, function (data, status) {
                     if (approvedBool == false) {
@@ -150,9 +148,7 @@
                 });
             }
     
-        </script>
-        
-        <script>
+       
             function approved_button(Id) {
                 console.log(Id);
                 var patch = [
