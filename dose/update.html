@@ -100,9 +100,11 @@
                                     </div><!--end col -->
                                      <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
                                          <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
+                                         <a href="list.html">Click here to see all dose</a>
                                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                         <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
                                             <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
+                                            <a href="list.html">Click here to see all dose</a>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                 </div><!--end row -->
                             </div>
@@ -182,11 +184,12 @@
                 success: function (data) {
                     $('#errorMessage').hide('fast');
                     $("#successMessage").show();
-
+                    $("#zxcv").html("your dose update successfully. ")
                 },
                 error: function (data) {
                     $("#successMessage").hide('fast');
                     $("#errorMessage").show();
+                    $("#asdf").html(data.statusText)
                 },
             })
         });

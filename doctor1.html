@@ -118,11 +118,11 @@
                                     <section class="section dashboard">
                                         <div class="row">
                                             <content class="padding">
-                                                <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
-                                                    <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
+                                                <div id="successMessage1" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    <i class="bi bi-check-circle me-1"></i><span id="zxcv1"></span>
                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                                                   <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
-                                                       <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
+                                                   <div id="errorMessage1" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                                                       <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf1"></span>
                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                                 <div id="not-approved-content">
 
@@ -246,7 +246,8 @@
                                     </div>
                                 </div>
                             </content>
-                        </div>` );
+                        </div>
+                       ` );
                             });
             });
         }
@@ -278,8 +279,8 @@
                                 <p style="color: dimgrey; font-size: 20px;">PMDC :${text.PMDC} </p>
                             </div>
                         </content>
-                    </div>`
-                    );
+                    </div>
+                    `);
 
                 });
             });
@@ -304,18 +305,20 @@
                 processData: false,
                 contentType: 'application/json',
                 success: function (data) {
-                    // window.location.assign("./approved.html")
+                     //$window.location.assign("#approved")
+                     location.reload();
                     //$(content).fadeOut();
-                    $(ele).closest("#NotApproved").fadeOut();
-                    $("#errorMessage").hide('fast');
-                       $("#successMessage").show();
-                       $("#zxcv").html("Your selected doctor approved successfully")
+                    // $(ele).closest("#NotApproved").fadeOut();
+                    $("#NotApproved").hide();
+                    $("#errorMessage1").hide('fast');
+                       $("#successMessage1").show();
+                       $("#zxcv1").html("Your selected doctor approved successfully")
                 },
                 error: function(data) {
                     console.log(data)
-                    $("#successMessage").hide('fast');
-                    $("#errorMessage").show();
-                    $("#asdf").html(data.responseText)
+                    $("#successMessage1").hide('fast');
+                    $("#errorMessage1").show();
+                    $("#asdf1").html(data.responseText)
                    },
             });
         };
