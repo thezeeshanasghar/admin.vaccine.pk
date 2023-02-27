@@ -114,6 +114,30 @@
                 </div>
             </div>
         </section>
+        <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Basic Modal
+                    </h5> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body"> 
+                if you are sure to delete vaccine then press ok either press cancel 
+            </div>
+                <div class="modal-footer"> 
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancel
+                    </button> 
+                    <button class="btn btn-primary">
+                        Ok
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     </main>
     <!-- End #main -->
 
@@ -166,21 +190,30 @@
                             <td><a href="/brand/add.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add</a></td>
                             <td>${text.DoseCount}</td>
                             <td><a href="/dose/add.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add</a></td>
-                            <td><a href="#?action=delete&id=${text.vaccine.Id}" data-id="${text.vaccine.Id}" class="btn btn-danger">Delete</a></td>
+                            <td><a class="btn btn-danger" href="#?action=delete&id=${text.vaccine.Id}&id1=${text.vaccine.Name}" data-id="${text.vaccine.Id}">Delete</a></td>
                             <td><a href="/vaccine/update.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}" class="btn btn-primary">Update</a></td>
-                        </tr>
+                            </tr>
                             `);
                     });
                 }
             );
         });
+
+        // $(document).on("click", ".btn-danger", function () {
+        //     $('#basicModal').modal('show');
+        //     var myBookId = $(this).data('id');
+        //     console.log(myBookId);
+        // });
         $(document).on("click",".btn-danger",function(){
              console.log('success');
+             $('#basicModal').modal('show');
              var ids=$(this).data("id");
              console.log(ids);
                 var ele=this;
-                let text = "if you are sure to delete then press ok either press cancel";
-                         if (confirm(text) == true) {
+                //let text = "if you are sure to delete then press ok either press cancel";
+                  //       if (confirm(text) == true) {
+                    $(document).on("click",".btn-primary",function(){
+                        $('#basicModal').modal("hide");
                 $.ajax({
                     type: "delete",
                     data: ids,
@@ -188,27 +221,31 @@
                     
                      success:function(data) {
                         
-                        console.log(data)
+                        // console.log(data)
                         $("#errorMessage").hide('fast');
                         $("#successMessage").show();
                         $("#zxcv").html("Your selected vaccine delete successfully")
                         $(ele).closest("tr").fadeOut();
                      },
                      error: function(data) {
-    console.log(data)
-    $("#successMessage").hide('fast');
-    $("#errorMessage").show();
-    $("#asdf").html(data.responseText)
-    },
+                        console.log(data)
+                        $("#successMessage").hide('fast');
+                        $("#errorMessage").show();
+                        $("#asdf").html(data.responseText)
+                        },
                  })
-                    } else {
-                            $("#error-Message").html("Can't Delete Record.").slideDown();
-                             $("#success-Message").slideUp();
+                })
+                    // } else {
+                    //         $("#error-Message").html("Can't Delete Record.").slideDown();
+                    //          $("#success-Message").slideUp();
                             
-                         }
+                    //      }
    
         });
-
+//         $('#modal-6').on('show.bs.modal', function(e) {
+//     var id = $(e.relatedTarget).data('id');
+//     alert(id);
+//   });
     </script>
 </body>
 

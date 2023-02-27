@@ -99,6 +99,30 @@
                 </div>
             </div>
         </section>
+        <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Basic Modal
+                    </h5> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body"> 
+                if you are sure to delete brand then press ok either press cancel 
+            </div>
+                <div class="modal-footer"> 
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancel
+                    </button> 
+                    <button class="btn btn-primary">
+                        Ok
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     </main>
     <!-- End #main -->
 
@@ -155,11 +179,14 @@
         });
         $(document).on("click",".btn-danger",function(){
              console.log('success');
+             $('#basicModal').modal('show');
              var ids=$(this).data("id");
              console.log(ids);
                 var ele=this;
-                let text = "if you are sure to delete then press ok either press cancel";
-                         if (confirm(text) == true) {
+                // let text = "if you are sure to delete then press ok either press cancel";
+                //          if (confirm(text) == true) {
+                    $(document).on("click",".btn-primary",function(){
+                        $('#basicModal').modal("hide");
                 $.ajax({
                     type: "delete",
                     data: ids,
@@ -179,11 +206,11 @@
     },
                     
                  })
-                 
-                    } else {
-                            $("#error-message").html("Can't Delete Record.").slideDown();
-                             $("#success-message").slideUp();
-                         }
+                })
+                    // } else {
+                    //         $("#error-message").html("Can't Delete Record.").slideDown();
+                    //          $("#success-message").slideUp();
+                    //      }
         });
 
     </script>
