@@ -86,7 +86,7 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
-        <div class="card" style="width:50%;">
+        <div class="card" style="width:72%;">
             <div class="card-body" >
                 <h5 class="card-title">Doctor Approved List</h5>
                 <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
@@ -141,13 +141,13 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title">
-                                            Basic Modal
+                                            Delete Doctor
                                         </h5> 
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                     </button>
                                 </div>
                                 <div class="modal-body"> 
-                                    if you are sure to delete brand then press ok either press cancel 
+                                    if you are sure to delete doctor then press ok either press cancel 
                                 </div>
                                     <div class="modal-footer"> 
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -225,10 +225,10 @@
             }
             tablinks = document.getElementsByClassName("tablinks");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                tablinks[i].className = tablinks[i].className.replace("active", "");
             }
             // document.getElementById(cityName).style.display = "block";
-             evt.currentTarget.className += " active";
+             evt.currentTarget.className += "active";
         }
         function approved() {
             $.get(`http://localhost:5041/api/Doctor/approved/${true}`, function (data, status) {
@@ -246,7 +246,7 @@
                                             </p>
                                         </div>
                                         <div class="col-4 d-flex justify-content-end flex-row">
-                                            <h6 style="font-weight: bold; font-size: 20px; padding-right: px;padding-top: 20px;">Expiry: </h6>
+                                            <h6 style="font-weight: bold; font-size: 20px; padding-right: 1px;padding-top: 20px;">Expiry: </h6>
                                             <input type="date" class="form-control">
                                             <i class="fa-solid fa-trash-can"  data-id="${text.Id}" style="font-size: 40px;padding:10px; color: blue;"></i>
                                         </div>
