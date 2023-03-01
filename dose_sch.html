@@ -55,38 +55,15 @@
 
 
         <main id="main" class="main">
-
-    
+            
+          
+            <button class="btn btn-primary" id="save">Save Schedule</button>
+            <button class="btn btn-primary" id="get">get Schedule</button>
+            
             <section class="section dashboard">
                 <div class="row">
                     <content class="padding">
                         <div id="schedule">
-                          
-    
-                          
-                            <!-- <div class="card">
-                                <div class="card-body">
-                                    
-                                    <div class="welcome-card">
-                                        <div class="row" style="padding-top: 10px;">
-                                            <div class="col-8">
-                                                <p>
-                                                    <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">Date : today</span>
-                                                </p>
-                                            </div>
-                                            
-                                            
-                                            <hr>
-
-                                        </div>
-                                        <p style="color: rgb(8, 5, 5); font-size: 20px;">dose 1 : </p>
-                                        <p style="color: rgb(2, 1, 1); font-size: 20px;">dose 2 : </p>
-                                        <p style="color: rgb(5, 3, 3); font-size: 20px;">dose 3 : </p>
-                                        
-                                    </div>
-                                    
-                                </div>
-                            </div> -->
                             
                         </div>
                     </content>
@@ -116,76 +93,57 @@
     
         <!-- Template/ Main JS File -->
         <script src="/assets/js/main.js"></script>
-       
-        
-        <!-- <script>
-            function approved(approvedBool) {
-                $.get(`http://localhost:5041/api/doctor/approved/${approvedBool}`, function (data, status) {
-                    console.log(data);
-                    if (approvedBool == false) {
-                        $.each(data, function (val, text) {
-                            console.log(text);
-                            $("#schedule").append(`
-    <div id="NotApproved">
-            <div class="card">
-                <div class="card-body">
-                    <content>
-                        <div class="welcome-card">
-                            <div class="row" style="padding-top: 10px;">
-                                <div class="col-8">
-                                    <p>
-                                        <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
-                                    </p>
-                                </div>
-                                <div class="col-4 d-flex justify-content-end flex-row">
-                                    <button type="button" class="btn btn-outline-primary btn-lg" style="border: 5px solid; height: 40px;" onclick="approved_button(${text.Id})">
-                                        <span style="padding-bottom: 30px;">APPROVE</span> 
-                                    </button>
-                                    
-                                </div>
-                                
-                                <hr>
+        <!-- <script type="text/javascript">
+           
     
-                            </div>
-                            <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email}</p>
-                            <p style="color: dimgrey; font-size: 20px;">Number : ${text.MobileNumber} </p>
-                            <p style="color: dimgrey; font-size: 20px;">PMDC :${text.PMDC} </p>
-                        </div>
-                    </content>
-                </div>
-            </div>
-        </div>`
-                            );
-    
-                        }
-                        );
-                    }
-                   
-                       
-                    
+        $(function () {
+            $("#myform").submit(function (e) {
+                e.preventDefault();
+             
+                $.ajax({
+                    type: "get",
+                    url: "http://localhost:5041/post_doseSchedule",
+                    dataType: "json",
+                    data: data,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        alert("your vaccine add successfully");
+                      
+                    },
+                  
+
                 });
-            }
-    
+             
+
+            });
+        });
         </script> -->
-
-        <script type="text/javascript">
-            $(function () {
-            var finalData = [];
-            $.get(
-                "http://localhost:5041/api/dose",
-                function (data, status) {
+        <script>
+            $(document).ready(function(){
+              $("#save").click(function(){
+                $.get("http://localhost:5041/post_doseSchedule", function(data, status){
+                  alert("Data: ");
+                });
+              });
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+              $("#get").click(function(){
+                var finalData = [];
+                $.get("http://localhost:5041/api/DoseSchedule", function(data, status){
                     finalData = data;
-                    console.log(finalData);
-
                     $.each(finalData, function(key, value){
-                        var dateText = new Date(value.DoseDate).toLocaleDateString().replaceAll(' ', '');
-                        //console.log(new Date(value.date))
+                        var dateText = new Date(value.Date).toLocaleDateString().replaceAll(' ', '');
                         if(!$('#div' + dateText.replaceAll('/', '')).length){
                             $("#schedule").append(`
                         <div class="card">
                                 <div class="card-header">
                                     <span style="font-weight: normal;padding-left: 10px; font-size: 10px;">Date :${dateText}</span> 
-                                    <input type="date" id="calender" name="calender">   
+                                    <form id=myformGroup>
+                                        <input type="date" id="dates${value.Id}" name="calender" value="" onchange=calender_button(${value.Id},${JSON.stringify(value.Date)})>   
+                                    </form>
+                                    
                                 </div>
                                 <div class="card-body" id="div`+dateText.replaceAll('/', '')+`">
                                     <div class="welcome-card"></div>
@@ -196,17 +154,75 @@
                         }
 
                         $('#div' + dateText.replaceAll('/', '') + ' .welcome-card').append(`
-                            <p style="color: rgb(8, 5, 5); font-size: 20px;">${value.Name} </p>
+                            <p style="color: rgb(8, 5, 5); font-size: 20px;">${value.Dose.Name} </p>
+                            <form id=myform>
+                                <input type="date" id="date${value.Dose.Id}" name="calender" value="" onchange=approved_button(${value.Dose.Id})>   
+                            </form>
                         `);
 
                     });
                   
                     
-                }
-            );
+                });
+              });
+            });
+        </script>
+     
+       
+        
+
+
+        <script>
+         
+             function calender_button(Id, valueDate) {
+                //value = JSON.parse(value);
+              var date=new Date($('#dates'+Id).val());
+              debugger
+            
+              
+              var patch = [
+                    { "op": "replace", "path": "Date","from":valueDate,"value": date },
+                ]
+                
+                $.ajax({
+                    type: 'PATCH',
+                    url: `http://localhost:5041/api/DoseSchedule/updateDate/${valueDate}`,
+                    data: JSON.stringify(patch),
+                    processData: true,
+                    contentType: 'application/json',
+                    success: function (data) {
+                        window.location.assign('/dose_sch.html')
+                    }
+                });                 
+            };
+        </script>
+        <script>
+            $('#myformGroup').submit(function (e) {
+                e.preventDefault();
         });
-    
-    
+        </script>
+        <script>
+            function approved_button(Id) {
+             var date=new Date($('#date'+Id).val());
+             var Params = JSON.stringify({ "DoseId": Id, "Date":  date})
+               $.ajax({
+                   type: 'PATCH',
+                   url: 'http://localhost:5041/api/DoseSchedule/',
+                   data: Params,
+                   processData: true,
+                   contentType: 'application/json',
+                   success: function (data) {
+                    window.location.assign('/dose_sch.html')
+                       
+                   }
+               });                  
+           };
+       </script>
+
+        <script>
+            $('#myform').submit(function (e) {
+                e.preventDefault();
+        });
         </script>
     
     
