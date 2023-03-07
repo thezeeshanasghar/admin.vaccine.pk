@@ -163,7 +163,7 @@
     <script type="text/javascript">
         $(function () {
             $.get(
-                "http://localhost:5041/alldoses",
+                "https://myapi.fernflowers.com/alldoses",
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
@@ -197,7 +197,7 @@
                 $.ajax({
                     type: "delete",
                     data: ids,
-                    url: `http://localhost:5041/api/Dose/${ids}`,
+                    url: `https://myapi.fernflowers.com/Dose/${ids}`,
                     
                      success:function(data) {
                         $("#errorMessage").hide('fast');

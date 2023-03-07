@@ -160,7 +160,7 @@
     <script type="text/javascript">
         $(function () {
             $.get(
-                "http://localhost:5041/api/brand",
+                "https://myapi.fernflowers.com/brand",
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
@@ -190,7 +190,7 @@
                 $.ajax({
                     type: "delete",
                     data: ids,
-                    url: `http://localhost:5041/api/Brand/${ids}`,
+                    url: `https://myapi.fernflowers.com/Brand/${ids}`,
                     
                      success:function(data) {
                         $("#errorMessage").hide('fast');
