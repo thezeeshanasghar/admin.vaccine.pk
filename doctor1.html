@@ -86,7 +86,7 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
-        <div class="card" style="width:72%;">
+        <div class="card" style="width:57%;">
             <div class="card-body" >
                 <h5 class="card-title">Doctor Approved List</h5>
                 <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
@@ -331,8 +331,12 @@
                     //$(content).fadeOut();
                     // $(ele).closest("#NotApproved").fadeOut();
                     $("#NotApproved").hide();
+
                     $("#errorMessage1").hide('fast');
-                       $("#successMessage1").show();
+                    //    $("#successMessage1").show();
+                       $("#successMessage1").show().delay(5000).queue(function(n) {
+                        $(this).hide(); n();
+                         });
                        $("#zxcv1").html("Your selected doctor approved successfully")
                 },
                 error: function(data) {
