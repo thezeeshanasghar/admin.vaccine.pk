@@ -87,7 +87,9 @@
                     <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
                     </div>
+                    <p id="error-message"></p>
                   </form>
+
 
                 </div>
               </div>
@@ -135,14 +137,16 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script type="text/javascript">
+    const errorMessage = document.getElementById('error-message');
     $(function () {
         $("#myform").submit(function (e) {
             e.preventDefault();
      
             var data = { MobileNumber: parseInt($("#mobileNumber").val()), Password: $("#password").val() }
             
-            console.log(data);
+            
             if (data.MobileNumber==1 && data.Password==123){
+              sessionStorage.setItem('login', true);
               window.location.assign("/index.html")
               
             }

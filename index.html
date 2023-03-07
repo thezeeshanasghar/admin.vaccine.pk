@@ -723,7 +723,15 @@
   <script src="/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js">
+    
+  </script>
+  <script type="text/javascript">
+    if (sessionStorage.getItem('login') !== 'true') {
+	  // If the user is not logged in, redirect them to the login page
+	  window.location.href = 'login.html';
+    }
+  </script>
 
 </body>
 
