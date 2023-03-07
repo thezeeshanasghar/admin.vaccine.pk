@@ -86,7 +86,7 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
-        <div class="card" style="width:72%;">
+        <div class="card" style="width:57%;">
             <div class="card-body" >
                 <h5 class="card-title">Doctor Approved List</h5>
                 <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
@@ -231,7 +231,7 @@
              evt.currentTarget.className += "active";
         }
         function approved() {
-            $.get(`http://localhost:5041/api/Doctor/approved/${true}`, function (data, status) {
+            $.get(`https://myapi.fernflowers.com/api/Doctor/approved/${true}`, function (data, status) {
                 console.log(data);
                 $.each(data, function (val, text) {
                     console.log(text);
@@ -274,7 +274,7 @@
         }
 
         function notapproved() {
-            $.get(`http://localhost:5041/api/Doctor/approved/${false}`, function (data, status) {
+            $.get(`https://myapi.fernflowers.com/api/Doctor/approved/${false}`, function (data, status) {
                 console.log(data);
                 $.each(data, function (val, text) {
                     console.log(text);
@@ -321,7 +321,7 @@
             ]
             $.ajax({
                 type: 'PATCH',
-                url: `http://localhost:5041/api/Doctor/notapproved/${Id}`,
+                url: `https://myapi.fernflowers.com/api/Doctor/notapproved/${Id}`,
                 data: JSON.stringify(patch),
                 processData: false,
                 contentType: 'application/json',
@@ -331,8 +331,12 @@
                     //$(content).fadeOut();
                     // $(ele).closest("#NotApproved").fadeOut();
                     $("#NotApproved").hide();
+
                     $("#errorMessage1").hide('fast');
-                       $("#successMessage1").show();
+                    //    $("#successMessage1").show();
+                       $("#successMessage1").show().delay(5000).queue(function(n) {
+                        $(this).hide(); n();
+                         });
                        $("#zxcv1").html("Your selected doctor approved successfully")
                 },
                 error: function(data) {
@@ -358,7 +362,7 @@
             $.ajax({
                    type: "delete",
                    data: ids,
-                   url: `http://localhost:5041/api/Doctor/${ids}`,
+                   url: `https://myapi.fernflowers.com/api/Doctor/${ids}`,
                     success:function(data) {
                        console.log(data)
                        $("#errorMessage").hide('fast');

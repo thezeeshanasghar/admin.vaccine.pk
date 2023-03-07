@@ -93,8 +93,35 @@
     
         <!-- Template/ Main JS File -->
         <script src="/assets/js/main.js"></script>
-        <!-- <script type="text/javascript">
-           
+       
+        
+        <!-- <script>
+            function approved(approvedBool) {
+                $.get(`https://myapi.fernflowers.com/api/doctor/approved/${approvedBool}`, function (data, status) {
+                    console.log(data);
+                    if (approvedBool == false) {
+                        $.each(data, function (val, text) {
+                            console.log(text);
+                            $("#schedule").append(`
+    <div id="NotApproved">
+            <div class="card">
+                <div class="card-body">
+                    <content>
+                        <div class="welcome-card">
+                            <div class="row" style="padding-top: 10px;">
+                                <div class="col-8">
+                                    <p>
+                                        <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
+                                    </p>
+                                </div>
+                                <div class="col-4 d-flex justify-content-end flex-row">
+                                    <button type="button" class="btn btn-outline-primary btn-lg" style="border: 5px solid; height: 40px;" onclick="approved_button(${text.Id})">
+                                        <span style="padding-bottom: 30px;">APPROVE</span> 
+                                    </button>
+                                    
+                                </div>
+                                
+                                <hr>
     
         $(function () {
             $("#myform").submit(function (e) {
@@ -118,20 +145,13 @@
             });
         });
         </script> -->
-        <script>
-            $(document).ready(function(){
-              $("#save").click(function(){
-                $.get("http://localhost:5041/post_doseSchedule", function(data, status){
-                  alert("Data: ");
-                });
-              });
-            });
-        </script>
-        <script>
-            $(document).ready(function(){
-              $("#get").click(function(){
-                var finalData = [];
-                $.get("http://localhost:5041/api/DoseSchedule", function(data, status){
+
+        <script type="text/javascript">
+            $(function () {
+            var finalData = [];
+            $.get(
+                "https://myapi.fernflowers.com/api/dose",
+                function (data, status) {
                     finalData = data;
                     $.each(finalData, function(key, value){
                         var dateText = new Date(value.Date).toLocaleDateString().replaceAll(' ', '');
@@ -165,7 +185,7 @@
                     
                 });
               });
-            });
+           
         </script>
      
        

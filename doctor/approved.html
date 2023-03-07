@@ -151,7 +151,7 @@
     //     });
         
     //     function approved(approvedBool) {
-    //         $.get(`http://localhost:5041/api/doctor/approved/${approvedBool}`, 
+    //         $.get(`https://myapi.fernflowers.com/api/doctor/approved/${approvedBool}`, 
     //         function (data, status) {
     //             console.log(data);
     //             if (approvedBool == false) {
@@ -204,7 +204,7 @@
             ]
             $.ajax({
                 type: 'PATCH',
-                url: `http://localhost:5041/api/doctor/${Id}`,
+                url: `https://myapi.fernflowers.com/api/doctor/${Id}`,
                 data: JSON.stringify(patch),
                 processData: false,
                 contentType: 'application/json',
@@ -218,7 +218,7 @@
         //        approved(true);
         //    });
         //    function approved(approvedBool) {
-        //        $.get(`http://localhost:5041/api/doctor/approved/${approvedBool}`, 
+        //        $.get(`https://myapi.fernflowers.com/api/doctor/approved/${approvedBool}`, 
         //        function (data, status) {
         //            console.log(data);
         //            if (approvedBool == true) {
@@ -285,7 +285,7 @@
             $.ajax({
                    type: "delete",
                    data: ids,
-                   url: `http://localhost:5041/api/Doctor/${ids}`,
+                   url: `https://myapi.fernflowers.com/api/Doctor/${ids}`,
                    
                     success:function(data) {
                        console.log(data)
@@ -356,7 +356,7 @@ evt.currentTarget.className += " active";
 </script>
 <script>
 function approved() {
-$.get(`http://localhost:5041/api/Doctor/approved/${true}`, function (data, status) {
+$.get(`https://myapi.fernflowers.com/api/Doctor/approved/${true}`, function (data, status) {
     console.log(data);
     $.each(data, function (val, text) {
         console.log(text);
@@ -404,7 +404,7 @@ $.get(`http://localhost:5041/api/Doctor/approved/${true}`, function (data, statu
 }
 
 function notapproved() {
-$.get(`http://localhost:5041/api/Doctor/approved/${false}`, function (data, status) {
+$.get(`https://myapi.fernflowers.com/api/Doctor/approved/${false}`, function (data, status) {
     console.log(data);
     $.each(data, function (val, text) {
         console.log(text);
