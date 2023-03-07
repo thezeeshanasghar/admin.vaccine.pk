@@ -175,7 +175,7 @@
     <script type="text/javascript">
         $(function () {
             $.get(
-                "http://localhost:5041/api/Vaccine/vaccine-with-count",
+                "https://myapi.fernflowers.com/api/Vaccine/vaccine-with-count",
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
@@ -217,7 +217,7 @@
                 $.ajax({
                     type: "delete",
                     data: ids,
-                    url: `http://localhost:5041/api/Vaccine/${ids}`,
+                    url: `https://myapi.fernflowers.com/api/Vaccine/${ids}`,
                     
                      success:function(data) {
                         

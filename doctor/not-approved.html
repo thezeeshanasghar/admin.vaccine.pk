@@ -104,7 +104,7 @@
             });
        
             function approved(approvedBool) {
-                $.get(`http://localhost:5041/api/doctor/approved/${approvedBool}`, function (data, status) {
+                $.get(`https://myapi.fernflowers.com/api/doctor/approved/${approvedBool}`, function (data, status) {
                     if (approvedBool == false) {
                         $.each(data, function (val, text) {
                             $("#not-approved-content").append(`
@@ -157,7 +157,7 @@
     
                 $.ajax({
                     type: 'PATCH',
-                    url: `http://localhost:5041/api/doctor/notapproved/${Id}`,
+                    url: `https://myapi.fernflowers.com/api/doctor/notapproved/${Id}`,
                     data: JSON.stringify(patch),
                     processData: true,
                     contentType: 'application/json',

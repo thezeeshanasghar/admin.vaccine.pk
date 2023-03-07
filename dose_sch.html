@@ -120,7 +120,7 @@
         
         <!-- <script>
             function approved(approvedBool) {
-                $.get(`http://localhost:5041/api/doctor/approved/${approvedBool}`, function (data, status) {
+                $.get(`https://myapi.fernflowers.com/api/doctor/approved/${approvedBool}`, function (data, status) {
                     console.log(data);
                     if (approvedBool == false) {
                         $.each(data, function (val, text) {
@@ -172,7 +172,7 @@
             $(function () {
             var finalData = [];
             $.get(
-                "http://localhost:5041/api/dose",
+                "https://myapi.fernflowers.com/api/dose",
                 function (data, status) {
                     finalData = data;
                     console.log(finalData);

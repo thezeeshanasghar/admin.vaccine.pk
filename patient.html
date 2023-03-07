@@ -480,8 +480,8 @@
                 console.log(data1);
                 $.ajax({
                     type: "get",
-                    // url:`http://localhost:5041/api/Child/name?Name=${("#name").val()}&City=${("#city").val()}&DOB=2023%2F01%2F04&Gender=${("#gender").val()}`,
-                    url: `http://localhost:5041/api/Child/name?Name=${data1.Name}&City=${data1.City}&Gender=${data1.Gender}`,
+                    // url:`https://myapi.fernflowers.com/api/Child/name?Name=${("#name").val()}&City=${("#city").val()}&DOB=2023%2F01%2F04&Gender=${("#gender").val()}`,
+                    url: `https://myapi.fernflowers.com/api/Child/name?Name=${data1.Name}&City=${data1.City}&Gender=${data1.Gender}`,
                     dataType: "json",
                     data: data1,
                     contentType: "application/json; charset=utf-8",
