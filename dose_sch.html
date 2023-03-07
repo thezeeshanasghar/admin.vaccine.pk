@@ -206,7 +206,7 @@
                 
                 $.ajax({
                     type: 'PATCH',
-                    url: `http://localhost:5041/api/DoseSchedule/updateDate/${valueDate}`,
+                    url: `http://myapi.fernflowers.com/api/DoseSchedule/updateDate/${valueDate}`,
                     data: JSON.stringify(patch),
                     processData: true,
                     contentType: 'application/json',
@@ -227,7 +227,7 @@
              var Params = JSON.stringify({ "DoseId": Id, "Date":  date})
                $.ajax({
                    type: 'PATCH',
-                   url: 'http://localhost:5041/api/DoseSchedule/',
+                   url: 'http://myapi.fernflowers.com/api/DoseSchedule/',
                    data: Params,
                    processData: true,
                    contentType: 'application/json',
