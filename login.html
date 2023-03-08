@@ -145,17 +145,15 @@
             var data = { MobileNumber: parseInt($("#mobileNumber").val()), Password: $("#password").val() }
             
             
-            if (data.MobileNumber==1 && data.Password==123){
+            if (data.MobileNumber==123 && data.Password=='admin'){
               sessionStorage.setItem('login', true);
               window.location.assign("/index.html")
               
             }
             else{
-              document.getElementById("myform").reset();
+              
+              errorMessage.innerText = 'Invalid username or password';
             }
-            
-            
-
           }
         );
         
