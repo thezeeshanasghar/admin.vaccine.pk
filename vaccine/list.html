@@ -137,7 +137,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Cancel
                     </button> 
-                    <button class="btn btn-primary">
+                    <button id="ok" class="btn btn-primary">
                         Ok
                     </button>
                 </div>
@@ -193,11 +193,11 @@
                             <td>${text.vaccine.IsSpecial}</td>
                             <td>${text.vaccine.Infinite}</td>
                             <td>${text.BrandCount}</td>
-                            <td><a href="/brand/add.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add</a></td>
+                            <td><a href="/brand/add.html?action=add&id=${text.vaccine.Id}" id="addb" class="btn btn-primary">Add</a></td>
                             <td>${text.DoseCount}</td>
-                            <td><a href="/dose/add.html?action=add&id=${text.vaccine.Id}"class="btn btn-primary">Add</a></td>
-                            <td><a class="btn btn-danger" href="#?action=delete&id=${text.vaccine.Id}&id1=${text.vaccine.Name}" data-id="${text.vaccine.Id}">Delete</a></td>
-                            <td><a href="/vaccine/update.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}" class="btn btn-primary">Update</a></td>
+                            <td><a href="/dose/add.html?action=add&id=${text.vaccine.Id}" id="addd" class="btn btn-primary">Add</a></td>
+                            <td><a class="btn btn-danger" href="#?action=delete&id=${text.vaccine.Id}&id1=${text.vaccine.Name}"  data-id="${text.vaccine.Id}">Delete</a></td>
+                            <td><a href="/vaccine/update.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}" id="addu" class="btn btn-primary">Update</a></td>
                             </tr>
                             `);
                     });
