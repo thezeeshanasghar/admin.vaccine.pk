@@ -66,11 +66,11 @@
                   <form class="row g-3 needs-validation" id="myform" novalidate>
 
                     <div class="col-12">
-                      <label for="username" class="form-label">User Name</label>
+                      <label for="mobileNumber" class="form-label">Mobile Number</label>
                       <div class="input-group has-validation">
                         
-                        <input type="text" name="username" class="form-control" id="username" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="number" name="mobileNumber" class="form-control" id="mobileNumber" required>
+                        <div class="invalid-feedback">Please enter your mobile number.</div>
                       </div>
                     </div>
 
@@ -84,10 +84,15 @@
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
+
                     <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
                     </div>
-                    <p id="error-message"></p>
+                    <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>Something went wrong 
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                      <div id="donotaccount" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>Kindly contact with admin please 
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                    <!-- <p id="error-message"></p> -->
                   </form>
 
 
@@ -142,17 +147,21 @@
         $("#myform").submit(function (e) {
             e.preventDefault();
      
-            var data = { UserName: $("#username").val(), Password: $("#password").val() }
+            var data = { MobileNumber: parseInt($("#mobileNumber").val()), Password: $("#password").val() }
             
             
-            if (data.UserName=='admin' && data.Password=='admin'){
+            if (data.MobileNumber==123 && data.Password=='admin'){
               sessionStorage.setItem('login', true);
               window.location.assign("/index.html")
+              alert("wrong info")
+                    console.log("fail")
+                    document.getElementById("myform").reset();
+                    $("#donotaccount").show();
               
             }
             else{
-              
-              errorMessage.innerText = 'Invalid username or password';
+              $("#errorMessage").show();
+              // errorMessage.innerText = 'Invalid username or password';
             }
           }
         );
