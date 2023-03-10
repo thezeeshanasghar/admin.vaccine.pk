@@ -88,9 +88,9 @@
                     <div class="col-12">
                       <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
                     </div>
-                    <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>Something went wrong 
+                    <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>login successfully
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                      <div id="donotaccount" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>Kindly contact with admin please 
+                      <div id="donotaccount" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> <i class="bi bi-exclamation-octagon me-1"></i>do not have account
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                     <!-- <p id="error-message"></p> -->
                   </form>
@@ -153,14 +153,15 @@
             if (data.username=='admin' && data.Password=='admin'){
               sessionStorage.setItem('login', true);
               window.location.assign("/index.html")
-              alert("wrong info")
-                    console.log("fail")
-                    document.getElementById("myform").reset();
-                    $("#donotaccount").show();
+              
+              $("#errorMessage").show();
               
             }
             else{
-              $("#errorMessage").show();
+              // console.log("fail")
+                    // document.getElementById("myform").reset();
+                    $("#donotaccount").show();
+              
               // errorMessage.innerText = 'Invalid username or password';
             }
           }
