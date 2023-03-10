@@ -66,11 +66,11 @@
                   <form class="row g-3 needs-validation" id="myform" novalidate>
 
                     <div class="col-12">
-                      <label for="mobileNumber" class="form-label">Mobile Number</label>
+                      <label for="username" class="form-label">UserName</label>
                       <div class="input-group has-validation">
                         
-                        <input type="number" name="mobileNumber" class="form-control" id="mobileNumber" required>
-                        <div class="invalid-feedback">Please enter your mobile number.</div>
+                        <input type="text" name="username" class="form-control" id="username" required>
+                        <div class="invalid-feedback">Please enter your username.</div>
                       </div>
                     </div>
 
@@ -147,10 +147,10 @@
         $("#myform").submit(function (e) {
             e.preventDefault();
      
-            var data = { MobileNumber: parseInt($("#mobileNumber").val()), Password: $("#password").val() }
+            var data = { username: $("#username").val(), Password: $("#password").val() }
             
             
-            if (data.MobileNumber==123 && data.Password=='admin'){
+            if (data.username==admin && data.Password=='admin'){
               sessionStorage.setItem('login', true);
               window.location.assign("/index.html")
               alert("wrong info")
