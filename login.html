@@ -150,7 +150,7 @@
             var data = { username: $("#username").val(), Password: $("#password").val() }
             
             
-            if (data.username==admin && data.Password=='admin'){
+            if (data.username=='admin' && data.Password=='admin'){
               sessionStorage.setItem('login', true);
               window.location.assign("/index.html")
               alert("wrong info")
