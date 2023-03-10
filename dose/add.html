@@ -354,7 +354,6 @@
             $("#myform").submit(function (e) {
                
                 e.preventDefault();
-                debugger
                 var data = JSON.stringify({ "Name":$("#name").val(), "MinAge": parseInt($("#minAge").val()), "MinGap": parseInt($("#minGap").val()),"VaccineId":vac_id})
                 console.log(data);
                 $.ajax({
