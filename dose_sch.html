@@ -99,99 +99,59 @@
     
         <!-- Template/ Main JS File -->
         <script src="/assets/js/main.js"></script>
-       
-        
-        <!-- <script>
-            function approved(approvedBool) {
-                $.get(`https://myapi.fernflowers.com/api/doctor/approved/${approvedBool}`, function (data, status) {
-                    console.log(data);
-                    if (approvedBool == false) {
-                        $.each(data, function (val, text) {
-                            console.log(text);
-                            $("#schedule").append(`
-    <div id="NotApproved">
-            <div class="card">
-                <div class="card-body">
-                    <content>
-                        <div class="welcome-card">
-                            <div class="row" style="padding-top: 10px;">
-                                <div class="col-8">
-                                    <p>
-                                        <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
-                                    </p>
-                                </div>
-                                <div class="col-4 d-flex justify-content-end flex-row">
-                                    <button type="button" class="btn btn-outline-primary btn-lg" style="border: 5px solid; height: 40px;" onclick="approved_button(${text.Id})">
-                                        <span style="padding-bottom: 30px;">APPROVE</span> 
-                                    </button>
-                                    
-                                </div>
-                                
-                                <hr>
-    
-        $(function () {
-            $("#myform").submit(function (e) {
-                e.preventDefault();
-             
-                $.ajax({
-                    type: "get",
-                    url: "http://localhost:5041/post_doseSchedule",
-                    dataType: "json",
-                    data: data,
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-                        alert("your vaccine add successfully");
-                      
-                    },
-                  
-
-                });
-             
-
-            });
-        });
-        </script> -->
 
         <script type="text/javascript">
-            $(function () {
-            var finalData = [];
-            $.get(
-                "https://myapi.fernflowers.com/api/dose",
-                function (data, status) {
-                    finalData = data;
-                    $.each(finalData, function(key, value){
-                        var dateText = new Date(value.Date).toLocaleDateString().replaceAll(' ', '');
-                        if(!$('#div' + dateText.replaceAll('/', '')).length){
-                            $("#schedule").append(`
-                        <div class="card">
-                                <div class="card-header">
-                                    <span style="font-weight: normal;padding-left: 10px; font-size: 10px;">Date :${dateText}</span> 
-                                    <form id=myformGroup>
-                                        <input type="date" id="dates${value.Id}" name="calender" value="" onchange=calender_button(${value.Id},${JSON.stringify(value.Date)})>   
-                                    </form>
-                                    
+            $(document).ready(function(){
+              $("#get").click(function(){
+                $(function () {
+                var finalData = [];
+                $.get(
+                    "http://myapi.fernflowers.com/api/DoseSchedule",
+                    function (data, status) {
+                        finalData = data;
+                        $.each(finalData, function(key, value){
+                            var dateText = new Date(value.Date).toLocaleDateString().replaceAll(' ', '');
+                            if(!$('#div' + dateText.replaceAll('/', '')).length){
+                                $("#schedule").append(`
+                            <div class="card">
+                                    <div class="card-header">
+                                        <span style="font-weight: normal;padding-left: 10px; font-size: 10px;">Date :${dateText}</span> 
+                                        <form id=myformGroup>
+                                            <input type="date" id="dates${value.Id}" name="calender" value="" onchange=calender_button(${value.Id},${JSON.stringify(value.Date)})>   
+                                        </form>
+                                        
+                                    </div>
+                                    <div class="card-body" id="div`+dateText.replaceAll('/', '')+`">
+                                        <div class="welcome-card"></div>
+                                    </div>
                                 </div>
-                                <div class="card-body" id="div`+dateText.replaceAll('/', '')+`">
-                                    <div class="welcome-card"></div>
-                                </div>
-                            </div>
-                        
+                            
+                                `);
+                            }
+
+                            $('#div' + dateText.replaceAll('/', '') + ' .welcome-card').append(`
+                                <p style="color: rgb(8, 5, 5); font-size: 20px;">${value.Dose.Name} </p>
+                                <form id=myform>
+                                    <input type="date" id="date${value.Dose.Id}" name="calender" value="" onchange=approved_button(${value.Dose.Id})>   
+                                </form>
                             `);
-                        }
 
-                        $('#div' + dateText.replaceAll('/', '') + ' .welcome-card').append(`
-                            <p style="color: rgb(8, 5, 5); font-size: 20px;">${value.Dose.Name} </p>
-                            <form id=myform>
-                                <input type="date" id="date${value.Dose.Id}" name="calender" value="" onchange=approved_button(${value.Dose.Id})>   
-                            </form>
-                        `);
-
-                    });
-                  
+                        });
                     
+                        
+                    });
+                });
+                })
+            })
+        </script>
+        <script>
+            $(document).ready(function(){
+              $("#save").click(function(){
+                $.get("http://myapi.fernflowers.com/post_doseSchedule", function(data, status){
+                  alert("Data: ");
                 });
               });
-           
+            });
         </script>
      
        
@@ -201,11 +161,9 @@
         <script>
          
              function calender_button(Id, valueDate) {
-                //value = JSON.parse(value);
+
               var date=new Date($('#dates'+Id).val());
-              debugger
-            
-              
+
               var patch = [
                     { "op": "replace", "path": "Date","from":valueDate,"value": date },
                 ]
@@ -225,6 +183,7 @@
         <script>
             $('#myformGroup').submit(function (e) {
                 e.preventDefault();
+
         });
         </script>
         <script>
