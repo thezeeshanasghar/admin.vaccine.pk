@@ -8,7 +8,7 @@
 <html lang="en">
 
 <head>
-    <title>Vaccine</title>
+    <title>Brand</title>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -60,35 +60,26 @@
 
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Vaccines</h1>
+            <h1>Brands</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Vaccines</li>
+                    <li class="breadcrumb-item active">Brands</li>
                 </ol>
             </nav>
         </div>
         <!-- End Page Title -->
 
         <section class="section dashboard">
-            <div class="row" id="myvaccinedata">
+            <div class="row">
                 <div class="row">
                     <!-- Left side columns -->
-                    <div class="col-lg-10">
+                    <div class="col-lg-8">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card recent-sales overflow-auto">
-                                    <div class="filter">
-                                        <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
-                                                class="fa fa-plus"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                            <li>
-                                                <a class="dropdown-item" href="/vaccine/add.html">Add Vaccine</a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                     <div class="card-body">
-                                        <h5 class="card-title">Vaccine Table</h5>
+                                        <h5 class="card-title">Brand Table</h5>
                                         <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
                                             <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
                                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
@@ -100,19 +91,11 @@
                                                 <tr>
                                                     <th scope="col">Id</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">Is Special</th>
-                                                    <th scope="col">Infinite</th>
-                                                    <th scope="col">Number of Brands</th>
-                                                    <th scope="col">Add Brand</th>
-                                                    <th scope="col">Number of Doses</th>
-                                                    <th scope="col">Add Dose</th>
                                                     <th scope="col">Delete</th>
                                                     <th scope="col">Update</th>
-                                                    <th scope="col">Show Dose</th>
-                                                    <th scope="col">Show Brand</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="vaccineData"></tbody>
+                                            <tbody id="brandData"></tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -127,19 +110,19 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">
-                        Delete Vaccine
+                    Delete Brand   
                     </h5> 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>
             </div>
             <div class="modal-body"> 
-                if you are sure to delete vaccine then press ok either press cancel 
+                if you are sure to delete brand then press ok either press cancel 
             </div>
                 <div class="modal-footer"> 
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Cancel
                     </button> 
-                    <button id="ok" class="btn btn-primary">
+                    <button class="btn btn-primary">
                         Ok
                     </button>
                 </div>
@@ -183,79 +166,59 @@
     <script type="text/javascript">
         $(function () {
             $.get(
-                "https://myapi.fernflowers.com/api/Vaccine/vaccine-with-count",
+                `http://localhost:5041/${ids}`,
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
-                        console.log(text);
-                        $("#vaccineData").append(`
+                        
+                        $("#brandData").append(`
                         <tr>
-                            <td>${text.vaccine.Id}</td>
-                            <td>${text.vaccine.Name}</td>
-                            <td>${text.vaccine.IsSpecial}</td>
-                            <td>${text.vaccine.Infinite}</td>
-                            <td>${text.BrandCount}</td>
-                            <td><a href="/brand/add.html?action=add&id=${text.vaccine.Id}" id="addb" class="btn btn-primary">Add</a></td>
-                            <td>${text.DoseCount}</td>
-                            <td><a href="/dose/add.html?action=add&id=${text.vaccine.Id}" id="addd" class="btn btn-primary">Add</a></td>
-                            <td><a class="btn btn-danger" href="#?action=delete&id=${text.vaccine.Id}&id1=${text.vaccine.Name}"  data-id="${text.vaccine.Id}">Delete</a></td>
-                            <td><a href="/vaccine/update.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}" id="addu" class="btn btn-primary">Update</a></td>
-                            <td><a href="/vaccine/dlist.html?action=get&id=${text.vaccine.Id}"class="btn btn-primary">Show</a></td>
-                            <td><a href="/vaccine/blist.html?action=get&id=${text.vaccine.Id}"class="btn btn-primary">Show</a></td>
-                            </tr>
+                            <td>${text.Id}</td>
+                            <td>${text.Name}</td>
+                            <td><a href="#?action=delete&id=${text.Id}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
+                            <td><a href="/brand/update.html?action=patch&id=${text.Id}&id1=${text.Name}" class="btn btn-primary">Update</a></td>
+                        </tr>
                             `);
                     });
                 }
             );
         });
-
-        // $(document).on("click", ".btn-danger", function () {
-        //     $('#basicModal').modal('show');
-        //     var myBookId = $(this).data('id');
-        //     console.log(myBookId);
-        // });
         $(document).on("click",".btn-danger",function(){
              console.log('success');
              $('#basicModal').modal('show');
              var ids=$(this).data("id");
              console.log(ids);
                 var ele=this;
-                //let text = "if you are sure to delete then press ok either press cancel";
-                  //       if (confirm(text) == true) {
+                // let text = "if you are sure to delete then press ok either press cancel";
+                //          if (confirm(text) == true) {
                     $(document).on("click",".btn-primary",function(){
                         $('#basicModal').modal("hide");
                 $.ajax({
                     type: "delete",
                     data: ids,
-                    url: `https://myapi.fernflowers.com/api/Vaccine/${ids}`,
+                    url: `https://myapi.fernflowers.com/api/brand/${ids}`,
                     
                      success:function(data) {
-                        
-                        // console.log(data)
                         $("#errorMessage").hide('fast');
                         $("#successMessage").show();
-                        $("#zxcv").html("Your selected vaccine delete successfully")
+                        $("#zxcv").html("Your selected brand deleted successfully")
                         $(ele).closest("tr").fadeOut();
                      },
                      error: function(data) {
-                        console.log(data)
-                        $("#successMessage").hide('fast');
-                        $("#errorMessage").show();
-                        $("#asdf").html(data.responseText)
-                        },
+    console.log(data)
+    $("#successMessage").hide('fast');
+    $("#errorMessage").show();
+    $("#asdf").html(data.responseText)
+    },
+                    
                  })
                 })
                     // } else {
-                    //         $("#error-Message").html("Can't Delete Record.").slideDown();
-                    //          $("#success-Message").slideUp();
-                            
+                    //         $("#error-message").html("Can't Delete Record.").slideDown();
+                    //          $("#success-message").slideUp();
                     //      }
-   
         });
-//         $('#modal-6').on('show.bs.modal', function(e) {
-//     var id = $(e.relatedTarget).data('id');
-//     alert(id);
-//   });
+
     </script>
 </body>
 
