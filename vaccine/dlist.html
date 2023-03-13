@@ -169,7 +169,7 @@
         const urlParams = new URLSearchParams(mykeysValues);
         const p= urlParams.get('id');
             $.get(
-                `http://localhost:5041/api/Dose/dose_name/${p}`,
+                `https://myapi.fernflowers.com/api/Dose/dose_name/${p}`,
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
