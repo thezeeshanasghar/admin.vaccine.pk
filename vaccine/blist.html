@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="row">
                     <!-- Left side columns -->
-                    <div class="col-lg-8">
+                    <div class="col-lg-2">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card recent-sales overflow-auto">
@@ -89,10 +89,10 @@
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Id</th>
+                                                    <!-- <th scope="col">Id</th> -->
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">Delete</th>
-                                                    <th scope="col">Update</th>
+                                                    <!-- <th scope="col">Delete</th>
+                                                    <th scope="col">Update</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody id="brandData"></tbody>
@@ -165,18 +165,22 @@
     <script src="/assets/js/main.js"></script>
     <script type="text/javascript">
         $(function () {
+            console.log("Window location:", window.location);
+        const mykeysValues = window.location.search;
+        console.log("keys & values:", mykeysValues);
+        const urlParams = new URLSearchParams(mykeysValues);
+        const p = urlParams.get('id');
+        console.log(p);
             $.get(
-                `http://localhost:5041/${ids}`,
+                `http://localhost:5041/${p}`,
                 function (data, status) {
+                    
                     console.log(data);
                     $.each(data, function (val, text) {
-                        
+                        console.log(text);
                         $("#brandData").append(`
                         <tr>
-                            <td>${text.Id}</td>
-                            <td>${text.Name}</td>
-                            <td><a href="#?action=delete&id=${text.Id}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
-                            <td><a href="/brand/update.html?action=patch&id=${text.Id}&id1=${text.Name}" class="btn btn-primary">Update</a></td>
+                            <td>${text}</td>
                         </tr>
                             `);
                     });

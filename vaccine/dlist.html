@@ -74,27 +74,22 @@
             <div class="row" id="myvaccinedata">
                 <div class="row">
                     <!-- Left side columns -->
-                    <div class="col-lg-8">
+                    <div class="col-lg-3">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card recent-sales overflow-auto">
                                     <div class="card-body">
                                         <h5 class="card-title">Doses Table</h5>
-                                        <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
+                                        <!-- <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
                                             <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
                                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                         <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert">
                                              <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div> -->
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Id</th>
                                                     <th scope="col">Name</th>
-                                                    <th scope="col">MinAge</th>
-                                                    <th scope="col">MinGap</th>
-                                                    <th scope="col">Delete</th>
-                                                    <th scope="col">Update</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="doseData">
@@ -168,20 +163,21 @@
     <script src="/assets/js/main.js"></script>
     <script type="text/javascript">
         $(function () {
+            console.log("Window location:", window.location);
+        const mykeysValues = window.location.search;
+        console.log("keys & values:", mykeysValues);
+        const urlParams = new URLSearchParams(mykeysValues);
+        const p= urlParams.get('id');
             $.get(
-                `http://localhost:5041/api/Dose/dose_name/${ids}`,
+                `http://localhost:5041/api/Dose/dose_name/${p}`,
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
                         console.log(text);
+                        console.log(val);
                         $("#doseData").append(`
                         <tr>
-                            <td>${text.Id}</td>
-                            <td data-id="${text.Name}">${text.Name}</td>
-                            <td>${text.MinAge}</td>
-                            <td>${text.MinGap}</td>
-                            <td><a href="#?action=delete&id=${text.Id}&id1=${text.Name}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
-                            <td><a href="/dose/update.html?action=patch&id=${text.Id}&id1=${text.Name}&id2=${text.MinAge}&id3=${text.MinGap}" class="btn btn-primary">Update</a></td>
+                            <td>${text}</td>
                         </tr>
                             `);
                             
