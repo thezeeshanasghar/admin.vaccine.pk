@@ -153,13 +153,14 @@
             if (data.username=='admin' && data.Password=='admin'){
               sessionStorage.setItem('login', true);
               window.location.assign("/index.html")
-              
+              $("#donotaccount").hide('fast');
               $("#errorMessage").show();
               
             }
             else{
               // console.log("fail")
                     // document.getElementById("myform").reset();
+                    $("#errorMessage").hide('fast');
                     $("#donotaccount").show();
               
               // errorMessage.innerText = 'Invalid username or password';

@@ -146,6 +146,31 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="basicModal1" tabindex="-1" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    You not add dose
+                </h5> 
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+        </div>
+        <div class="modal-body"> 
+            the dose you want to add is infinite so it is not add 
+        </div>
+            <div class="modal-footer"> 
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    ok
+                </button> 
+                <!-- <button class="btn btn-primary">
+                    Ok
+                </button> -->
+            </div>
+        </div>
+    </div>
+</div>
     </main>
     <!-- End #main -->
 
@@ -183,10 +208,11 @@
     <script type="text/javascript">
         $(function () {
             $.get(
-                `https://myapi.fernflowers.com/api/Vaccine/vaccine-with-count`,
+                `http://localhost:5041/api/Vaccine/vaccine-with-count`,
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
+                       
                         console.log(text);
                         $("#vaccineData").append(`
                         <tr>
@@ -195,9 +221,9 @@
                             <td>${text.vaccine.IsSpecial}</td>
                             <td>${text.vaccine.Infinite}</td>
                             <td>${text.BrandCount}</td>
-                            <td><a href="/brand/add.html?action=add&id=${text.vaccine.Id}" id="addb" class="btn btn-primary">Add</a></td>
+                            <td><a href="/brand/add.html?action=add&id=${text.vaccine.Id}" if id="addb" class="btn btn-primary">Add</a></td>
                             <td>${text.DoseCount}</td>
-                            <td><a href="/dose/add.html?action=add&id=${text.vaccine.Id}" id="addd" class="btn btn-primary">Add</a></td>
+                        <td><button onclick="myFunction(${text.vaccine.Infinite},${text.DoseCount},${text.vaccine.Id})" id="addd" data-id="${text.vaccine.Id}" class="btn btn-primary">Add</button></td>
                             <td><a class="btn btn-danger" href="#?action=delete&id=${text.vaccine.Id}&id1=${text.vaccine.Name}"  data-id="${text.vaccine.Id}">Delete</a></td>
                             <td><a href="/vaccine/update.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}" id="addu" class="btn btn-primary">Update</a></td>
                             <td><a href="/vaccine/dlist.html?action=get&id=${text.vaccine.Id}"class="btn btn-primary">Show</a></td>
@@ -208,7 +234,53 @@
                 }
             );
         });
-
+//         functiondisableButton(txt) {
+// var bt = document.getElementById('addd');
+// if (disable.value.includes('!')){
+//     bt.disabled= true
+//     }
+// else { bt.disabled= false; }
+// }
+//         $(document).on("click","#add",function(){
+//             function myFunction(a,b) {
+//             if(a==true && b==1)
+//             {
+//                 console.log("atta");
+//   document.getElementById("addd").disabled = true;}
+//   else{
+//     href="/dose/add.html?action=add&id=${text.vaccine.Id}"
+//   }
+// };
+//         });
+// document.getElementById("addd").onkeyup = function() {myFunction(a,b)};
+// $(document).on("click","#addd",function(){
+//         function myFunction(a,b) {
+//             var bt = document.getElementById('addd');
+//             if(a==true && b==1)
+//             {
+//                 console.log("atta");
+//                 bt.disabled= true;
+//             }
+//             else{
+//                 var ids=$(this).data("id");
+//                 console.log(ids);
+//                 window.location.assign(`/dose/add.html?action=add&id=${text.vaccine.Id}`);
+//             }
+//         }
+//     });
+    function myFunction(a,b,c) {
+            var bt = document.getElementById('addd');
+            if(a==true && b==1)
+            {
+                console.log("atta");
+                $('#basicModal1').modal('show');
+                document.getElementById("addd").disabled = true;
+            }
+            else{
+                console.log(c);
+                window.location.assign(`../dose/add.html?action=add&id=${c}`);
+            }
+        }
         // $(document).on("click", ".btn-danger", function () {
         //     $('#basicModal').modal('show');
         //     var myBookId = $(this).data('id');
