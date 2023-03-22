@@ -171,7 +171,7 @@
         const urlParams = new URLSearchParams(mykeysValues);
         const p = urlParams.get('id');
             $.get(
-                `https://myapi.fernflowers.com/api/${p}`,
+                `https://myapi.fernflowers.com/BrandName_with_vaccine?vaccineId=${p}`,
                 function (data, status) {
                     console.log(data);
                     $.each(data, function (val, text) {
