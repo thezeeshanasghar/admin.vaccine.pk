@@ -170,9 +170,8 @@
         console.log("keys & values:", mykeysValues);
         const urlParams = new URLSearchParams(mykeysValues);
         const p = urlParams.get('id');
-        console.log(p);
             $.get(
-                `https://myapi.fernflowers.com/${p}`,
+                `https://myapi.fernflowers.com/api/${p}`,
                 function (data, status) {
                     
                     console.log(data);
@@ -217,10 +216,6 @@
                     
                  })
                 })
-                    // } else {
-                    //         $("#error-message").html("Can't Delete Record.").slideDown();
-                    //          $("#success-message").slideUp();
-                    //      }
         });
 
     </script>
