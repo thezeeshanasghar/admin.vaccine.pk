@@ -172,9 +172,8 @@
         const p = urlParams.get('id');
         console.log(p);
             $.get(
-                `https://myapi.fernflowers.com/${p}`,
+                `https://myapi.fernflowers.com/api/${p}`,
                 function (data, status) {
-                    
                     console.log(data);
                     $.each(data, function (val, text) {
                         console.log(text);
