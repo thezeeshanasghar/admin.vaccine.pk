@@ -77,7 +77,7 @@
                     <div class="col-lg-2">
                         <div class="row">
                             <div class="col-12">
-                                <div class="card recent-sales overflow-auto">
+                                <div class="card recent-sales overflow-auto" style="width: fit-content;">
                                     <div class="card-body">
                                         <h5 class="card-title">Brand Table</h5>
                                         <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
@@ -89,10 +89,10 @@
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <!-- <th scope="col">Id</th> -->
+                                                    <th scope="col">Id</th>
                                                     <th scope="col">Name</th>
-                                                    <!-- <th scope="col">Delete</th>
-                                                    <th scope="col">Update</th> -->
+                                                    <th scope="col">Delete</th>
+                                                    <th scope="col">Update</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="brandData"></tbody>
@@ -178,7 +178,12 @@
                         console.log(text);
                         $("#brandData").append(`
                         <tr>
-                            <td>${text}</td>
+                            <td>${text.Id}</td>
+                            <td>${text.Name}</td>
+                            <td><a href="#?action=delete&id=${text.Id}" data-id="${text.Id}" class="btn btn-danger">Delete</a></td>
+                            <td><a href="/brand/update.html?action=patch&id=${text.Id}&id1=${text.Name}" class="btn btn-primary">Update</a></td>
+                           
+                           
                         </tr>
                             `);
                     });
