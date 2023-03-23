@@ -482,18 +482,19 @@ $("#myform").submit(function (e) {
     e.preventDefault();
     var url=new URL(window.location.href);
             var search_id=url.searchParams.get("id")
+
     // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
     var Name= $("#name").val();
     var City= $("#city").val();
     var Gender= $("#gender").val();
     var dob= $("#date").val()
-    var data1 = ({ "doctorName":search_id,"Name": $("#name").val(), "City": $("#city").val(), "Gender": $("#gender").val(), "dob": $("#date").val(), })
+    var data1 = ({ "doctorName":search_id,"Name": $("#name").val(), "City": $("#city").val(), "Gender": $("#gender").val(), "DOB": $("#date").val(), })
 
     console.log(data1);
     $.ajax({
         type: "get",
         // url:`https://myapi.fernflowers.com/api/Child/name?Name=${("#name").val()}&City=${("#city").val()}&DOB=2023%2F01%2F04&Gender=${("#gender").val()}`,
-        url: `http://localhost:5041/api/Child/search-by-doctor-name?doctorName=${search_id}&Name=${Name}&City=${City}&Gender=${Gender}&DOB=${dob}`,
+        url: `http://localhost:5041/api/Child/search-by-doctor-name?${data1}`,
         dataType: "json",
         data: data1,
         contentType: "application/json; charset=utf-8",
@@ -533,6 +534,7 @@ $("#myform").submit(function (e) {
             )},
             error:function(data){
                         alert("error")
+                        console.log(data);
                         $("#successMessage").hide('fast');
                         $("#errorMessage").show();
                         $("#asdf").html(data.statusText)

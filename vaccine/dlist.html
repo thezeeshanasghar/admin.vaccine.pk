@@ -80,13 +80,12 @@
                                 <div class="card recent-sales overflow-auto" style="width: fit-content;">
                                     <div class="card-body">
                                         <h5 class="card-title">Doses Table</h5>
-                                        <!-- <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
+                                         <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
                                             <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
                                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                         <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert">
                                              <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div> -->
-                                        <table class="table table-striped">
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>                                        <table class="table table-striped">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Id</th>
@@ -210,7 +209,7 @@
                 $.ajax({
                     type: "delete",
                     data: ids,
-                    url: `https://myapi.fernflowers.com/api/Dose/dose_name/${ids}`,
+                    url: `https://myapi.fernflowers.com/api/Dose/${ids}`,
                     
                      success:function(data) {
                         $("#errorMessage").hide('fast');

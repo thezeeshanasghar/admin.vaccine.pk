@@ -168,6 +168,7 @@
                     },
                     error:function(data){
                         //alert("error")
+                        console.log(data);
                         $("#successMessage").hide('fast');
                         $("#errorMessage").show();
                         $("#asdf").html(data.statusText)
