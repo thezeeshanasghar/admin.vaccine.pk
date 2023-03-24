@@ -8,9 +8,9 @@
     </div><!-- End Logo -->
 
     <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
+      <form class="search-form d-flex align-items-center">
         <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        <button onClick="search(id)" type="submit" title="Search"><i class="bi bi-search"></i></button>
       </form>
     </div><!-- End Search Bar -->
 
@@ -224,3 +224,16 @@
     </nav><!-- End Icons Navigation -->
 
 </header>
+<script>
+  
+function search(e) {
+  e.preventDefault();
+	let searched = document.getElementById("search").value.trim();
+  if (searched !== "") {
+  	let text = document.getElementById("text").innerHTML;
+  	let re = new RegExp(searched,"g"); // search for all instances
+		let newText = text.replace(re, `<mark>${searched}</mark>`);
+		document.getElementById("text").innerHTML = newText;
+  }
+}
+</script>
