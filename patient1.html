@@ -504,6 +504,7 @@ $("#myform").submit(function (e) {
                 console.log(text);
                 $("#content").append(`
                 <div id="content"  style="display:block;">
+                <div class="col-xl-5">
                 <div class="card">
                 <div class="card-body">
                 <content>
@@ -514,16 +515,20 @@ $("#myform").submit(function (e) {
                             <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
                         </p>
                     </div>
-                   
-                    
                     <hr>
-
                 </div>
-                <p style="color: dimgrey; font-size: 20px;">Email : ${text.City}</p>
-                <p style="color: dimgrey; font-size: 20px;">Number : ${text.Gender} </p>
-                
+                <p style="color: dimgrey; font-size: 20px;">Guardian : ${text.Guardian}</p>
+                <p style="color: dimgrey; font-size: 20px;">FatherName : ${text.FatherName}</p>
+                <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email}</p>
+                <p style="color: dimgrey; font-size: 20px;">DOB : ${text.DOB}</p>
+                <p style="color: dimgrey; font-size: 20px;">Gender : ${text.Gender} </p>
+                <p style="color: dimgrey; font-size: 20px;">Type : ${text.Type}</p>
+                <p style="color: dimgrey; font-size: 20px;">City : ${text.City}</p>
+                <p style="color: dimgrey; font-size: 20px;">CNIC : ${text.CNIC}</p>
+                <p style="color: dimgrey; font-size: 20px;">PreferredSchedule : ${text.PreferredSchedule}</p>
                 </div>
                 </content>
+                </div>
                 </div>
                 </div>
                 </div>`
