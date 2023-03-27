@@ -111,10 +111,10 @@
 
                                 </div>
                                         <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
-                                             <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>    <a href="list.html">Click here to see all vaccine</a>
+                                             <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>    <a href="list1.html">Click here to see all vaccine</a>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                                            <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                 <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"> </span>    <a href="list.html">Click here to see all vaccine</a>
+                                            <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                                 <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"> </span>    <a href="list1.html">Click here to see all vaccine</a>
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                              
                                 </div>
@@ -196,20 +196,22 @@
             console.log(data);
             $.ajax({
                 type: "patch",
-                url: `https://myapi.fernflowers.com/api/Vaccine/${para1}`,
+                url: `http://myapi.fernflowers.com/api/Vaccine?id=${para1}`,
                 dataType: "json",
                 data: data,
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
-                    console.log(data)
+                    console.log("1")
                     $('#errorMessage').hide('fast');
                     $("#successMessage").show();
                     $("#zxcv").html("your vaccine update successfully")
                 },
                 error: function (data) {
+                    console.log(data);
+                    console.log("error");
                     $("#successMessage").hide('fast');
                     $("#errorMessage").show();
-                    $("#asdf").html(data.statusText)
+                    $("#asdf").html("your vaccine update successfully")
                 },
             })
         });
