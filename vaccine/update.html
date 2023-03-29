@@ -169,6 +169,7 @@
         const mykeysValues = window.location.search;
         console.log("keys & values:", mykeysValues);
         const urlParams = new URLSearchParams(mykeysValues);
+        const para5 = urlParams.get('id4');
         const para4 = urlParams.get('id3');
         const para3 = urlParams.get('id2');
         const para2 = urlParams.get('id1');
@@ -177,7 +178,11 @@
         console.log(para2);
         console.log(para3);
         console.log(para4);
+        console.log(para5);
         document.getElementById("name").value = para2;
+        if(para5>1){
+            document.getElementById("infinite").disabled = true;
+    }
         if(para3=="true"){
             // console.log("1");
         $('#isSpecial').prop('checked',true);}
@@ -190,7 +195,9 @@
         // document.getElementById("infinite").value = para4;
         $(document).on("click", ".btn-primary", function (e) {
             e.preventDefault();
-            var data = JSON.stringify({ "id": para1, "Name": $("#name").val(), "IsSpecial": $("#isSpecial").is(':checked')? true:false,"Infinite": $("#infinite").is(":checked")? true:false })
+        
+            
+            var data = JSON.stringify({ "id": para1, "Name": $("#name").val(), "IsSpecial": $("#isSpecial").is(':checked')? true:false,"Infinite":$("#infinite").is(":checked")? true:false, })
             console.log('successupdate');
 
             console.log(data);

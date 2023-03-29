@@ -1,4 +1,4 @@
-script type="text/javascript">
+<script type="text/javascript">
     if (sessionStorage.getItem('login') !== 'true') {
     // If the user is not logged in, redirect them to the login page
     window.location.href = 'login.html';
@@ -234,7 +234,7 @@ script type="text/javascript">
                                         <span style="padding-left: 15px; font-size: 20px;">${text.vaccine.Infinite}</span>
                                     </div>
                                     <div class="col-4 d-flex justify-content-end flex-row">
-                                        <i class="fas fa-edit pe-3" data-id="${text.vaccine.Id}" data-id1="${text.vaccine.Name}" data-id2="${text.vaccine.IsSpecial}" data-id3="${text.vaccine.Infinite}" id="addu" style="font-size: 50px; color: blue;"><a href="./vaccine/update.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}"></a></i>
+                                        <i class="fas fa-edit pe-3" data-id="${text.vaccine.Id}" data-id1="${text.vaccine.Name}" data-id2="${text.vaccine.IsSpecial}" data-id3="${text.vaccine.Infinite}" data-id4="${text.DoseCount}" id="addu" style="font-size: 50px; color: blue;"><a href="./vaccine/update.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}"></a></i>
                                         <i class="fa-solid fa-trash-can" data-id="${text.vaccine.Id}" style="font-size: 50px; color: blue;"></i>
                                     </div>
                                     <hr>
@@ -262,13 +262,14 @@ script type="text/javascript">
             var ids1=$(this).data("id1");
             var ids2=$(this).data("id2");
             var ids3=$(this).data("id3");
+            var ids4=$(this).data("id4");
             console.log(ids,ids1,ids2,ids3);
-            window.location.assign(`./update.html?action=patch&id=${ids}&id1=${ids1}&id2=${ids2}&id3=${ids3}`);
+            window.location.assign(`./update.html?action=patch&id=${ids}&id1=${ids1}&id2=${ids2}&id3=${ids3}&id4=${ids4}`);
     });
 
         function myFunction(a,b,c) {
             var bt = document.getElementById('addd');
-            if(a==true && b==1)
+            if(a==true && b>=1)
             {
                 console.log("atta");
                 $('#basicModal1').modal('show');
