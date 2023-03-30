@@ -78,7 +78,8 @@
                                 <div class="card recent-sales overflow-auto">
                                     <div class="card-body">
                                         <div class="filter">
-                                            <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i class="fa fa-plus"></i></a>
+                                            <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
+                                                    class="fa fa-plus"></i></a>
                                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <li>
                                                     <a class="dropdown-item" href="/vaccine/add.html">Add Vaccine</a>
@@ -86,97 +87,74 @@
                                             </ul>
                                         </div>
                                         <h5 class="card-title">Vaccines Table</h5>
-                                        <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
+                                        <div id="successMessage" style="display:none;margin-top: 10px;"
+                                            class="alert alert-success alert-dismissible fade show" role="alert">
                                             <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
-                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                                        <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert">
-                                             <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-            <div class="row" id="myvaccinedata">
-                <!-- <div class="card">
-                    <div class="card-body">
-                        <content>
-                            <div class="welcome-card">
-                                <div class="row" style="padding-top: 10px;">
-                                    <div class="col-8">
-                                        <p><i class="fa-solid fa-syringe" style="font-size: 50px; color: blue;"></i><span
-                                                style="padding-left: 15px; font-weight: bold;font-size: 20px;">Name</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-4 d-flex justify-content-end flex-row">
-                                        <i class="fas fa-edit pe-3" style="font-size: 50px; color: blue;"></i>
-                                        <i class="fa-solid fa-trash-can" style="font-size: 50px; color: blue;"></i>
-                                    </div>
-                                    <hr>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <button type="button" class="btn btn-outline-primary btn-lg"><span class="pe-3">DOSES</span><span style="padding: 0 10px;background: blue; color: white;">1</span></button>
-                                        <button type="button" class="btn btn-outline-primary btn-lg"><span class="pe-3">BRANDS</span><span style="padding: 0 10px;background: blue; color: white;">1</span></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div id="errorMessage" style="display:none;margin-top: 10px;"
+                                            class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="row" id="myvaccinedata">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </content>
+                        </div>
                     </div>
-                </div> -->
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">
-                Delete Vaccine
-            </h5> 
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-        </button>
-    </div>
-    <div class="modal-body"> 
-        if you are sure to delete vaccine then press ok either press cancel 
-    </div>
-        <div class="modal-footer"> 
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                Cancel
-            </button> 
-            <button id="ok" class="btn btn-primary">
-                Ok
-            </button>
-        </div>
-    </div>
-</div>
-</div>
-
-<div class="modal fade" id="basicModal1" tabindex="-1" aria-hidden="true" style="display: none;">
-<div class="modal-dialog">
-<div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title">
-            You not add dose
-        </h5> 
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-    </button>
-</div>
-<div class="modal-body"> 
-    the dose you want to add is infinite so it is not added
-</div>
-    <div class="modal-footer"> 
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            ok
-        </button> 
-        <!-- <button class="btn btn-primary">
-            Ok
-        </button> -->
-    </div>
-</div>
-</div>
-</div>
+    
+            <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                Delete Vaccine
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            if you are sure to delete vaccine then press ok either press cancel
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button id="ok" class="btn btn-primary">
+                                Ok
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal fade" id="basicModal1" tabindex="-1" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                You not add dose
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            The dose you want to add is infinite so it is not added
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Ok
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main><!-- End #main -->
     <!-- ======= Footer ======= -->
@@ -234,8 +212,8 @@
                                         <span style="padding-left: 15px; font-size: 20px;">${text.vaccine.Infinite}</span>
                                     </div>
                                     <div class="col-4 d-flex justify-content-end flex-row">
-                                        <i class="fas fa-edit pe-3" data-id="${text.vaccine.Id}" data-id1="${text.vaccine.Name}" data-id2="${text.vaccine.IsSpecial}" data-id3="${text.vaccine.Infinite}" data-id4="${text.DoseCount}" id="addu" style="font-size: 50px; color: blue;"><a href="./vaccine/update.html?action=patch&id=${text.vaccine.Id}&id1=${text.vaccine.Name}&id2=${text.vaccine.IsSpecial}&id3=${text.vaccine.Infinite}"></a></i>
-                                        <i class="fa-solid fa-trash-can" data-id="${text.vaccine.Id}" style="font-size: 50px; color: blue;"></i>
+                                        <i class="fas fa-edit pe-3" onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='blue'" data-id="${text.vaccine.Id}" data-id1="${text.vaccine.Name}" data-id2="${text.vaccine.IsSpecial}" data-id3="${text.vaccine.Infinite}" data-id4="${text.DoseCount}" id="addu" style="font-size: 50px; color: blue;cursor:pointer"></i>
+                                        <i class="fa-solid fa-trash-can" onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='blue'" data-id="${text.vaccine.Id}" style="font-size: 50px; color: blue;cursor:pointer"></i>
                                     </div>
                                     <hr>
                                 </div>
