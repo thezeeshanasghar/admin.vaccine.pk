@@ -163,7 +163,6 @@
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/ap.js"></script> -->
-
     <script type="text/javascript">
         console.log("Window location:", window.location);
         const mykeysValues = window.location.search;
@@ -180,7 +179,7 @@
         console.log(para4);
         console.log(para5);
         document.getElementById("name").value = para2;
-        if(para5>1){
+        if(para5>=1){
             document.getElementById("infinite").disabled = true;
     }
         if(para3=="true"){
@@ -195,11 +194,8 @@
         // document.getElementById("infinite").value = para4;
         $(document).on("click", ".btn-primary", function (e) {
             e.preventDefault();
-        
-            
             var data = JSON.stringify({ "id": para1, "Name": $("#name").val(), "IsSpecial": $("#isSpecial").is(':checked')? true:false,"Infinite":$("#infinite").is(":checked")? true:false, })
             console.log('successupdate');
-
             console.log(data);
             $.ajax({
                 type: "patch",
@@ -222,7 +218,6 @@
                 },
             })
         });
-
     </script>
 </body>
 
