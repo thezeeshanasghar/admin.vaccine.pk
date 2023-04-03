@@ -108,12 +108,12 @@
                                     <section class="section dashboard">
                                         <div class="row">
                                             <content class="padding">
-                                                <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <!-- <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
                                                     <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                                    <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
                                                        <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
-                                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div> -->
                                                 <div id=approved-content>
                                                 </div>
                                             </content>
@@ -124,12 +124,12 @@
                                     <section class="section dashboard">
                                         <div class="row">
                                             <content class="padding">
-                                                <div id="successMessage1" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <!-- <div id="successMessage1" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
                                                     <i class="bi bi-check-circle me-1"></i><span id="zxcv1"></span>
                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                                                    <div id="errorMessage1" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
                                                        <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf1"></span>
-                                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div> -->
                                                 <div id="not-approved-content">
 
                                                 </div>
@@ -243,6 +243,12 @@
                     console.log(text);
                     $("#approved-content").append(`
                         <div id="Approved" class="tabcontent" style="display: block;">
+                            <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                            <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                                <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                             <content>
                                 <div class="welcome-card">
                                     <div class="row" style="padding-top: 10px;">
@@ -286,6 +292,12 @@
                     console.log(text);
                     $("#not-approved-content").append(`
                     <div id="NotApproved" class="tabcontent" style="display:block;">
+                        <div id="successMessage1" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="bi bi-check-circle me-1"></i><span id="zxcv1"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                        <div id="errorMessage1" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                            <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf1"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                         <content id="data">
                             <div class="welcome-card">
                                 <div class="row" style="padding-top: 10px;">
@@ -303,7 +315,7 @@
                                 </div>
                                 <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email}</p>
                                 <p style="color: dimgrey; font-size: 20px;">Number : ${text.MobileNumber} </p>
-                                <p style="color: dimgrey; font-size: 20px;">PMDC :${text.PMDC} </p>
+                                <p style="color: dimgrey; font-size: 20px;">PMDC : ${text.PMDC} </p>
                             </div>
                         </content>
                     </div>
