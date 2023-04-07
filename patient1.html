@@ -77,22 +77,22 @@
                                             <label for="name" class="form-label">Doctor Name</label>
                                             <div class="col-sm-12">
                                                 <div class="input-group has-validation">
-                                                <input type="text" class="form-control" name='dname' id="dname">
-                                                <div class="invalid-feedback">
-                                                    Please Enter The Doctor Name
+                                                    <input type="text" class="form-control" name='dname' id="dname">
+                                                    <div class="invalid-feedback">
+                                                        Please Enter The Doctor Name
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="name" class="form-label">Name</label>
                                             <div class="col-sm-12">
                                                 <div class="input-group has-validation">
-                                                <input type="text" class="form-control" name='name' id="name">
-                                                <div class="invalid-feedback">
-                                                    Please Enter The Name
+                                                    <input type="text" class="form-control" name='name' id="name">
+                                                    <div class="invalid-feedback">
+                                                        Please Enter The Name
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -402,15 +402,15 @@
                                                         <option value="Zhob">Zhob</option>
                                                         <option value="Other">Other</option>
                                                     </select>
-                                                <div class="invalid-feedback">
-                                                    Please Select The City
+                                                    <div class="invalid-feedback">
+                                                        Please Select The City
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </div>
                                         </div>
                                         <div class="col-mb-3">
                                             <label for="gender" class="form-label">Gender</label>
-                                            <select class="form-select" id="gender" >
+                                            <select class="form-select" id="gender">
                                                 <option selected disabled value="">Choose...</option>
                                                 <option>Male</option>
                                                 <option>Female</option>
@@ -420,35 +420,40 @@
                                                 Please select a gender.
                                             </div>
                                         </div>
-                                          <div class="row mb-3 mt-3">
+                                        <div class="row mb-3 mt-3">
                                             <label for="name" class="form-label">D.O.B</label>
                                             <div class="col-sm-12">
                                                 <div class="input-group has-validation">
-                                                <input type="date" class="form-control" name='date' id="date">
-                                                <div class="invalid-feedback">
-                                                    Please Enter The Date
+                                                    <input type="date" class="form-control" name='date' id="date">
+                                                    <div class="invalid-feedback">
+                                                        Please Enter The Date
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </div>
                                         </div>
                                         <div class="col-12 mt-2">
                                             <input class="btn btn-primary" name='submit' type="submit">
-
+                
                                         </div>
-                                                <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert"> 
-                                                    <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-                                                    <div id="errorMessage" style="display:none;margin-top: 10px;" class="alert alert-danger alert-dismissible fade show" role="alert"> 
-                                                        <i class="bi bi-exclamation-octagon me-1"></i> <span id="asdf"></span>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+                                        <div id="successMessage" style="display:none;margin-top: 10px;"
+                                            class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        <div id="errorMessage" style="display:none;margin-top: 10px;"
+                                            class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <i class="bi bi-exclamation-octagon me-1"></i> <span id="asdf"></span>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     </div>
                                 </div>
-                            </form><!-- End Custom Styled Validation -->
-                        </div>
-                        <div id="content"></div>
+                        </form><!-- End Custom Styled Validation -->
                     </div>
-                </section>    
+                    <div id="content">
+
+                    </div>
+                    </div>
+                </section>
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
@@ -488,82 +493,81 @@
     <script type="text/javascript">
         $(function () {
 
-$("#myform").submit(function (e) {
+            $("#myform").submit(function (e) {
 
-    e.preventDefault();
-    var url=new URL(window.location.href);
-            var search_id=url.searchParams.get("id")
+                e.preventDefault();
+                var url = new URL(window.location.href);
+                var search_id = url.searchParams.get("id")
 
-    // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
-    
-    var Name= $("#name").val();
-    var City= $("#city").val();
-    var Gender= $("#gender").val();
-    var dob= $("#date").val()
-    var data1 = ({ "doctorName":$("#dname").val(),"Name": $("#name").val(), "City": $("#city").val(), "Gender": $("#gender").val(), "DOB": $("#date").val(), })
+                // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
 
-    console.log(data1);
-    $.ajax({
-        type: "get",
-        // url:`https://myapi.fernflowers.com/api/Child/name?Name=${("#name").val()}&City=${("#city").val()}&DOB=2023%2F01%2F04&Gender=${("#gender").val()}`,
-        url: `http://localhost:5041/api/Child/search-by-doctor-name?${data1}`,
-        dataType: "json",
-        data: data1,
-        contentType: "application/json; charset=utf-8",
-        success: function (data1) {
-            $.each(data1, function (val, text) {
-                $("#errorMessage").hide('fast');
-                        $("#successMessage").show();
-                        $("#zxcv").html("your patient searched successfully")
-            
-                console.log(text);
-                $("#content").append(`
-                <div id="content"  style="display:block;">
-                <div class="col-xl-5">
-                <div class="card">
-                <div class="card-body">
-                <content>
-                <div class="welcome-card">
-                <div class="row" style="padding-top: 10px;">
-                    <div class="col-8">
-                        <p>
-                            <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
-                        </p>
+                var Name = $("#name").val();
+                var City = $("#city").val();
+                var Gender = $("#gender").val();
+                var dob = $("#date").val()
+                var data1 = ({ "doctorName": $("#dname").val(), "Name": $("#name").val(), "City": $("#city").val(), "Gender": $("#gender").val(), "DOB": $("#date").val(), })
+
+                console.log(data1);
+                $.ajax({
+                    type: "get",
+                    // url:`https://myapi.fernflowers.com/api/Child/name?Name=${("#name").val()}&City=${("#city").val()}&DOB=2023%2F01%2F04&Gender=${("#gender").val()}`,
+                    url: `http://localhost:5041/api/Child/search-by-doctor-name?${data1}`,
+                    dataType: "json",
+                    data: data1,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data1) {
+                        $("#content").empty();
+                        $.each(data1, function (val, text) {
+                            $("#errorMessage").hide('fast');
+                            $("#successMessage").show();
+                            $("#zxcv").html("your patient searched successfully")
+                            console.log(text);
+                            console.log(val);
+                            $("#content").append(`
+                    <div id="content"  style="display:block;">
+                    <div class="col-xl-5">
+                    <div class="card">
+                    <div class="card-body">
+                    <content>
+                    <div class="welcome-card">
+                    <div class="row" style="padding-top: 10px;">
+                        <div class="col-8">
+                            <p>
+                                <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
+                            </p>
+                        </div>
+                        <hr>
                     </div>
-                    <hr>
-                </div>
-                <p style="color: dimgrey; font-size: 20px;">Guardian : ${text.Guardian}</p>
-                <p style="color: dimgrey; font-size: 20px;">FatherName : ${text.FatherName}</p>
-                <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email}</p>
-                <p style="color: dimgrey; font-size: 20px;">DOB : ${text.DOB}</p>
-                <p style="color: dimgrey; font-size: 20px;">Gender : ${text.Gender} </p>
-                <p style="color: dimgrey; font-size: 20px;">Type : ${text.Type}</p>
-                <p style="color: dimgrey; font-size: 20px;">City : ${text.City}</p>
-                <p style="color: dimgrey; font-size: 20px;">CNIC : ${text.CNIC}</p>
-                <p style="color: dimgrey; font-size: 20px;">PreferredSchedule : ${text.PreferredSchedule}</p>
-                </div>
-                </content>
-                </div>
-                </div>
-                </div>
-                </div>`
-                )
-                
-            },
-
-            )},
-            error:function(data1){
-                        
+                    <p style="color: dimgrey; font-size: 20px;">Guardian : ${text.Guardian}</p>
+                    <p style="color: dimgrey; font-size: 20px;">FatherName : ${text.FatherName}</p>
+                    <p style="color: dimgrey; font-size: 20px;">Email : ${text.Email}</p>
+                    <p style="color: dimgrey; font-size: 20px;">DOB : ${text.DOB}</p>
+                    <p style="color: dimgrey; font-size: 20px;">Gender : ${text.Gender} </p>
+                    <p style="color: dimgrey; font-size: 20px;">Type : ${text.Type}</p>
+                    <p style="color: dimgrey; font-size: 20px;">City : ${text.City}</p>
+                    <p style="color: dimgrey; font-size: 20px;">CNIC : ${text.CNIC}</p>
+                    <p style="color: dimgrey; font-size: 20px;">PreferredSchedule : ${text.PreferredSchedule}</p>
+                    </div>
+                    </content>
+                    </div>
+                    </div>
+                    </div>
+                    </div>`
+                            )
+                        },
+                        )
+                    },
+                    error: function (data1) {
                         console.log(data1);
                         $("#successMessage").hide('fast');
                         $("#errorMessage").show();
                         $("#asdf").html(data1.statusText)
                     },
                 });
-    document.getElementById("myform").reset();
+                document.getElementById("myform").reset();
 
-});
-});
+            });
+        });
     </script>
 
 </body>
