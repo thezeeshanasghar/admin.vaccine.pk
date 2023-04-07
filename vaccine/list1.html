@@ -70,78 +70,67 @@
         </div><!-- End Page Title -->
         <section class="section dashboard">
             <div class="row">
-               
-                    <!-- Left side columns -->
-                    <div class="col-lg-12">
-                        
-                                <div class="card recent-sales overflow-auto">
-                                    <div class="card-body">
-                                        <div class="filter">
-                                            <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
-                                                    class="fa fa-plus"></i></a>
-                                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                <li>
-                                                    <a class="dropdown-item" href="/vaccine/add.html">Add Vaccine</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <h5 class="card-title">Vaccines Table</h5>
-                                        <!-- <div id="successMessage" style="display:none;margin-top: 10px;"
-                                            class="alert alert-success alert-dismissible fade show" role="alert">
-                                            <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div id="errorMessage" style="display:none;margin-top: 10px;"
-                                            class="alert alert-danger alert-dismissible fade show" role="alert">
-                                            <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close"></button> -->
-                                        </div>
-                                        <div class="row" id="myvaccinedata">
-                                        </div>
-                                    </div>
-                                </div>
+                <!-- Left side columns -->
+                <div class="col-lg-12">
+                    <div class="card recent-sales overflow-auto">
+                        <div class="card-body">
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown" style="float: right"><i
+                                        class="fa fa-plus"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li>
+                                        <a class="dropdown-item" href="/vaccine/add.html">Add Vaccine</a>
+                                    </li>
+                                </ul>
                             </div>
+                            <h5 class="card-title">Vaccines Table</h5>
+                            <!-- <div id="successMessage" style="display:none;margin-top: 10px;"
+                                                    class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    <i class="bi bi-check-circle me-1"></i><span id="zxcv"></span>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div id="errorMessage" style="display:none;margin-top: 10px;"
+                                                    class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf"></span>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button> -->
+                        </div>
+                        <div class="row" id="myvaccinedata">
                         </div>
                     </div>
                 </div>
             </div>
-    
             <div class="modal fade" id="basicModa2" tabindex="-1" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- <div class="modal-header">
-                            <h5 class="modal-title">
-                                Delete Vaccine
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            </button>
-                        </div> -->
+                                    <h5 class="modal-title">
+                                        Delete Vaccine
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    </button>
+                                </div> -->
                         <div id="successMessage1" style="display:none;margin-top: 10px;"
-                        class="alert alert-success alert-dismissible fade show" role="alert">
-                        <i class="bi bi-check-circle me-1"></i><span id="zxcv1"></span>
-                        <!-- <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button> -->
-                    </div>
-                    <div id="errorMessage1" style="display:none;margin-top: 10px;"
-                        class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf1"></span>
-                        <!-- <button type="button" class="btn-close" data-bs-dismiss="alert"
-                            aria-label="Close"></button> -->
-                    </div>
+                            class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="bi bi-check-circle me-1"></i><span id="zxcv1"></span>
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button> -->
+                        </div>
+                        <div id="errorMessage1" style="display:none;margin-top: 10px;"
+                            class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="bi bi-exclamation-octagon me-1"></i><span id="asdf1"></span>
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button> -->
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                 Ok
                             </button>
-                            <!-- <button id="ok" class="btn btn-primary">
-                                Ok
-                            </button> -->
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -166,7 +155,6 @@
                     </div>
                 </div>
             </div>
-    
             <div class="modal fade" id="basicModal1" tabindex="-1" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -232,110 +220,106 @@
                 $.each(data, function (val, text) {
                     console.log(text);
                     $("#myvaccinedata").append(`
-                    <div class="card recent-sales overflow-auto">
-                        <div class="card-body">
-                        <content>
-                            <div class="welcome-card">
-                                <div class="row" style="width: auto; height: auto;padding-top: 10px;">
-                                    <div class="col-12">
-                                        <table style="width: auto; height: auto;table-layout:fixed;">
-                                                <tr>
-                                        <td scope="col"><i class="fa-solid fa-syringe" style="font-size: 50px; color: blue;"></i></td>
-                                            <td  style="width: 590px; height: auto;"><span style="padding-left: 15px; font-weight: ;font-size: 40px;">${text.vaccine.Name}</span></td>
-                                        <td style="width: 150px; height: auto;" scope="col"><span style="padding-left: 1px; font-weight: bold;font-size: 20px;">IsSpecial:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.IsSpecial}</span></td>
-                                        <td style="width: 150px; height: auto;" scope="col"><span style="padding-left: 1px; font-weight: bold;font-size: 20px;">Infinite:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.Infinite}</span></td>
-                                    <td style="color:white"></td>
-                                    <div class="col-12 d-flex justify-content-end flex-row">
-                                        <td scope="col"><i class="fas fa-edit pe-3" class="col-12 d-flex justify-content-end flex-row" data-id="${text.vaccine.Id}" data-id1="${text.vaccine.Name}" data-id2="${text.vaccine.IsSpecial}" data-id3="${text.vaccine.Infinite}" data-id4="${text.DoseCount}" id="addu" style="font-size: 50px; color: blue;cursor:pointer;margin-left:100px"></i></td>
-                                        <td><i class="fa-solid fa-trash-can" data-id="1" style="font-size: 50px; color: blue;cursor:pointer"></i></td>
-                                    </div>
-                                        </tr>
-
-                                            </table>
-                                                <hr>
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body">
+                            <content>
+                                <div class="welcome-card">
+                                    <div class="row" style="width: auto; height: auto;padding-top: 10px;">
+                                        <div class="col-12">
                                             <table style="width: auto; height: auto;table-layout:fixed;">
-                                                <tr>
-                                             <td></td>       
-                            <td><button style="white-space: nowrap;margin-left:5px" type="button" onclick="myFunction(${text.vaccine.Infinite},${text.DoseCount},${text.vaccine.Id})" id="addd" data-id="${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-31">ADD DOSE</span></button></td>
-                                <td><a style="white-space: nowrap;margin-left:5px" type="button" href="/brand/add.html?action=add&id=${text.vaccine.Id}" id="addb" class="btn btn-outline-primary btn-lg"><span class="pe-3">ADD BRAND</span></a></td>
-                                    
-                                    <td> </td>
-                                    
-                                        <td><a style="white-space: nowrap;margin-left:540px" type="button" type="button" href="/vaccine/dlist.html?action=get&id=${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-3">DOSES</span><span style="padding: 0 10px;background: blue; color: white;">${text.DoseCount}</span></a></td>
-                                            <td><a style="white-space: nowrap;margin-left:5px;margin-right:5px" type="button" href="/vaccine/blist.html?action=get&id=${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-3">BRANDS</span><span style="padding: 0 10px;background: blue; color: white;">${text.BrandCount}</span></a></td>
-                                                </tr>
-                                            </table>
+                                                    <tr>
+                                            <td scope="col"><i class="fa-solid fa-syringe" style="font-size: 50px; color: blue;"></i></td>
+                                                <td  style="width: 590px; height: auto;"><span style="padding-left: 15px; font-weight: ;font-size: 40px;">${text.vaccine.Name}</span></td>
+                                            <td style="width: 150px; height: auto;" scope="col"><span style="padding-left: 10px; font-weight: bold;font-size: 20px;">IsSpecial:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.IsSpecial}</span></td>
+                                            <td style="width: 150px; height: auto;" scope="col"><span style="padding-left: 1px; font-weight: bold;font-size: 20px;">Infinite:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.Infinite}</span></td>
+                                        <td style="color:white"></td>
+                                        <div class="col-12 d-flex justify-content-end flex-row">
+                                            <td scope="col"><i class="fas fa-edit pe-3" class="col-12 d-flex justify-content-end flex-row" data-id="${text.vaccine.Id}" data-id1="${text.vaccine.Name}" data-id2="${text.vaccine.IsSpecial}" data-id3="${text.vaccine.Infinite}" data-id4="${text.DoseCount}" id="addu" style="font-size: 50px; color: blue;cursor:pointer;margin-left:100px"></i></td>
+                                            <td><i class="fa-solid fa-trash-can" data-id="1" style="font-size: 50px; color: blue;cursor:pointer"></i></td>
+                                        </div>
+                                            </tr>
+                                                </table>
+                                                    <hr>
+                                                <table style="width: auto; height: auto;table-layout:fixed;">
+                                                    <tr>
+                                                 <td></td>       
+                                <td><button style="white-space: nowrap;margin-left:5px" type="button" onclick="myFunction(${text.vaccine.Infinite},${text.DoseCount},${text.vaccine.Id})" id="addd" data-id="${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-31">ADD DOSE</span></button></td>
+                                    <td><a style="white-space: nowrap;margin-left:5px" type="button" href="/brand/add.html?action=add&id=${text.vaccine.Id}" id="addb" class="btn btn-outline-primary btn-lg"><span class="pe-3">ADD BRAND</span></a></td>
+                                        <td> </td>
+                                            <td><a style="white-space: nowrap;margin-left:540px" type="button" type="button" href="/vaccine/dlist.html?action=get&id=${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-3">DOSES</span><span style="padding: 0 10px;background: blue; color: white;">${text.DoseCount}</span></a></td>
+                                                <td><a style="white-space: nowrap;margin-left:5px;margin-right:5px" type="button" href="/vaccine/blist.html?action=get&id=${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-3">BRANDS</span><span style="padding: 0 10px;background: blue; color: white;">${text.BrandCount}</span></a></td>
+                                                    </tr>
+                                                </table>
+                                    </div>
                                 </div>
-                            </div>
-                        </content>
-                    </div >
-                </div >`
+                            </content>
+                        </div >
+                    </div >`
                     );
                 });
             });
         });
-        $(document).on("click",".pe-3",function(){
-            var ids=$(this).data("id");
-            var ids1=$(this).data("id1");
-            var ids2=$(this).data("id2");
-            var ids3=$(this).data("id3");
-            var ids4=$(this).data("id4");
-            console.log(ids,ids1,ids2,ids3);
+        $(document).on("click", ".pe-3", function () {
+            var ids = $(this).data("id");
+            var ids1 = $(this).data("id1");
+            var ids2 = $(this).data("id2");
+            var ids3 = $(this).data("id3");
+            var ids4 = $(this).data("id4");
+            console.log(ids, ids1, ids2, ids3);
             window.location.assign(`./update.html?action=patch&id=${ids}&id1=${ids1}&id2=${ids2}&id3=${ids3}&id4=${ids4}`);
-    });
+        });
 
-        function myFunction(a,b,c) {
+        function myFunction(a, b, c) {
             var bt = document.getElementById('addd');
-            if(a==true && b>=1)
-            {
+            if (a == true && b >= 1) {
                 console.log("atta");
                 $('#basicModal1').modal('show');
                 document.getElementById("addd").disabled = true;
             }
-            else{
+            else {
                 console.log(c);
                 window.location.assign(`../dose/add.html?action=add&id=${c}`);
             }
         }
-        $(document).on("click",".fa-trash-can",function(){
-             console.log('success');
-             $('#basicModal').modal('show');
-             var ids=$(this).data("id");
-             console.log(ids);
-                var ele=this;
-                //let text = "if you are sure to delete then press ok either press cancel";
-                  //       if (confirm(text) == true) {
-                    $(document).on("click",".btn-primary",function(){
-                        $('#basicModal').modal("hide");
+        $(document).on("click", ".fa-trash-can", function () {
+            console.log('success');
+            $('#basicModal').modal('show');
+            var ids = $(this).data("id");
+            console.log(ids);
+            var ele = this;
+            //let text = "if you are sure to delete then press ok either press cancel";
+            //       if (confirm(text) == true) {
+            $(document).on("click", ".btn-primary", function () {
+                $('#basicModal').modal("hide");
                 $.ajax({
                     type: "delete",
                     data: ids,
                     url: `https://myapi.fernflowers.com/api/Vaccine/${ids}`,
-                    
-                     success:function(data) {
-                        
+
+                    success: function (data) {
+
                         // console.log(data)
                         $('#basicModa2').modal('show');
                         $("#errorMessage1").hide('fast');
                         $("#successMessage1").show();
                         $("#zxcv1").html("Your selected vaccine delete successfully")
                         $(ele).closest("tr").fadeOut();
-                     },
-                     error: function(data) {
+                    },
+                    error: function (data) {
                         console.log(data)
                         $('#basicModa2').modal('show');
                         $("#successMessage1").hide('fast');
                         $("#errorMessage1").show();
                         $("#asdf1").html(data.responseText)
-                        },
-                 })
+                    },
                 })
-                    // } else {
-                    //         $("#error-Message").html("Can't Delete Record.").slideDown();
-                    //          $("#success-Message").slideUp();
-                            
-                    //      }
-   
+            })
+            // } else {
+            //         $("#error-Message").html("Can't Delete Record.").slideDown();
+            //          $("#success-Message").slideUp();
+
+            //      }
+
         });
     </script>
 </body>
