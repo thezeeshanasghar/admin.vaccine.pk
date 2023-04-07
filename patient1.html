@@ -74,12 +74,23 @@
                                         <h5 class="card-title">Patient</h5>
                                         <!-- Custom Styled Validation -->
                                         <div class="row mb-3">
+                                            <label for="name" class="form-label">Doctor Name</label>
+                                            <div class="col-sm-12">
+                                                <div class="input-group has-validation">
+                                                <input type="text" class="form-control" name='dname' id="dname">
+                                                <div class="invalid-feedback">
+                                                    Please Enter The Doctor Name
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
                                             <label for="name" class="form-label">Name</label>
                                             <div class="col-sm-12">
                                                 <div class="input-group has-validation">
                                                 <input type="text" class="form-control" name='name' id="name">
                                                 <div class="invalid-feedback">
-                                                    Please Enter The Doctor Name
+                                                    Please Enter The Name
                                                 </div>
                                             </div>
                                             </div>
@@ -484,11 +495,12 @@ $("#myform").submit(function (e) {
             var search_id=url.searchParams.get("id")
 
     // "IsSpecial": $("#isSpecial").is(':checked')? 1:0,"Infinite": $("#infinite").is(":checked")? 1:0
+    
     var Name= $("#name").val();
     var City= $("#city").val();
     var Gender= $("#gender").val();
     var dob= $("#date").val()
-    var data1 = ({ "doctorName":search_id,"Name": $("#name").val(), "City": $("#city").val(), "Gender": $("#gender").val(), "DOB": $("#date").val(), })
+    var data1 = ({ "doctorName":$("#dname").val(),"Name": $("#name").val(), "City": $("#city").val(), "Gender": $("#gender").val(), "DOB": $("#date").val(), })
 
     console.log(data1);
     $.ajax({
@@ -503,6 +515,7 @@ $("#myform").submit(function (e) {
                 $("#errorMessage").hide('fast');
                         $("#successMessage").show();
                         $("#zxcv").html("your patient searched successfully")
+            
                 console.log(text);
                 $("#content").append(`
                 <div id="content"  style="display:block;">
@@ -535,17 +548,18 @@ $("#myform").submit(function (e) {
                 </div>
                 </div>`
                 )
-            
+                
             },
 
             )},
-            error:function(data){
+            error:function(data1){
                         
-                        console.log(data);
+                        console.log(data1);
                         $("#successMessage").hide('fast');
                         $("#errorMessage").show();
-                        $("#asdf").html(data.statusText)
-                    },});
+                        $("#asdf").html(data1.statusText)
+                    },
+                });
     document.getElementById("myform").reset();
 
 });
