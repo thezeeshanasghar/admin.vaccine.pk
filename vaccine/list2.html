@@ -228,41 +228,43 @@
                 $.each(data, function (val, text) {
                     console.log(text);
                     $("#myvaccinedata").append(`
-                    <div class="card recent-sales overflow-auto">
+                        <div class="card recent-sales overflow-auto">
                             <div class="card-body">
                             <content>
                                 <div class="welcome-card">
-                                    <div class="row" style="width: auto; height: auto;padding-top: 10px;">
-                                        <div class="col-12">
-                                            <table style="width: auto; height: auto;table-layout:fixed;">
-                                                    <tr>
-                                            <td scope="col"><i class="fa-solid fa-syringe" style="font-size: 50px; color: blue;"></i></td>
-                                                <td  style="width: 590px; height: auto;"><span style="padding-left: 15px; font-weight: ;font-size: 40px;">${text.vaccine.Name}</span></td>
-                                            <td style="width: 150px; height: auto;" scope="col"><span style="padding-left: 10px; font-weight: bold;font-size: 20px;">IsSpecial:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.IsSpecial}</span></td>
-                                            <td style="width: 150px; height: auto;" scope="col"><span style="padding-left: 1px; font-weight: bold;font-size: 20px;">Infinite:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.Infinite}</span></td>
-                                        <td style="color:white"></td>
-                                        <div class="col-12 d-flex justify-content-end flex-row">
-                                            <td scope="col"><i class="fas fa-edit pe-3" class="col-12 d-flex justify-content-end flex-row" data-id="${text.vaccine.Id}" data-id1="${text.vaccine.Name}" data-id2="${text.vaccine.IsSpecial}" data-id3="${text.vaccine.Infinite}" data-id4="${text.DoseCount}" id="addu" style="font-size: 50px; color: blue;cursor:pointer;margin-left:100px"></i></td>
-                                            <td><i class="fa-solid fa-trash-can" data-id="${text.vaccine.Id}" style="font-size: 50px; color: blue;cursor:pointer"></i></td>
-                                        </div>
-                                            </tr>
-                                                </table>
-                                                    <hr>
-                                                <table style="width: auto; height: auto;table-layout:fixed;">
-                                                    <tr>
-                                                 <td></td>       
-                                <td><button style="white-space: nowrap;margin-left:5px" type="button" onclick="myFunction(${text.vaccine.Infinite},${text.DoseCount},${text.vaccine.Id})" id="addd" data-id="${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-31">ADD DOSE</span></button></td>
-                                    <td><a style="white-space: nowrap;margin-left:5px" type="button" href="/brand/add.html?action=add&id=${text.vaccine.Id}" id="addb" class="btn btn-outline-primary btn-lg"><span class="pe-3">ADD BRAND</span></a></td>
-                                        <td> </td>
-                                            <td><a style="white-space: nowrap;margin-left:540px" type="button" type="button" href="/vaccine/dlist.html?action=get&id=${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-3">DOSES</span><span style="padding: 0 10px;background: blue; color: white;">${text.DoseCount}</span></a></td>
-                                                <td><a style="white-space: nowrap;margin-left:5px;margin-right:5px" type="button" href="/vaccine/blist.html?action=get&id=${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-3">BRANDS</span><span style="padding: 0 10px;background: blue; color: white;">${text.BrandCount}</span></a></td>
-                                                    </tr>
-                                                </table>
+                                  
+                                    <div class="row" style="padding-top: 10px;">
+                                    <div class="col-12">
+                                        <p><i class="fa-solid fa-syringe" style="font-size: 50px; color: blue;"></i><span
+                                            style="padding-left: 15px;font-size: 50px;">${text.vaccine.Name}</span>
+                                        </p>
                                     </div>
+                                    <div class="col-8">
+                                        <span style="padding-left: 10px; font-weight: bold;font-size: 20px;">IsSpecial:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.IsSpecial}</span>
+                                                    <span style="padding-left: 1px; font-weight: bold;font-size: 20px;">Infinite:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.Infinite}</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-4 d-flex justify-content-end flex-row">
+                                        <i class="fas fa-edit pe-3" style="font-size: 50px;margin:5px; color: blue;"></i>
+                                        <i class="fa-solid fa-trash-can" style="font-size: 50px;margin:5px; color: blue;"></i>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="row">
+                                    <table>
+                                        <tr>
+                                        <td><button type="button" class="btn btn-outline-primary btn-lg"><span class="pe-3">DOSES</span><span style="padding: 0 10px;background: blue; color: white;">${text.DoseCount}</span></button></td>
+                                            <td><button type="button" class="btn btn-outline-primary btn-lg"><span class="pe-3">BRANDS</span><span style="padding: 0 10px;background: blue; color: white;">${text.BrandCount}</span></button></td>
+                                                <td> <button style="white-space:nowrap;margin-left:550px"  type="button" href="/vaccine/dlist.html?action=get&id=${text.vaccine.Id}" class="btn btn-outline-primary btn-lg ml-55 "><span class="pe-3">DOSES</span><span style="padding: 0 10px;background: blue; color: white;">${text.DoseCount}</span></button></td>
+                                                    <td><button style="white-space: nowrap;margin-left:px;margin-right:px" type="button" href="/vaccine/blist.html?action=get&id=${text.vaccine.Id}" class="btn btn-outline-primary btn-lg"><span class="pe-3">BRANDS</span><span style="padding: 0 10px;background: blue; color: white;">${text.BrandCount}</span></button></td>
+                                        </tr>
+                                        </table>
+                                                </div>
+                                </div>
                                 </div>
                             </content>
-                        </div >
-                    </div >`
+                        </div>
+                    </div>`
                     );
                 });
             });
