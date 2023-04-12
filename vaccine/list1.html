@@ -228,7 +228,7 @@
                 $.each(data, function (val, text) {
                     console.log(text);
                     $("#myvaccinedata").append(`
-                    <div class="card recent-sales overflow-auto">
+                    <div id="msgbox" class="card recent-sales overflow-auto">
                             <div class="card-body">
                             <content>
                                 <div class="welcome-card">
@@ -241,10 +241,10 @@
                                             <td style="width: 150px; height: auto;" scope="col"><span style="padding-left: 10px; font-weight: bold;font-size: 20px;">IsSpecial:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.IsSpecial}</span></td>
                                             <td style="width: 150px; height: auto;" scope="col"><span style="padding-left: 1px; font-weight: bold;font-size: 20px;">Infinite:</span><span style="padding-left: 1px; font-size: 20px;">${text.vaccine.Infinite}</span></td>
                                         <td style="color:white"></td>
-                                        <div class="col-12 d-flex justify-content-end flex-row">
+                                       
                                             <td scope="col"><i class="fas fa-edit pe-3" class="col-12 d-flex justify-content-end flex-row" data-id="${text.vaccine.Id}" data-id1="${text.vaccine.Name}" data-id2="${text.vaccine.IsSpecial}" data-id3="${text.vaccine.Infinite}" data-id4="${text.DoseCount}" id="addu" style="font-size: 50px; color: blue;cursor:pointer;margin-left:100px"></i></td>
                                             <td><i class="fa-solid fa-trash-can" data-id="${text.vaccine.Id}" style="font-size: 50px; color: blue;cursor:pointer"></i></td>
-                                        </div>
+                                       
                                             </tr>
                                                 </table>
                                                     <hr>
@@ -311,7 +311,11 @@
                         $("#errorMessage1").hide('fast');
                         $("#successMessage1").show();
                         $("#zxcv1").html("Your selected vaccine delete successfully")
-                        $(ele).closest("tr").fadeOut();
+                        $(ele).closest("#msgbox").fadeOut();
+                        // $("#msgbox").fadeOut()
+//                         $("#msgbox").fadeOut(100, function(){ 
+//     $(this).remove();
+// });
                     },
                     error: function (data) {
                         console.log(data)
