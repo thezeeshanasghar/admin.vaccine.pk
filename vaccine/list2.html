@@ -228,7 +228,7 @@
                 $.each(data, function (val, text) {
                     console.log(text);
                     $("#myvaccinedata").append(`
-                        <div class="card recent-sales overflow-auto">
+                        <div class="card" id="data">
                             <div class="card-body">
                             <content>
                                 <div class="welcome-card">
@@ -312,7 +312,7 @@
                         $("#errorMessage1").hide('fast');
                         $("#successMessage1").show();
                         $("#zxcv1").html("Your selected vaccine delete successfully")
-                        $(ele).closest("tr").fadeOut();
+                        $(ele).closest("#data").fadeOut();
                     },
                     error: function (data) {
                         console.log(data)
