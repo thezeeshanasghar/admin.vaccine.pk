@@ -558,10 +558,11 @@
                         )
                     },
                     error: function (data1) {
+                        $("#content").empty();
                         console.log(data1);
                         $("#successMessage").hide('fast');
                         $("#errorMessage").show();
-                        $("#asdf").html(data1.statusText)
+                        $("#asdf").html(data1.responseText)
                     },
                 });
                 document.getElementById("myform").reset();
