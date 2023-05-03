@@ -510,8 +510,8 @@
                 console.log(data1);
                 $.ajax({
                     type: "get",
-                    // url:`https://myapi.fernflowers.com/api/Child/name?Name=${("#name").val()}&City=${("#city").val()}&DOB=2023%2F01%2F04&Gender=${("#gender").val()}`,
-                    url: `http://localhost:5041/api/Child/search-by-doctor-name?${data1}`,
+                
+                    url: `https://myapi.fernflowers.com/api/Child/search-by-doctor-name?${data1}`,
                     dataType: "json",
                     data: data1,
                     contentType: "application/json; charset=utf-8",
