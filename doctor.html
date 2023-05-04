@@ -240,7 +240,7 @@
             $.get(`https://myapi.fernflowers.com/api/Doctor/approved/${true}`, function (data, status) {
                 console.log(data);
                 $.each(data, function (val, text) {
-                    console.log(text);
+                    var dateText = new Date(text.ValidUpto).toLocaleDateString().replaceAll(' ', '');
                     $("#approved-content").append(`
                         <div id="Approved" class="tabcontent" style="display: block;">
                             <div id="successMessage" style="display:none;margin-top: 10px;" class="alert alert-success alert-dismissible fade show" role="alert">
@@ -258,7 +258,7 @@
                                             </p>
                                         </div>
                                         <div class="col-8 d-flex justify-content-end flex-row">
-                                            <h6 style="font-weight: bold; font-size: 20px; padding-right: 1px;padding-top: 20px;">Expiry: </h6>
+                                            <h6 style="font-weight: bold; font-size: 20px; padding-right: 1px;padding-top: 20px;">Expiry:${dateText} </h6>
                                             <input type="date" class="form-control">
                                             <i class="fa-solid fa-trash-can"  data-id="${text.Id}" style="cursor:pointer;font-size: 40px;padding:10px; color: blue;"></i>
                                         </div>
