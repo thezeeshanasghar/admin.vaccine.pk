@@ -259,14 +259,16 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                             <content>
                                 <div class="welcome-card">
-                                    <div class="row" style="padding-top: 10px;">
-                                        <div class="col-4">
+                                    <div class="row" style="padding-top: px;">
+                                        <div class="col-12">
                                             <p>
                                                 <span style="font-weight: bold;padding-left: 10px; font-size: 30px;">${text.Name}</span>
                                             </p>
                                         </div>
-                                        <div class="col-8 d-flex justify-content-end flex-row">
-                                            <h6 style="font-weight: bold; font-size: 20px; padding-right: 1px;padding-top: 20px;">Exp:${dateText} </h6>
+                                        <div class="col-6 ">
+                                            <h6 id="data" style="font-weight: bold; font-size: 20px; padding-right: 1px;padding-top: 20px;">Expiry:<span id="zxcv1">${dateText}</span> </h6>
+                                            </div>
+                                            <div class="col-6 d-flex justify-content-end flex-row">
                                             <label style=" display: inline-block;position: relative;line-height: 0;">
                                                 <input id='date1' onblur=change(${text.Id}) type="date" style="opacity: 0; border: 0;overflow: hidden;cursor: pointer;width:20;">
                                                 <button class='bi bi-calendar' style="font-size: 40px;border:none;cursor:pointer;padding:10px; color: blue;background-color: white;" id="calendar_text"></button>
@@ -344,6 +346,7 @@
         function change(Id){
             var ids =  document.getElementById("date1").value;;
             console.log(ids);
+            $("#zxcv1").html(ids);
             var data = JSON.stringify({ "id": Id, "name": "string","mobileNumber": "string","password": "string","isapproved": true,"isEnabled": true,"email": "string","doctorType": "string","pmdc": "string", "validUpto":ids });
             console.log(data);
             $.ajax({
@@ -352,13 +355,14 @@
                 data: data,
                 contentType: 'application/json',
                 success: function (data) {
-                    location.reload();
+                    // location.reload();
                      //$window.location.assign("#approved")
                      //location.reload();
                     //$(content).fadeOut();
                     // $(ele).closest("#NotApproved").fadeOut();
-                    // $("#NotApproved").hide();
-
+                    console.log(data)
+                    
+                     
                     // $("#errorMessage1").hide('fast');
                     // //    $("#successMessage1").show();
                     //    $("#successMessage1").show().delay(5000).queue(function(n) {
