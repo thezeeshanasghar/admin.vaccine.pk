@@ -60,6 +60,14 @@
 
             border-top: none;
         }
+        input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
     </style>
 
     <!-- =======================================================
@@ -237,7 +245,7 @@
              evt.currentTarget.className += "active";
         }
         function approved() {
-            $.get(`https://myapi.fernflowers.com/api/Doctor/approved/${true}`, function (data, status) {
+            $.get(`http://localhost:5041/api/Doctor/approved/${true}`, function (data, status) {
                 console.log(data);
                 $.each(data, function (val, text) {
                     var dateText = new Date(text.ValidUpto).toLocaleDateString().replaceAll(' ', '');
@@ -258,8 +266,12 @@
                                             </p>
                                         </div>
                                         <div class="col-8 d-flex justify-content-end flex-row">
-                                            <h6 style="font-weight: bold; font-size: 20px; padding-right: 1px;padding-top: 20px;">Expiry:${dateText} </h6>
-                                            <input type="date" class="form-control">
+                                            <h6 style="font-weight: bold; font-size: 20px; padding-right: 1px;padding-top: 20px;">Exp:${dateText} </h6>
+                                            <label style=" display: inline-block;position: relative;line-height: 0;">
+                                                <input id='date1' onblur=change(${text.Id}) type="date" style="opacity: 0; border: 0;overflow: hidden;cursor: pointer;width:20;">
+                                                <button class='bi bi-calendar' style="font-size: 40px;border:none;cursor:pointer;padding:10px; color: blue;background-color: white;" id="calendar_text"></button>
+                                            </label>
+                                            
                                             <i class="fa-solid fa-trash-can"  data-id="${text.Id}" style="cursor:pointer;font-size: 40px;padding:10px; color: blue;"></i>
                                         </div>
                                         <hr>
@@ -286,7 +298,7 @@
         }
 
         function notapproved() {
-            $.get(`https://myapi.fernflowers.com/api/Doctor/approved/${false}`, function (data, status) {
+            $.get(`http://localhost:5041/api/Doctor/approved/${false}`, function (data, status) {
                 console.log(data);
                 $.each(data, function (val, text) {
                     console.log(text);
@@ -328,6 +340,40 @@
             approved();
           
         });
+
+        function change(Id){
+            var ids =  document.getElementById("date1").value;;
+            console.log(ids);
+            var data = JSON.stringify({ "id": Id, "name": "string","mobileNumber": "string","password": "string","isapproved": true,"isEnabled": true,"email": "string","doctorType": "string","pmdc": "string", "validUpto":ids });
+            console.log(data);
+            $.ajax({
+                type: 'PATCH',
+                url: `http://localhost:5041/api/Doctor/UpdateValidUpto/${Id}`,
+                data: data,
+                contentType: 'application/json',
+                success: function (data) {
+                    location.reload();
+                     //$window.location.assign("#approved")
+                     //location.reload();
+                    //$(content).fadeOut();
+                    // $(ele).closest("#NotApproved").fadeOut();
+                    // $("#NotApproved").hide();
+
+                    // $("#errorMessage1").hide('fast');
+                    // //    $("#successMessage1").show();
+                    //    $("#successMessage1").show().delay(5000).queue(function(n) {
+                    //     $(this).hide(); n();
+                    //      });
+                    //    $("#zxcv1").html("Your selected doctor approved successfully")
+                },
+                error: function(data) {
+                    console.log(data)
+                    // $("#successMessage1").hide('fast');
+                    // $("#errorMessage1").show();
+                    // $("#asdf1").html(data.responseText)
+                   },
+            });
+        }
 
         function approved_button(Id) {
              console.log(Id);
