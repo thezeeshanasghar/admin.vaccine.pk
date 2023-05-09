@@ -245,7 +245,7 @@
              evt.currentTarget.className += "active";
         }
         function approved() {
-            $.get(`http://localhost:5041/api/Doctor/approved/${true}`, function (data, status) {
+            $.get(`https://myapi.fernflowers.com/api/Doctor/approved/${true}`, function (data, status) {
                 console.log(data);
                 $.each(data, function (val, text) {
                     var dateText = new Date(text.ValidUpto).toLocaleDateString().replaceAll(' ', '');
@@ -300,7 +300,7 @@
         }
 
         function notapproved() {
-            $.get(`http://localhost:5041/api/Doctor/approved/${false}`, function (data, status) {
+            $.get(`https://myapi.fernflowers.com/api/Doctor/approved/${false}`, function (data, status) {
                 console.log(data);
                 $.each(data, function (val, text) {
                     console.log(text);
@@ -351,25 +351,12 @@
             console.log(data);
             $.ajax({
                 type: 'PATCH',
-                url: `http://localhost:5041/api/Doctor/UpdateValidUpto/${Id}`,
+                url: `https://myapi.fernflowers.com/api/Doctor/UpdateValidUpto/${Id}`,
                 data: data,
                 contentType: 'application/json',
                 success: function (data) {
                     $("#zxcv1").html(ids);
-                    // location.reload();
-                     //$window.location.assign("#approved")
-                     //location.reload();
-                    //$(content).fadeOut();
-                    // $(ele).closest("#NotApproved").fadeOut();
-                    console.log(data)
-                    
-                    // $("#zxcv1").html(ids);
-                    // $("#errorMessage1").hide('fast');
-                    // //    $("#successMessage1").show();
-                    //    $("#successMessage1").show().delay(5000).queue(function(n) {
-                    //     $(this).hide(); n();
-                    //      });
-                    //    $("#zxcv1").html("Your selected doctor approved successfully")
+                   
                 },
                 error: function(data) {
                     console.log(data)
